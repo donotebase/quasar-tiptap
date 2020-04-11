@@ -52,8 +52,8 @@ export default {
       leftDrawerOpen: false,
       essentialLinks: [
         { title: 'Full Featured', caption: 'All extensions', icon: 'mdi-text-box', type: 'route', to: '/tiptap/basic', groupLabel: 'tiptap' },
-        { title: 'Basic', caption: 'quasar.dev', icon: 'school', type: 'route', to: '/tiptap/test1', groupLabel: 'quasar-tiptap' },
-        { title: 'Basic', caption: 'quasar.dev', icon: 'school', type: 'route', to: '/tiptap/test2' }
+        { title: 'Basic', caption: 'quasar.dev', icon: 'school', type: 'route', to: '/tiptap/test2' },
+        { title: 'Full Featured', caption: 'All extensions', icon: 'mdi-text-box', type: 'route', to: '/quasar-tiptap/all', groupLabel: 'quasar-tiptap' },
       ]
     }
   }

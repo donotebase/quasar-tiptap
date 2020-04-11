@@ -1,7 +1,7 @@
 <template>
-  <q-btn-dropdown menu-anchor="bottom left" menu-self="top left" class="o-back-color" content-class="o-back-color-menu" @click="onSelectCurrent" split flat>
+  <q-btn-dropdown menu-anchor="bottom left" menu-self="top left" class="o-fore-color-dropdown" content-class="o-fore-color-menu" @click="onSelectCurrent" split flat>
     <section class="row justify-center label" slot="label">
-      <div><q-icon name="mdi-format-color-highlight"/></div>
+      <div><q-icon name="mdi-format-color-text"/></div>
       <div class="indicator" :style="`background: ${hex}`"></div>
     </section>
     <q-color v-model="hex" default-view="palette" @change="onSelect" v-close-popup="closable" />
@@ -10,16 +10,19 @@
 
 <script>
 export default {
-  name: 'o-back-color',
+  name: 'o-fore-color-dropdown',
   data () {
     return {
-      hex: '#ffff00',
+      hex: '#ff0000',
       closable: false
     }
   },
   props: {
     commands: {
       type: Object
+    },
+    getMarkAttrs: {
+      type: Function
     }
   },
   methods: {
@@ -28,7 +31,7 @@ export default {
     },
     onSelect (value) {
       this.closable = true
-      this.commands.backColor({ backColor: value })
+      this.commands.foreColor({ foreColor: value })
     }
   },
   computed: {
@@ -37,7 +40,7 @@ export default {
 </script>
 
 <style lang="stylus">
-  .o-back-color {
+  .o-fore-color-dropdown {
 
     .q-btn-dropdown__arrow {
       margin-left 0
@@ -70,7 +73,7 @@ export default {
     }
   }
 
-  .o-back-color-menu {
+  .o-fore-color-menu {
     .q-color-picker {
       min-width 250px
     }

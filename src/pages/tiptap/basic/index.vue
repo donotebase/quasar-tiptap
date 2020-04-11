@@ -36,8 +36,8 @@
             <o-menubar-btn icon="code" :class="{ 'is-active': isActive.code() }" @click.native="commands.code" />
 
             <q-separator vertical inset />
-            <o-fore-color :commands="commands" :get-mark-attrs="getMarkAttrs" />
-            <o-back-color :commands="commands" />
+            <o-fore-color-dropdown :commands="commands" :get-mark-attrs="getMarkAttrs" />
+            <o-back-color-dropdown :commands="commands" />
 
             <q-separator vertical inset />
             <o-align-dropdown :commands="commands" />
@@ -117,19 +117,21 @@ import java from 'highlight.js/lib/languages/java'
 import javascript from 'highlight.js/lib/languages/javascript'
 import css from 'highlight.js/lib/languages/css'
 
-import Title from 'src/lib/extentions/Title'
-import Doc from 'src/lib/extentions/Doc'
-import Align from 'src/lib/extentions/Align'
-import ForeColor from 'src/lib/extentions/ForeColor'
-import BackColor from 'src/lib/extentions/BackColor'
-import Heading from 'src/lib/extentions/Heading'
-import Iframe from 'src/lib/extentions/Iframe'
-import Diagram from 'src/lib/extentions/Diagram'
-import KatexBlock from 'src/lib/extentions/KatexBlock'
-import KatexInline from 'src/lib/extentions/KatexInline'
+import {
+  OTitle,
+  ODoc,
+  OAlign,
+  OBackColor,
+  OForeColor,
+  OHeading,
+  OIframe,
+  ODiagram,
+  OKatexBlock,
+  OKatexInline
+} from 'src/lib/extentions'
 
-import OForeColor from 'src/lib/button/OForeColor'
-import OBackColor from 'src/lib/button/OBackColor'
+import OForeColorDropdown from 'src/lib/button/OForeColorDropdown'
+import OBackColorDropdown from 'src/lib/button/OBackColorDropdown'
 import OAlignDropdown from 'src/lib/button/OAlignDropdown'
 import OAlignGroup from 'src/lib/button/OAlignGroup'
 import OHeadingDropdown from 'src/lib/button/OHeadingDropdown'
@@ -162,8 +164,8 @@ export default {
     EditorMenuBar,
     OMenubarBtn,
     OCommonItem,
-    OForeColor,
-    OBackColor,
+    OForeColorDropdown,
+    OBackColorDropdown,
     OAlignDropdown,
     OAlignGroup,
     OHeadingDropdown,
@@ -174,11 +176,12 @@ export default {
     initEditor () {
       this.editor = new Editor({
         extensions: [
-          new Title(),
-          new Doc(),
-          new Align(),
-          new ForeColor(),
-          new BackColor(),
+          new OTitle(),
+          new ODoc(),
+          new OHeading({ levels: [1, 2, 3, 4, 5] }),
+          new OAlign(),
+          new OForeColor(),
+          new OBackColor(),
           new Blockquote(),
           new BulletList(),
           new CodeBlock(),
@@ -190,8 +193,6 @@ export default {
             }
           }),
           new HardBreak(),
-          // new TocHeading({ levels: [1, 2, 3, 4, 5] }),
-          new Heading({ levels: [1, 2, 3, 4, 5] }),
           new ListItem(),
           new OrderedList(),
           new Link(),
@@ -230,10 +231,10 @@ export default {
             notAfter: ['paragraph']
           }),
           new Image(),
-          new Iframe(),
-          new Diagram(),
-          new KatexBlock(),
-          new KatexInline()
+          new OIframe(),
+          new ODiagram(),
+          new OKatexBlock(),
+          new OKatexInline()
         ],
         autoFocus: true,
         content: '',
