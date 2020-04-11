@@ -8,6 +8,23 @@
 
 export const Presets = {
   basic: {
-    extensions: []
+    extensions: {
+      // tiptap official
+      bold: { },
+      italic: { },
+      strike: { },
+      underline: { },
+      code: { },
+      block_quote: { },
+      bullet_list: { },
+      list_item: { },
+      ordered_list: { },
+      todo: { },
+      horizontal_rule: { },
+      table: { },
+      palaceholder: { },
+
+      // quasar-tiptap
+    }
   }
 }
