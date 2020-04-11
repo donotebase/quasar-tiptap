@@ -7,7 +7,7 @@
  * @see katex https://github.com/KaTeX/KaTeX
  */
 import { Node } from 'tiptap'
-import OKatexBlock from '../components/OKatexBlock'
+import OKatexBlock from '../components/extensions/OKatexBlock'
 
 export default class KatexBlock extends Node {
   get name () {

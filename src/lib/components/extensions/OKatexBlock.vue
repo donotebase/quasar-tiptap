@@ -54,7 +54,7 @@ import 'codemirror/mode/markdown/markdown'
 import 'codemirror/keymap/sublime'
 import 'src/lib/css/markdown/katex/katex.min.css'
 
-import { MermaidTemplates } from '../data/diagrams'
+import { MermaidTemplates } from '../../data/diagrams'
 const katex = require('katex')
 
 export default {

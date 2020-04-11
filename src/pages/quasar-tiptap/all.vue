@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import QuasarTiptap from 'src/lib/exports/QuasarTiptap'
+import QuasarTiptap from 'src/lib/components/QuasarTiptap'
 export default {
   name: 'page-quasar-tiptap-all',
   data () {

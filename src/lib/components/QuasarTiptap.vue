@@ -127,16 +127,16 @@ import {
   OKatexInline
 } from 'src/lib/extentions'
 
-import OForeColorDropdown from 'src/lib/button/OForeColorDropdown'
-import OBackColorDropdown from 'src/lib/button/OBackColorDropdown'
-import OAlignDropdown from 'src/lib/button/OAlignDropdown'
-import OAlignGroup from 'src/lib/button/OAlignGroup'
-import OHeadingDropdown from 'src/lib/button/OHeadingDropdown'
-import OHeadingGroup from 'src/lib/button/OHeadingGroup'
-import OHeadingList from 'src/lib/button/OHeadingList'
+import OForeColorDropdown from 'src/lib/components/buttons/OForeColorDropdown'
+import OBackColorDropdown from 'src/lib/components/buttons/OBackColorDropdown'
+import OAlignDropdown from 'src/lib/components/buttons/OAlignDropdown'
+import OAlignGroup from 'src/lib/components/buttons/OAlignGroup'
+import OHeadingDropdown from 'src/lib/components/buttons/OHeadingDropdown'
+import OHeadingGroup from 'src/lib/components/buttons/OHeadingGroup'
+import OHeadingList from 'src/lib/components/buttons/OHeadingList'
 
-import OMenubarBtn from 'src/lib/button/OMenubarBtn'
-import OCommonItem from 'src/lib/common/OCommonItem'
+import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
+import OCommonItem from 'src/lib/components/common/OCommonItem'
 
 export default {
   name: 'quasar-tiptap',

@@ -59,7 +59,7 @@ import 'codemirror/keymap/sublime'
 import mermaid from 'mermaid'
 // import { MD5 } from 'src/utils/crypto'
 
-import { MermaidTemplates } from '../data/diagrams'
+import { MermaidTemplates } from '../../data/diagrams'
 
 export default {
   name: 'o-diagram',

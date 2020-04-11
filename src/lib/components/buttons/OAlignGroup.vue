@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import OMenubarBtn from 'src/lib/button/OMenubarBtn'
+import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
 export default {
   name: 'o-align-group',
   data () {

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import OHeadingList from 'src/lib/button/OHeadingList'
+import OHeadingList from 'src/lib/components/buttons/OHeadingList'
 export default {
   name: 'o-heading-dropdown',
   data () {

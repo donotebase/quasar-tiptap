@@ -6,7 +6,7 @@
  * @date 2020.03.02
  */
 import { Node } from 'tiptap'
-import IFrame from '../components/IFrame'
+import IFrame from '../components/extensions/IFrame'
 
 export default class Iframe extends Node {
   get name () {
