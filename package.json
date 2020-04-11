@@ -1,0 +1,48 @@
+{
+  "name": "quasar-tiptap",
+  "version": "0.0.1",
+  "description": "A modern WYSIWYG rich-text editor using tiptap and Quasar",
+  "productName": "Quasar Tiptap",
+  "cordovaId": "org.cordova.quasar.app",
+  "capacitorId": "",
+  "author": "Micle Bu <mekery@qq.com>",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue src",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.18.1",
+    "quasar": "^1.0.0",
+    "vue-i18n": "^8.0.0",
+    "tiptap": "^1.26.8",
+    "tiptap-extensions": "^1.28.8",
+    "vue-codemirror": "^4.0.6",
+    "mermaid": "^8.4.8",
+    "katex": "^0.11.1"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.1.2"
+  },
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ],
+  "resolutions": {
+    "@babel/parser": "7.7.5"
+  }
+}
