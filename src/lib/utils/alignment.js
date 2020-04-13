@@ -1,6 +1,7 @@
 /**
  * Utils: alignment
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/text_align.ts
+ * @todo Table
  */
 
 const ALLOWED_NODE_TYPES = [
