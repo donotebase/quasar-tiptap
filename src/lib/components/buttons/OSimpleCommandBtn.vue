@@ -49,7 +49,7 @@ export default {
         horizontal: { icon: 'remove', tooltip: 'horizontal', isActive: false, command: this.commands.horizontal_rule },
         bullet_list: { icon: 'format_list_bulleted', tooltip: 'bullet_list', isActive: this.isActive.bullet_list(), command: this.commands.bullet_list },
         ordered_list: { icon: 'format_list_numbered', tooltip: 'ordered_list', isActive: this.isActive.ordered_list(), command: this.commands.ordered_list },
-        todo_list: { icon: 'mdi-format-list-checks', tooltip: 'todo_list', isActive: this.isActive.todo_list(), command: this.commands.todo_list },
+        todo_list: { icon: 'mdi-check-box-outline', tooltip: 'todo_list', isActive: this.isActive.todo_list(), command: this.commands.todo_list },
         blockquote: { icon: 'format_quote', tooltip: 'blockquote', isActive: this.isActive.blockquote(), command: this.commands.blockquote },
         table: { icon: 'mdi-table', tooltip: 'table', isActive: false, command: this.commands.createTable },
         undo: { icon: 'undo', tooltip: 'undo', isActive: false, command: this.commands.undo },

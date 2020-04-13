@@ -22,6 +22,7 @@ export { default as OKatexInline } from './KatexInline'
 export { default as OAlign } from './Align'
 export { default as OBackColor } from './BackColor'
 export { default as OForeColor } from './ForeColor'
+export { default as OFontFamily } from './FontFamily'
 
 // Extensions
 export { default as OAlignment } from './Alignment'

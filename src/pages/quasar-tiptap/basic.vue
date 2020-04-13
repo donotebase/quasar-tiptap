@@ -30,6 +30,7 @@ export default {
         'strike',
         'code',
         'separator',
+        'font-family',
         'fore-color',
         'back-color',
         'separator',
