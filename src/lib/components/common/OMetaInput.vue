@@ -2,7 +2,7 @@
   <section class="o-meta-input">
     <div class="title">{{title}}</div>
     <div class="fields">
-      <q-input v-model="value" ref="input" standout="bg-secondary" flat
+      <q-input v-model="value" ref="input" standout="bg-blue" flat
                :autofocus="true"
                @keyup.enter.native="onConfirm" placeholder="输入地址">
         <template v-slot:prepend>
@@ -12,7 +12,7 @@
     </div>
     <div class="actions row justify-between">
       <q-btn :icon="secondIcon" @click="$emit('secondAction')" flat v-close-popup>{{secondLabel}}</q-btn>
-      <q-btn color="primary" class="bg-secondary text-text" @click="onConfirm" flat v-close-popup>{{$t('action.ok')}}</q-btn>
+      <q-btn color="primary" class="bg-blue text-text" @click="onConfirm" flat v-close-popup>{{$t('action.ok')}}</q-btn>
     </div>
   </section>
 </template>

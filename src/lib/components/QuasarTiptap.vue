@@ -1,17 +1,19 @@
 <template>
   <section class="tiptap tiptap-editor quasar-tiptap">
-    <o-editor-menu-bar :editor="editor" />
+    <o-editor-menu-bar :editor="editor" :toolbar="toolbar" />
 
-    <q-scroll-area ref="editorScroll" class="editor-scroll-area" :class="`view-${pageView}`">
+    <q-scroll-area ref="editorScroll" class="editor-scroll-area" :class="`view-${pageView}`" v-if="scrollable">
       <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
     </q-scroll-area>
+    <div v-else>
+      <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
+    </div>
   </section>
 </template>
 
 <script>
 import { Editor, EditorContent } from 'tiptap'
 import {
-  Blockquote,
   BulletList,
   CodeBlock,
   CodeBlockHighlight,
@@ -45,7 +47,10 @@ import css from 'highlight.js/lib/languages/css'
 import {
   OTitle,
   ODoc,
+  OParagraph,
+  OBlockquote,
   OAlign,
+  OIndent,
   OBackColor,
   OForeColor,
   OHeading,
@@ -79,6 +84,16 @@ export default {
     content: {
       type: String,
       default: ''
+    },
+    scrollable: {
+      type: Boolean,
+      default: false
+    },
+    toolbar: {
+      type: Array,
+      default: function () {
+        return []
+      }
     }
   },
   components: {
@@ -114,7 +129,6 @@ export default {
             css
           }
         }),
-        new Blockquote(),
         new BulletList(),
         new ListItem(),
         new OrderedList(),
@@ -144,8 +158,11 @@ export default {
         // quasar-tiptop
         new OTitle(),
         new ODoc(),
+        new OParagraph(),
+        new OBlockquote(),
         new OHeading({ levels: [1, 2, 3, 4, 5] }),
         new OAlign(),
+        new OIndent(),
         new OForeColor(),
         new OBackColor(),
         new OIframe(),
@@ -200,13 +217,4 @@ export default {
 
 <style lang="stylus">
   @import "../css/tiptap.styl";
-
-  .editor-scroll-area {
-    position absolute
-    top 40px
-    left 0
-    right 0
-    bottom 0
-    background #f7f8fa
-  }
 </style>

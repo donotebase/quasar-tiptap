@@ -9,6 +9,8 @@
 // Nodes
 export { default as OTitle } from './Title'
 export { default as ODoc } from './Doc'
+export { default as OParagraph } from './Paragraph'
+export { default as OBlockquote } from './Blockquote'
 export { default as ODiagram } from './Diagram'
 export { default as OHeading } from './Heading'
 export { default as OIframe } from './Iframe'
@@ -19,3 +21,6 @@ export { default as OKatexInline } from './KatexInline'
 export { default as OAlign } from './Align'
 export { default as OBackColor } from './BackColor'
 export { default as OForeColor } from './ForeColor'
+
+// Extensions
+export { default as OIndent } from './Indent'

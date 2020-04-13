@@ -58,6 +58,7 @@ module.exports = {
     'camelcase': 0,
     'no-undef': 0,
     'comma-dangle': 0,
+    'prefer-const': 0,
     'vue/no-unused-components': 0
   }
 }

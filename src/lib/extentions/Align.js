@@ -1,13 +1,12 @@
-import { updateMark, markInputRule } from 'tiptap-commands'
+import { markInputRule } from 'tiptap-commands'
 import { Mark } from 'tiptap'
+import { applyMark } from '../utils/mark'
 
 export default class Align extends Mark {
-  // eslint-disable-next-line class-methods-use-this
   get name () {
     return 'align'
   }
 
-  // eslint-disable-next-line class-methods-use-this
   get schema () {
     return {
       attrs: {
@@ -25,12 +24,17 @@ export default class Align extends Mark {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   commands ({ type }) {
-    return attrs => updateMark(type, attrs)
+    return attrs => (state, dispatch) => {
+      let { tr } = state
+      tr = applyMark(state.tr.setSelection(state.selection), type, attrs)
+      if (tr.docChanged || tr.storedMarksSet) {
+        dispatch && dispatch(tr)
+        return true
+      }
+    }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   inputRules ({ type }) {
     return [
       markInputRule(/(?:\*\*|__)([^*_]+)(?:\*\*|__)$/, type)
