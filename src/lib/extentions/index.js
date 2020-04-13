@@ -23,4 +23,5 @@ export { default as OBackColor } from './BackColor'
 export { default as OForeColor } from './ForeColor'
 
 // Extensions
+export { default as OAlignment } from './Alignment'
 export { default as OIndent } from './Indent'
