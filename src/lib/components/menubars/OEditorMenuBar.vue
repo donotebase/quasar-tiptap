@@ -1,7 +1,23 @@
 <template>
   <editor-menu-bar :editor="editor" v-slot="{ commands, isActive, getMarkAttrs, focused }">
     <section class="row col-12 justify-between items-center bg-light tiptap-menubar">
-      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': focused }">
+
+      <!-- Table -->
+      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': focused }" v-if="isActive.table()">
+        <template v-for="(item, index) of tableToolbar">
+          <o-simple-command-btn :name="item" :commands="commands" :is-active="isActive" :key="index" v-if="isSimpleCommand(item)" />
+          <q-separator vertical inset :key="index" v-else-if="item==='separator'" />
+          <o-table-group :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='table'" />
+
+          <o-fore-color-dropdown :commands="commands" :get-mark-attrs="getMarkAttrs" :key="index" v-else-if="item==='fore-color'" />
+          <o-back-color-dropdown :commands="commands" :key="index" v-else-if="item==='back-color'" />
+          <o-font-family-dropdown :commands="commands" :key="index" v-else-if="item==='font-family'" />
+          <o-align-dropdown :commands="commands" :key="index" v-else-if="item==='align-dropdown'" />
+        </template>
+      </div>
+
+      <!-- Normal -->
+      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': focused }" v-else>
         <template v-for="(item, index) of toolbar">
           <o-simple-command-btn :name="item" :commands="commands" :is-active="isActive" :key="index" v-if="isSimpleCommand(item)" />
           <q-separator vertical inset :key="index" v-else-if="item==='separator'" />
@@ -37,6 +53,7 @@ import OHeadingList from 'src/lib/components/buttons/OHeadingList'
 import OAddMoreBtn from 'src/lib/components/buttons/OAddMoreBtn'
 import OPhotoBtn from 'src/lib/components/buttons/OPhotoBtn'
 import OTableBtn from 'src/lib/components/buttons/OTableBtn'
+import OTableGroup from 'src/lib/components/buttons/OTableGroup'
 
 import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
 import OSimpleCommandBtn from 'src/lib/components/buttons/OSimpleCommandBtn'
@@ -62,6 +79,20 @@ export default {
         'redo',
         'indent',
         'outdent',
+      ],
+      tableToolbar: [
+        'bold',
+        'italic',
+        'strike',
+        'underline',
+        'separator',
+        'font-family',
+        'fore-color',
+        'back-color',
+        'separator',
+        'align-dropdown',
+        'separator',
+        'table'
       ],
       pageView: 'page',
       menu: {
@@ -97,7 +128,8 @@ export default {
     OHeadingList,
     OAddMoreBtn,
     OPhotoBtn,
-    OTableBtn
+    OTableBtn,
+    OTableGroup
   },
   methods: {
     isSimpleCommand (item) {
