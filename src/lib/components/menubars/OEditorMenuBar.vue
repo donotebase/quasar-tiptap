@@ -42,6 +42,7 @@
               </section>
             </q-menu>
           </o-menubar-btn>
+          <o-table-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='table'" />
         </template>
       </div>
     </section>
@@ -60,6 +61,7 @@ import OLineHeightDropdown from 'src/lib/components/buttons/OLineHeightDropdown'
 import OHeadingDropdown from 'src/lib/components/buttons/OHeadingDropdown'
 import OHeadingGroup from 'src/lib/components/buttons/OHeadingGroup'
 import OHeadingList from 'src/lib/components/buttons/OHeadingList'
+import OTableBtn from 'src/lib/components/buttons/OTableBtn'
 
 import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
 import OSimpleCommandBtn from 'src/lib/components/buttons/OSimpleCommandBtn'
@@ -82,7 +84,6 @@ export default {
         'bullet_list',
         'ordered_list',
         'todo_list',
-        'table',
         'undo',
         'redo',
         'indent',
@@ -120,7 +121,8 @@ export default {
     OLineHeightDropdown,
     OHeadingDropdown,
     OHeadingGroup,
-    OHeadingList
+    OHeadingList,
+    OTableBtn
   },
   methods: {
     isSimpleCommand (item) {
