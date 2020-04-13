@@ -20,7 +20,6 @@ import {
   HardBreak,
   ListItem,
   OrderedList,
-  TodoItem,
   TodoList,
   Bold,
   Code,
@@ -49,6 +48,7 @@ import {
   ODoc,
   OParagraph,
   OBlockquote,
+  OTodoItem,
   OAlignment,
   OIndent,
   OBackColor,
@@ -132,9 +132,6 @@ export default {
         new BulletList(),
         new ListItem(),
         new OrderedList(),
-        new TodoItem({
-          nested: true
-        }),
         new TodoList(),
         new HorizontalRule(),
         new Table({
@@ -160,6 +157,9 @@ export default {
         new ODoc(),
         new OParagraph(),
         new OBlockquote(),
+        new OTodoItem({
+          nested: true
+        }),
         new OHeading({ levels: [1, 2, 3, 4, 5] }),
         new OAlignment(),
         new OIndent(),

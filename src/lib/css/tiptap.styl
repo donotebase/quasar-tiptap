@@ -340,6 +340,16 @@
     text-align: justify !important;
   }
 
+  .editor__content ul[data-type=todo_list] .o-todo-item[data-text-align=center] {
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
+  }
+  .editor__content ul[data-type=todo_list] .o-todo-item[data-text-align=right] {
+    -webkit-box-pack: end !important;
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+  }
+
   // Indent
   .editor__content *[data-indent="1"] {
     margin-left: 30px !important;
@@ -481,21 +491,14 @@
     flex-direction: row;
   }
   .todo-checkbox {
-    border: 2px solid #000;
-    height: 0.9em;
-    width: 0.9em;
-    box-sizing: border-box;
-    margin-right: 10px;
-    margin-top: 0.3rem;
     user-select: none;
-    -webkit-user-select: none;
     cursor: pointer;
     border-radius: 0.2em;
     background-color: transparent;
     transition: 0.4s background;
   }
   .todo-content {
-    flex: 1;
+    padding-left: 6px;
     > p:last-of-type {
       margin-bottom: 0;
     }
@@ -510,7 +513,6 @@
       }
     }
     > .todo-checkbox {
-      background-color: #000;
     }
   }
   li[data-done="false"] {
