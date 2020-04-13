@@ -27,3 +27,4 @@ export { default as OFontFamily } from './FontFamily'
 // Extensions
 export { default as OAlignment } from './Alignment'
 export { default as OIndent } from './Indent'
+export { default as OLineHeight } from './LineHeight'

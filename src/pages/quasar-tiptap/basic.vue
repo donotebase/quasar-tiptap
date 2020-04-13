@@ -38,6 +38,7 @@ export default {
         'align-group',
         'indent',
         'outdent',
+        'line-height',
         'separator',
         'heading',
         'horizontal',

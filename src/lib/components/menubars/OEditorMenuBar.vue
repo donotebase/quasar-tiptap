@@ -10,6 +10,7 @@
           <o-font-family-dropdown :commands="commands" :key="index" v-else-if="item==='font-family'" />
           <o-align-dropdown :commands="commands" :key="index" v-else-if="item==='align-dropdown'" />
           <o-align-group :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='align-group' && false" />
+          <o-line-height-dropdown :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='line-height'" />
           <o-heading-dropdown :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='heading'" />
           <o-menubar-btn icon="photo" :key="index" v-else-if="item==='photo'">
             <q-menu ref="picturePopover" anchor="bottom middle" self="top middle" class="shadow-5">
@@ -55,6 +56,7 @@ import OBackColorDropdown from 'src/lib/components/buttons/OBackColorDropdown'
 import OFontFamilyDropdown from 'src/lib/components/buttons/OFontFamilyDropdown'
 import OAlignDropdown from 'src/lib/components/buttons/OAlignDropdown'
 import OAlignGroup from 'src/lib/components/buttons/OAlignGroup'
+import OLineHeightDropdown from 'src/lib/components/buttons/OLineHeightDropdown'
 import OHeadingDropdown from 'src/lib/components/buttons/OHeadingDropdown'
 import OHeadingGroup from 'src/lib/components/buttons/OHeadingGroup'
 import OHeadingList from 'src/lib/components/buttons/OHeadingList'
@@ -115,6 +117,7 @@ export default {
     OFontFamilyDropdown,
     OAlignDropdown,
     OAlignGroup,
+    OLineHeightDropdown,
     OHeadingDropdown,
     OHeadingGroup,
     OHeadingList

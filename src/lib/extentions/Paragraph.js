@@ -39,7 +39,6 @@ function toDOM (node) {
     lineHeight,
   } = node.attrs
 
-  let style = ''
   const attrs = {}
 
   if (textAlign && textAlign !== 'left') {
@@ -51,11 +50,8 @@ function toDOM (node) {
   }
 
   if (lineHeight) {
-    // const cssLineHeight = transformLineHeightToCSS(lineHeight)
-    // style += `line-height: ${cssLineHeight};`
+    attrs['data-line-height'] = lineHeight
   }
-
-  style && (attrs.style = style)
 
   return ['p', attrs, 0]
 }
