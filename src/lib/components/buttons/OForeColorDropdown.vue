@@ -1,14 +1,16 @@
 <template>
-  <q-btn-dropdown menu-anchor="bottom left" menu-self="top left" class="o-fore-color-dropdown" content-class="o-fore-color-menu" @click="onSelectCurrent" split flat>
+  <q-btn-dropdown menu-anchor="bottom left" menu-self="top left" :menu-offset="[20, 0]"
+                  class="o-fore-color-dropdown" content-class="o-fore-color-menu" @click="onSelectCurrent" split flat>
     <section class="row justify-center label" slot="label">
       <div><q-icon name="mdi-format-color-text"/></div>
       <div class="indicator" :style="`background: ${hex}`"></div>
     </section>
-    <q-color v-model="hex" default-view="palette" @change="onSelect" v-close-popup="closable" />
+    <o-color-board @select="onSelect" v-close-popup="closable" />
   </q-btn-dropdown>
 </template>
 
 <script>
+import OColorBoard from '../common/OColorBoard'
 export default {
   name: 'o-fore-color-dropdown',
   data () {
@@ -25,12 +27,16 @@ export default {
       type: Function
     }
   },
+  components: {
+    OColorBoard
+  },
   methods: {
     onSelectCurrent () {
       this.onSelect(this.hex)
     },
     onSelect (value) {
       this.closable = true
+      this.hex = value
       this.commands.foreColor({ foreColor: value })
     }
   },

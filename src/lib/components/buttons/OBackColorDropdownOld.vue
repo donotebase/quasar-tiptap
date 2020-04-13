@@ -1,16 +1,15 @@
 <template>
-  <q-btn-dropdown menu-anchor="bottom left" menu-self="top left" :menu-offset="[20, 0]"
-                  class="o-back-color-dropdown" content-class="o-back-color-menu" @click="onSelectCurrent" split flat>
+  <q-btn-dropdown menu-anchor="bottom left" menu-self="top left" class="o-back-color-dropdown" :menu-offset="[20, 0]"
+                  content-class="o-back-color-menu" @click="onSelectCurrent" split flat>
     <section class="row justify-center label" slot="label">
       <div><q-icon name="mdi-format-color-highlight"/></div>
       <div class="indicator" :style="`background: ${hex}`"></div>
     </section>
-    <o-color-board @select="onSelect" v-close-popup="closable" />
+    <q-color v-model="hex" default-view="palette" no-header no-footer @change="onSelect" v-close-popup="closable" />
   </q-btn-dropdown>
 </template>
 
 <script>
-import OColorBoard from '../common/OColorBoard'
 export default {
   name: 'o-back-color-dropdown',
   data () {
@@ -24,16 +23,12 @@ export default {
       type: Object
     }
   },
-  components: {
-    OColorBoard
-  },
   methods: {
     onSelectCurrent () {
       this.onSelect(this.hex)
     },
     onSelect (value) {
       this.closable = true
-      this.hex = value
       this.commands.backColor({ backColor: value })
     }
   },

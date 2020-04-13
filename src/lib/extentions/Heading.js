@@ -8,7 +8,6 @@ function getAttrs (dom) {
   const level = dom.getAttribute('level')
   attrs.id = id
   attrs.level = level
-  console.log('attrs', attrs)
   return attrs
 }
 
@@ -19,7 +18,6 @@ function toDOM (node) {
   dom[0] = 'h'.concat(node.attrs.level)
   dom[1].id = id
   dom[1].level = level
-  console.log('dom', dom)
   return dom
 }
 
