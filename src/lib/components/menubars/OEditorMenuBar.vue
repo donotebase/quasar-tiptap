@@ -12,36 +12,8 @@
           <o-align-group :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='align-group' && false" />
           <o-line-height-dropdown :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='line-height'" />
           <o-heading-dropdown :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='heading'" />
-          <o-menubar-btn icon="photo" :key="index" v-else-if="item==='photo'">
-            <q-menu ref="picturePopover" anchor="bottom middle" self="top middle" class="shadow-5">
-              <o-meta-input :title="$t('action.picture')" icon="image"
-                            @primaryAction="insertImage(commands.image, $event);$refs.picturePopover.hide()">
-              </o-meta-input>
-            </q-menu>
-          </o-menubar-btn>
-          <o-menubar-btn icon="add" :tooltip="$t('add')" :key="index" v-else-if="item==='add-more'">
-            <q-menu ref="addPopover" v-model="menu.add" anchor="bottom left" self="top left" content-class="o-menu">
-              <section>
-                <o-common-item icon="mdi-code-braces" :label="$t('code_block')" @click.native="commands.code_block" v-close-popup />
-                <o-common-item icon="mdi-sigma" :label="$t('formula')" :side-label="$t('block')" @click.native="commands.katex_block" v-close-popup />
-                <o-common-item icon="mdi-sigma" :label="$t('formula')" :side-label="$t('inline')" @click.native="commands.katex_inline" v-close-popup />
-                <o-common-item icon="mdi-sitemap" :label="$t('diagram.text')" @click.native="commands.diagram" v-close-popup>
-                  <q-tooltip anchor="center right" self="center left">
-                    <div class="text-bold">Mermaid</div>
-                    <div class="text-white">{{$t('diagram.text.tips')}}</div>
-                  </q-tooltip>
-                </o-common-item>
-                <q-separator />
-                <o-common-item icon="mdi-iframe" :label="$t('iframe')">
-                  <q-menu ref="iframePopover" anchor="top right" self="top left" class="shadow-5">
-                    <o-meta-input :title="$t('iframe')" icon="link"
-                                  @primaryAction="insertIframe(commands.iframe, $event)">
-                    </o-meta-input>
-                  </q-menu>
-                </o-common-item>
-              </section>
-            </q-menu>
-          </o-menubar-btn>
+          <o-photo-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='photo'" />
+          <o-add-more-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='add-more'" />
           <o-table-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='table'" />
         </template>
       </div>
@@ -61,11 +33,13 @@ import OLineHeightDropdown from 'src/lib/components/buttons/OLineHeightDropdown'
 import OHeadingDropdown from 'src/lib/components/buttons/OHeadingDropdown'
 import OHeadingGroup from 'src/lib/components/buttons/OHeadingGroup'
 import OHeadingList from 'src/lib/components/buttons/OHeadingList'
+
+import OAddMoreBtn from 'src/lib/components/buttons/OAddMoreBtn'
+import OPhotoBtn from 'src/lib/components/buttons/OPhotoBtn'
 import OTableBtn from 'src/lib/components/buttons/OTableBtn'
 
 import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
 import OSimpleCommandBtn from 'src/lib/components/buttons/OSimpleCommandBtn'
-import OCommonItem from 'src/lib/components/common/OCommonItem'
 import OMetaInput from 'src/lib/components/common/OMetaInput'
 
 export default {
@@ -111,7 +85,6 @@ export default {
     EditorMenuBar,
     OMenubarBtn,
     OSimpleCommandBtn,
-    OCommonItem,
     OMetaInput,
     OForeColorDropdown,
     OBackColorDropdown,
@@ -122,21 +95,13 @@ export default {
     OHeadingDropdown,
     OHeadingGroup,
     OHeadingList,
+    OAddMoreBtn,
+    OPhotoBtn,
     OTableBtn
   },
   methods: {
     isSimpleCommand (item) {
       return this.simpleCommands.indexOf(item) >= 0
-    },
-    insertImage (command, src) {
-      if (src) {
-        command({ src })
-      }
-    },
-    insertIframe (command, src) {
-      if (src) {
-        command({ src })
-      }
     },
     showSidePanel () {},
     onSlideShow () {}
