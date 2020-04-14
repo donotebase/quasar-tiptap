@@ -1,6 +1,6 @@
 /**
  * Utils: alignment
- * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/text_align.ts
+ * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/line_height.ts
  * @todo Table
  */
 
@@ -12,7 +12,6 @@ const ALLOWED_NODE_TYPES = [
 ]
 
 export function setLineHeight (tr, lineHeight) {
-  console.log('line-height', lineHeight)
   const { selection, doc } = tr
 
   if (!selection || !doc) {

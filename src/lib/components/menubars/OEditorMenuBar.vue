@@ -79,6 +79,7 @@ export default {
         'redo',
         'indent',
         'outdent',
+        'format_clear',
       ],
       tableToolbar: [
         'bold',

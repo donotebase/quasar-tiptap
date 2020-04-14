@@ -34,6 +34,7 @@ export default {
         'font-family',
         'fore-color',
         'back-color',
+        'format_clear',
         'separator',
         'align-dropdown',
         'align-group',

@@ -56,6 +56,7 @@ export default {
         redo: { icon: 'redo', tooltip: 'redo', isActive: false, command: this.commands.redo },
         indent: { icon: 'format_indent_increase', tooltip: 'indent', isActive: false, command: this.commands.indent },
         outdent: { icon: 'format_indent_decrease', tooltip: 'outdent', isActive: false, command: this.commands.outdent },
+        format_clear: { icon: 'format_clear', tooltip: 'formatClear', isActive: false, command: this.commands.formatClear },
       }
     },
     config () {

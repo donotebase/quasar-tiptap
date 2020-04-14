@@ -77,3 +77,36 @@ export function createIndentCommand (delta) {
     return false
   }
 }
+
+export function cleanIndent (tr) {
+  const { doc, selection } = tr
+
+  if (!doc || !selection) return tr
+
+  if (!(selection instanceof TextSelection || selection instanceof AllSelection)) {
+    return tr
+  }
+
+  const { from, to } = selection
+
+  doc.nodesBetween(from, to, (node, pos) => {
+    const nodeType = node.type
+
+    if (
+      nodeType.name === 'paragraph' ||
+      nodeType.name === 'heading' ||
+      nodeType.name === 'blockquote'
+    ) {
+      const nodeAttrs = {
+        ...node.attrs,
+        indent: 0,
+      }
+      return tr.setNodeMarkup(pos, node.type, nodeAttrs, node.marks)
+    } else if (isListNode(node)) {
+      return false
+    }
+    return true
+  })
+
+  return tr
+}

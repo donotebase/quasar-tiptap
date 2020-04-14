@@ -58,9 +58,9 @@ export default {
 
 <style lang="stylus">
   .o-menubar-btn {
-    padding 4px
+    padding 0px
     font-weight 400
-    min-width 32px
+    min-width 30px
     min-height unset
   }
   .o-menubar-btn.is-active {

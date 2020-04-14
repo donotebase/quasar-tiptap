@@ -59,7 +59,8 @@ import {
   OIframe,
   ODiagram,
   OKatexBlock,
-  OKatexInline
+  OKatexInline,
+  OFormatClear
 } from 'src/lib/extentions'
 
 import OEditorMenuBar from './menubars/OEditorMenuBar'
@@ -172,7 +173,8 @@ export default {
         new OIframe(),
         new ODiagram(),
         new OKatexBlock(),
-        new OKatexInline()
+        new OKatexInline(),
+        new OFormatClear()
       ]
 
       this.editor = new Editor({

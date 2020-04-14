@@ -19,7 +19,6 @@ export { default as OKatexBlock } from './KatexBlock'
 export { default as OKatexInline } from './KatexInline'
 
 // Marks
-export { default as OAlign } from './Align'
 export { default as OBackColor } from './BackColor'
 export { default as OForeColor } from './ForeColor'
 export { default as OFontFamily } from './FontFamily'
@@ -28,3 +27,4 @@ export { default as OFontFamily } from './FontFamily'
 export { default as OAlignment } from './Alignment'
 export { default as OIndent } from './Indent'
 export { default as OLineHeight } from './LineHeight'
+export { default as OFormatClear } from './FormatClear'
