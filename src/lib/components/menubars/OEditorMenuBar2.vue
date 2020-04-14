@@ -1,85 +1,37 @@
 <template>
   <editor-menu-bar :editor="editor" v-slot="{ commands, isActive, getMarkAttrs, focused }">
     <section class="row col-12 justify-between items-center bg-light tiptap-menubar">
-      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': focused }">
-        <o-menubar-btn icon="add" :tooltip="$t('add')" class="note-step-add">
-          <q-menu ref="addPopover" v-model="menu.add" anchor="bottom left" self="top left" content-class="o-menu">
-            <section>
-              <o-common-item icon="mdi-code-braces" :label="$t('code_block')" @click.native="commands.code_block" v-close-popup />
-              <o-common-item icon="mdi-sigma" :label="$t('formula')" :side-label="$t('block')" @click.native="commands.katex_block" v-close-popup />
-              <o-common-item icon="mdi-sigma" :label="$t('formula')" :side-label="$t('inline')" @click.native="commands.katex_inline" v-close-popup />
-              <o-common-item icon="mdi-sitemap" :label="$t('diagram.text')" @click.native="commands.diagram" v-close-popup>
-                <q-tooltip anchor="center right" self="center left">
-                  <div class="text-bold">Mermaid</div>
-                  <div class="text-white">{{$t('diagram.text.tips')}}</div>
-                </q-tooltip>
-              </o-common-item>
-              <q-separator />
-              <o-common-item icon="mdi-iframe" :label="$t('iframe')">
-                <q-menu ref="iframePopover" anchor="top right" self="top left" class="shadow-5">
-                  <o-meta-input :title="$t('iframe')" icon="link"
-                              @primaryAction="insertIframe(commands.iframe, $event)">
-                  </o-meta-input>
-                </q-menu>
-              </o-common-item>
-            </section>
-          </q-menu>
-        </o-menubar-btn>
 
-        <q-separator vertical inset />
-        <o-simple-command-btn name="bold" :commands="commands" :is-active="isActive" />
-        <o-menubar-btn icon="mdi-format-bold" tooltip="Bold" :class="{ 'is-active': isActive.bold() }" @click.native="commands.bold" />
-        <o-menubar-btn icon="format_italic" :class="{ 'is-active': isActive.italic() }" @click.native="commands.italic" />
-        <o-menubar-btn icon="format_strikethrough" :class="{ 'is-active': isActive.strike() }" @click.native="commands.strike" />
-        <o-menubar-btn icon="format_underline" :class="{ 'is-active': isActive.underline() }" @click.native="commands.underline" />
-        <o-menubar-btn icon="code" :class="{ 'is-active': isActive.code() }" @click.native="commands.code" />
+      <!-- Table -->
+      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': focused }" v-if="isActive.table()">
+        <template v-for="(item, index) of tableToolbar">
+          <o-simple-command-btn :name="item" :commands="commands" :is-active="isActive" :key="index" v-if="isSimpleCommand(item)" />
+          <q-separator vertical inset :key="index" v-else-if="item==='separator'" />
+          <o-table-group :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='table'" />
 
-        <q-separator vertical inset />
-        <o-fore-color-dropdown :commands="commands" :get-mark-attrs="getMarkAttrs" />
-        <o-back-color-dropdown :commands="commands" />
-
-        <q-separator vertical inset />
-        <o-align-dropdown :commands="commands" />
-
-        <q-separator vertical inset />
-        <o-heading-dropdown :commands="commands" :is-active="isActive" />
-        <o-heading-group :max="3" :commands="commands" :is-active="isActive" v-if="false" />
-
-        <q-separator vertical inset />
-        <o-menubar-btn icon="remove" @click.native="commands.horizontal_rule" />
-        <o-menubar-btn icon="format_list_bulleted" :class="{ 'is-active': isActive.bullet_list() }" @click.native="commands.bullet_list" />
-        <o-menubar-btn icon="format_list_numbered" :class="{ 'is-active': isActive.ordered_list() }" @click.native="commands.ordered_list" />
-        <o-menubar-btn icon="mdi-format-list-checks" :class="{ 'is-active': isActive.todo_list() }" @click.native="commands.todo_list" />
-
-        <q-separator vertical inset />
-        <o-menubar-btn icon="format_quote" :class="{ 'is-active': isActive.blockquote() }" @click.native="commands.blockquote" />
-        <o-menubar-btn icon="mdi-code-braces" :class="{ 'is-active': isActive.code_block() }" @click.native="commands.code_block" />
-        <o-menubar-btn icon="photo">
-          <q-menu ref="picturePopover" anchor="bottom middle" self="top middle" class="shadow-5">
-            <o-meta-input :title="$t('action.picture')" icon="image"
-                        @primaryAction="insertImage(commands.image, $event);$refs.picturePopover.hide()">
-            </o-meta-input>
-          </q-menu>
-        </o-menubar-btn>
-
-        <q-separator vertical inset />
-        <o-menubar-btn icon="mdi-table" @click.native="commands.createTable({rowsCount: 3, colsCount: 3, withHeaderRow: false })" />
-
-        <div v-if="false">
-          <q-separator vertical inset />
-          <o-menubar-btn icon="mdi-overscan" :tooltip="$t('page.view.full')" :class="pageView==='full'?'is-active':''" @click.native="pageView='full'" />
-          <o-menubar-btn icon="mdi-fit-to-page-outline" :tooltip="$t('page.view.page')" :class="pageView==='page'?'is-active':''" @click.native="pageView='page'" />
-        </div>
-
-        <q-separator vertical inset />
-        <o-menubar-btn icon="undo" @click.native="commands.undo" />
-        <o-menubar-btn icon="redo" @click.native="commands.redo" />
+          <o-fore-color-dropdown :commands="commands" :get-mark-attrs="getMarkAttrs" :key="index" v-else-if="item==='fore-color'" />
+          <o-back-color-dropdown :commands="commands" :key="index" v-else-if="item==='back-color'" />
+          <o-font-family-dropdown :commands="commands" :key="index" v-else-if="item==='font-family'" />
+          <o-align-dropdown :commands="commands" :key="index" v-else-if="item==='align-dropdown'" />
+        </template>
       </div>
 
-      <div class="q-px-md right-actions" v-if="false">
-        <o-menubar-btn icon="mdi-page-layout-sidebar-right" color="white" @click.native="showSidePanel(true)" flat />
-        <o-menubar-btn :icon="isSlideShow ? `mdi-pause-circle-outline` : `mdi-play-box-outline`" :tooltip="$t('presentation')" @click.native="onSlideShow" />
-        <o-menubar-btn :icon="$q.fullscreen.isActive ? `fullscreen_exit` : `fullscreen`" :tooltip="$t('action.fullscreen')" @click.native="$q.fullscreen.toggle()" />
+      <!-- Normal -->
+      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': focused }" v-else>
+        <template v-for="(item, index) of toolbar">
+          <o-simple-command-btn :name="item" :commands="commands" :is-active="isActive" :key="index" v-if="isSimpleCommand(item)" />
+          <q-separator vertical inset :key="index" v-else-if="item==='separator'" />
+          <o-fore-color-dropdown :commands="commands" :get-mark-attrs="getMarkAttrs" :key="index" v-else-if="item==='fore-color'" />
+          <o-back-color-dropdown :commands="commands" :key="index" v-else-if="item==='back-color'" />
+          <o-font-family-dropdown :commands="commands" :key="index" v-else-if="item==='font-family'" />
+          <o-align-dropdown :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='align-dropdown'" />
+          <o-align-group :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='align-group' && false" />
+          <o-line-height-dropdown :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='line-height'" />
+          <o-heading-dropdown :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='heading'" />
+          <o-photo-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='photo'" />
+          <o-add-more-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='add-more'" />
+          <o-table-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='table'" />
+        </template>
       </div>
     </section>
   </editor-menu-bar>
@@ -90,22 +42,59 @@ import { EditorMenuBar } from 'tiptap'
 
 import OForeColorDropdown from 'src/lib/components/buttons/OForeColorDropdown'
 import OBackColorDropdown from 'src/lib/components/buttons/OBackColorDropdown'
+import OFontFamilyDropdown from 'src/lib/components/buttons/OFontFamilyDropdown'
 import OAlignDropdown from 'src/lib/components/buttons/OAlignDropdown'
 import OAlignGroup from 'src/lib/components/buttons/OAlignGroup'
+import OLineHeightDropdown from 'src/lib/components/buttons/OLineHeightDropdown'
 import OHeadingDropdown from 'src/lib/components/buttons/OHeadingDropdown'
 import OHeadingGroup from 'src/lib/components/buttons/OHeadingGroup'
 import OHeadingList from 'src/lib/components/buttons/OHeadingList'
 
-import OSimpleCommandBtn from 'src/lib/components/buttons/OSimpleCommandBtn'
+import OAddMoreBtn from 'src/lib/components/buttons/OAddMoreBtn'
+import OPhotoBtn from 'src/lib/components/buttons/OPhotoBtn'
+import OTableBtn from 'src/lib/components/buttons/OTableBtn'
+import OTableGroup from 'src/lib/components/buttons/OTableGroup'
+
 import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
-import OCommonItem from 'src/lib/components/common/OCommonItem'
+import OSimpleCommandBtn from 'src/lib/components/buttons/OSimpleCommandBtn'
 import OMetaInput from 'src/lib/components/common/OMetaInput'
 
 export default {
   name: 'page-quasar-tiptap-all',
   data () {
     return {
-      simpleCommands: ['bold', 'italic'],
+      simpleCommands: [
+        'bold',
+        'italic',
+        'strike',
+        'underline',
+        'blockquote',
+        'code',
+        'code_block',
+        'horizontal',
+        'bullet_list',
+        'ordered_list',
+        'todo_list',
+        'undo',
+        'redo',
+        'indent',
+        'outdent',
+        'format_clear',
+      ],
+      tableToolbar: [
+        'bold',
+        'italic',
+        'strike',
+        'underline',
+        'separator',
+        'font-family',
+        'fore-color',
+        'back-color',
+        'separator',
+        'align-dropdown',
+        'separator',
+        'table'
+      ],
       pageView: 'page',
       menu: {
         add: false
@@ -126,28 +115,26 @@ export default {
   },
   components: {
     EditorMenuBar,
-    OSimpleCommandBtn,
     OMenubarBtn,
-    OCommonItem,
+    OSimpleCommandBtn,
     OMetaInput,
     OForeColorDropdown,
     OBackColorDropdown,
+    OFontFamilyDropdown,
     OAlignDropdown,
     OAlignGroup,
+    OLineHeightDropdown,
     OHeadingDropdown,
     OHeadingGroup,
-    OHeadingList
+    OHeadingList,
+    OAddMoreBtn,
+    OPhotoBtn,
+    OTableBtn,
+    OTableGroup
   },
   methods: {
-    insertImage (command, src) {
-      if (src) {
-        command({ src })
-      }
-    },
-    insertIframe (command, src) {
-      if (src) {
-        command({ src })
-      }
+    isSimpleCommand (item) {
+      return this.simpleCommands.indexOf(item) >= 0
     },
     showSidePanel () {},
     onSlideShow () {}

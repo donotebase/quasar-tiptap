@@ -3,9 +3,9 @@
     <q-list>
       <template v-for="(item, index) of fontFamilies">
         <q-separator :key="index" v-if="item.separator" />
-        <q-item :key="index" clickable v-close-popup
-                @click.native="commands.fontFamily({fontFamily: item.value})" v-else>
-          <q-item-section :style="`font-family: ${item.label}`">{{item.label}}</q-item-section>
+        <q-item :key="index" :class="{ 'is-active': isActive(item.value) }"
+                @click.native="commands.fontFamily({fontFamily: item.value})" clickable v-close-popup v-else>
+          <q-item-section :style="`font-family: ${item.value}`">{{item.label}}</q-item-section>
         </q-item>
       </template>
     </q-list>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { findActiveMarkAttribute } from '../../utils/mark'
 export default {
   name: 'o-font-family',
   data () {
@@ -35,11 +36,18 @@ export default {
     }
   },
   props: {
+    editor: {
+      type: Object
+    },
     commands: {
       type: Object
     }
   },
   methods: {
+    isActive (value) {
+      let active = findActiveMarkAttribute(this.editor.state, 'fontFamily')
+      return value === active
+    }
   },
   computed: {
   }

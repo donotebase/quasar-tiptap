@@ -1,36 +1,33 @@
 <template>
-  <editor-menu-bar :editor="editor" v-slot="{ commands, isActive, getMarkAttrs, focused }">
+  <editor-menu-bar :editor="editor" v-slot="editorContext">
     <section class="row col-12 justify-between items-center bg-light tiptap-menubar">
 
       <!-- Table -->
-      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': focused }" v-if="isActive.table()">
+      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': editorContext.focused }" v-if="editorContext.isActive.table()">
         <template v-for="(item, index) of tableToolbar">
-          <o-simple-command-btn :name="item" :commands="commands" :is-active="isActive" :key="index" v-if="isSimpleCommand(item)" />
-          <q-separator vertical inset :key="index" v-else-if="item==='separator'" />
-          <o-table-group :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='table'" />
-
-          <o-fore-color-dropdown :commands="commands" :get-mark-attrs="getMarkAttrs" :key="index" v-else-if="item==='fore-color'" />
-          <o-back-color-dropdown :commands="commands" :key="index" v-else-if="item==='back-color'" />
-          <o-font-family-dropdown :commands="commands" :key="index" v-else-if="item==='font-family'" />
-          <o-align-dropdown :commands="commands" :key="index" v-else-if="item==='align-dropdown'" />
+          <q-separator vertical inset :key="index" v-if="item==='separator'" />
+          <component :key="index"
+                     :name="item"
+                     :is="getName(item)"
+                     :editor="editor"
+                     v-bind="editorContext"
+                     v-else>
+          </component>
+          <o-table-group v-bind="editorContext" :key="`table-${index}`" v-if="item==='table'" />
         </template>
       </div>
 
       <!-- Normal -->
-      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': focused }" v-else>
+      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': editorContext.focused }" v-else>
         <template v-for="(item, index) of toolbar">
-          <o-simple-command-btn :name="item" :commands="commands" :is-active="isActive" :key="index" v-if="isSimpleCommand(item)" />
-          <q-separator vertical inset :key="index" v-else-if="item==='separator'" />
-          <o-fore-color-dropdown :commands="commands" :get-mark-attrs="getMarkAttrs" :key="index" v-else-if="item==='fore-color'" />
-          <o-back-color-dropdown :commands="commands" :key="index" v-else-if="item==='back-color'" />
-          <o-font-family-dropdown :commands="commands" :key="index" v-else-if="item==='font-family'" />
-          <o-align-dropdown :commands="commands" :key="index" v-else-if="item==='align-dropdown'" />
-          <o-align-group :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='align-group' && false" />
-          <o-line-height-dropdown :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='line-height'" />
-          <o-heading-dropdown :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='heading'" />
-          <o-photo-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='photo'" />
-          <o-add-more-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='add-more'" />
-          <o-table-btn :commands="commands" :is-active="isActive" :key="index" v-else-if="item==='table'" />
+          <q-separator vertical inset :key="index" v-if="item==='separator'" />
+          <component :key="index"
+                     :name="item"
+                     :is="getName(item)"
+                     :editor="editor"
+                     v-bind="editorContext"
+                     v-else>
+          </component>
         </template>
       </div>
     </section>
@@ -39,6 +36,7 @@
 
 <script>
 import { EditorMenuBar } from 'tiptap'
+import { CommandComponents, TableToolbar } from '../../utils/menu'
 
 import OForeColorDropdown from 'src/lib/components/buttons/OForeColorDropdown'
 import OBackColorDropdown from 'src/lib/components/buttons/OBackColorDropdown'
@@ -63,42 +61,8 @@ export default {
   name: 'page-quasar-tiptap-all',
   data () {
     return {
-      simpleCommands: [
-        'bold',
-        'italic',
-        'strike',
-        'underline',
-        'blockquote',
-        'code',
-        'code_block',
-        'horizontal',
-        'bullet_list',
-        'ordered_list',
-        'todo_list',
-        'undo',
-        'redo',
-        'indent',
-        'outdent',
-        'format_clear',
-      ],
-      tableToolbar: [
-        'bold',
-        'italic',
-        'strike',
-        'underline',
-        'separator',
-        'font-family',
-        'fore-color',
-        'back-color',
-        'separator',
-        'align-dropdown',
-        'separator',
-        'table'
-      ],
+      tableToolbar: TableToolbar,
       pageView: 'page',
-      menu: {
-        add: false
-      },
       isSlideShow: false
     }
   },
@@ -133,13 +97,13 @@ export default {
     OTableGroup
   },
   methods: {
-    isSimpleCommand (item) {
-      return this.simpleCommands.indexOf(item) >= 0
+    getName (item) {
+      return CommandComponents[item] || 'o-simple-command-btn'
     },
     showSidePanel () {},
     onSlideShow () {}
   },
-  mounted: function () {
+  mounted () {
   },
   deactivated () {
   },

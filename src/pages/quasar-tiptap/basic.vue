@@ -17,7 +17,7 @@ import QuasarTiptap from 'src/lib/components/QuasarTiptap'
 import { BasicFeaturesArticle } from 'src/lib/data/article'
 
 export default {
-  name: 'page-quasar-tiptap-all',
+  name: 'page-quasar-tiptap-basic',
   data () {
     return {
       content: BasicFeaturesArticle,
@@ -37,7 +37,6 @@ export default {
         'format_clear',
         'separator',
         'align-dropdown',
-        'align-group',
         'indent',
         'outdent',
         'line-height',

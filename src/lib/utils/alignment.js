@@ -11,7 +11,7 @@ const ALLOWED_NODE_TYPES = [
   'todo_item',
 ]
 
-export function isTextAlignActive (state, alignment) {
+export function isAlignmentActive (state, alignment) {
   const { selection, doc } = state
   const { from, to } = selection
 

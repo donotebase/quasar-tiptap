@@ -2,6 +2,8 @@
  * Utils: mark
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/utils/apply_mark.ts
  */
+import { getMarkAttrs } from 'tiptap-utils'
+import { TextSelection } from 'prosemirror-state'
 
 function markApplies (doc, ranges, type) {
   for (let i = 0; i < ranges.length; i++) {
@@ -51,4 +53,66 @@ function applyMark (tr, markType, attrs) {
   return tr
 }
 
-export { applyMark }
+function findActiveFontFamily (state) {
+  const { schema, selection, tr } = state
+  const markType = schema.marks.fontFamily
+
+  if (!markType) return ''
+
+  const { empty } = selection
+
+  if (empty) {
+    const storedMarks = tr.storedMarks ||
+      state.storedMarks ||
+      (
+        selection instanceof TextSelection &&
+        selection.$cursor &&
+        selection.$cursor.marks &&
+        selection.$cursor.marks()
+      ) ||
+      []
+
+    const sm = storedMarks.find((m) => m.type === markType)
+    return (sm && sm.attrs.fontFamily) || ''
+  }
+
+  const attrs = getMarkAttrs(state, markType)
+  const fontFamily = attrs.fontFamily
+
+  if (!fontFamily) return ''
+
+  return fontFamily
+}
+
+function findActiveMarkAttribute (state, name) {
+  const { schema, selection, tr } = state
+  const markType = schema.marks[name]
+
+  if (!markType) return ''
+
+  const { empty } = selection
+
+  if (empty) {
+    const storedMarks = tr.storedMarks ||
+      state.storedMarks ||
+      (
+        selection instanceof TextSelection &&
+        selection.$cursor &&
+        selection.$cursor.marks &&
+        selection.$cursor.marks()
+      ) ||
+      []
+
+    const sm = storedMarks.find((m) => m.type === markType)
+    return (sm && sm.attrs[name]) || ''
+  }
+
+  const attrs = getMarkAttrs(state, markType)
+  const value = attrs[name]
+
+  if (!value) return ''
+
+  return value
+}
+
+export { applyMark, findActiveFontFamily, findActiveMarkAttribute }

@@ -5,21 +5,25 @@
       <div><q-icon name="mdi-format-color-text"/></div>
       <div class="indicator" :style="`background: ${hex}`"></div>
     </section>
-    <o-color-board @select="onSelect" v-close-popup="closable" />
+    <o-color-board :active-color="activeColor" @select="onSelect" v-close-popup="closable" />
   </q-btn-dropdown>
 </template>
 
 <script>
 import OColorBoard from '../common/OColorBoard'
+import { findActiveMarkAttribute } from '../../utils/mark'
 export default {
   name: 'o-fore-color-dropdown',
   data () {
     return {
-      hex: '#ff0000',
+      hex: '#ff4d4f',
       closable: false
     }
   },
   props: {
+    editor: {
+      type: Object
+    },
     commands: {
       type: Object
     },
@@ -34,13 +38,17 @@ export default {
     onSelectCurrent () {
       this.onSelect(this.hex)
     },
-    onSelect (value) {
+    onSelect (color) {
       this.closable = true
-      this.hex = value
-      this.commands.foreColor({ foreColor: value })
+      this.hex = color
+      this.commands.foreColor({ foreColor: color })
     }
   },
   computed: {
+    activeColor () {
+      let active = findActiveMarkAttribute(this.editor.state, 'foreColor')
+      return active
+    }
   }
 }
 </script>

@@ -11,7 +11,7 @@ export default class FontFamily extends Mark {
     return {
       attrs: {
         fontFamily: {
-          default: '#000000'
+          default: ''
         }
       },
       parseDOM: [
