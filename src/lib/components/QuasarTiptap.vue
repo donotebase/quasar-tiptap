@@ -3,7 +3,7 @@
     <!-- Main Toolbar -->
     <o-editor-menu-bar :editor="editor" :toolbar="toolbar" v-if="editable" />
 
-    <o-editor-menu-bubble :editor="editor" />
+    <o-editor-menu-bubble :editor="editor" :selected-cell-size="selectedCellSize" />
 
     <q-scroll-area ref="editorScroll" class="editor-scroll-area" :class="`view-${pageView}`" v-if="scrollable">
       <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
@@ -76,18 +76,11 @@ export default {
   name: 'quasar-tiptap',
   data () {
     return {
-      pageView: 'page',
-      menu: {
-        add: false
-      },
-
       // editor
       editor: null,
       json: {},
       html: '',
-
-      // actions
-      isSlideShow: false
+      selectedCellSize: 0
     }
   },
   props: {
@@ -113,6 +106,13 @@ export default {
       type: Array,
       default: function () {
         return []
+      }
+    },
+    options: {
+      type: Object,
+      default: function () {
+        return {
+        }
       }
     }
   },
@@ -146,10 +146,23 @@ export default {
         autoFocus: true,
         editable: this.editable,
         content: '',
-        onUpdate: ({ state, getJSON, getHTML }) => {
-          this.json = getJSON()
-          this.html = getHTML()
-          console.log('html', this.html)
+        onInit: ({ state, view }) => {
+          this.$emit('init', { state, view })
+        },
+        onFocus: ({ event, state, view }) => {
+          this.$emit('focus', { event, state, view })
+        },
+        onBlur: ({ event, state, view }) => {
+          this.$emit('blur', { event, state, view })
+        },
+        onUpdate: ({ getJSON, getHTML, state, transaction }) => {
+          this.$emit('update', { getJSON, getHTML, state, transaction })
+        },
+        onTransaction: ({ getJSON, getHTML, state, transaction }) => {
+          const selectedCellElements = document.querySelectorAll('.selectedCell')
+          this.selectedCellSize = selectedCellElements.length
+
+          this.$emit('transaction', { getJSON, getHTML, state, transaction })
         }
       })
     },

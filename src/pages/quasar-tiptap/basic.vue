@@ -5,7 +5,7 @@
         <span class="text-h3">Basic</span>
       </header>
       <section class="row col-10 q-pa-md">
-        <quasar-tiptap v-bind="options" />
+        <quasar-tiptap v-bind="options" @update="onUpdate" />
       </section>
     </section>
   </q-page>
@@ -74,7 +74,9 @@ export default {
           'undo',
           'redo',
         ]
-      }
+      },
+      json: '',
+      html: ''
     }
   },
   components: {
@@ -82,6 +84,11 @@ export default {
     OAddMoreBtn
   },
   methods: {
+    onUpdate ({ state, getJSON, getHTML }) {
+      this.json = getJSON()
+      this.html = getHTML()
+      console.log('html', this.html)
+    }
   },
   mounted: function () {
   },
