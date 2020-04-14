@@ -1,6 +1,6 @@
 <template>
   <section class="tiptap tiptap-editor quasar-tiptap">
-    <o-editor-menu-bar :editor="editor" :toolbar="toolbar" />
+    <o-editor-menu-bar :editor="editor" :toolbar="toolbar" v-if="editable" />
 
     <q-scroll-area ref="editorScroll" class="editor-scroll-area" :class="`view-${pageView}`" v-if="scrollable">
       <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
@@ -88,6 +88,10 @@ export default {
       type: String,
       default: ''
     },
+    editable: {
+      type: Boolean,
+      default: true
+    },
     scrollable: {
       type: Boolean,
       default: false
@@ -96,6 +100,16 @@ export default {
       type: Array,
       default: function () {
         return []
+      }
+    },
+    options: {
+      type: Object,
+      default: function () {
+        return {
+          content: '',
+          scrollable: false,
+          toolbar: []
+        }
       }
     }
   },
@@ -180,6 +194,7 @@ export default {
       this.editor = new Editor({
         extensions: extensions,
         autoFocus: true,
+        editable: this.editable,
         content: '',
         onUpdate: ({ state, getJSON, getHTML }) => {
           this.json = getJSON()

@@ -5,7 +5,7 @@
         <span class="text-h3">Basic</span>
       </header>
       <section class="row col-10 q-pa-md">
-        <quasar-tiptap :content="content" :toolbar="toolbar" />
+        <quasar-tiptap v-bind="options" />
       </section>
     </section>
   </q-page>
@@ -20,40 +20,43 @@ export default {
   name: 'page-quasar-tiptap-basic',
   data () {
     return {
-      content: BasicFeaturesArticle,
-      toolbar: [
-        'add-more',
-        'separator',
-        'bold',
-        'italic',
-        'underline',
-        'strike',
-        'code',
-        'separator',
-        'heading',
-        'font-family',
-        'fore-color',
-        'back-color',
-        'format_clear',
-        'separator',
-        'align-dropdown',
-        'indent',
-        'outdent',
-        'line-height',
-        'separator',
-        'horizontal',
-        'bullet_list',
-        'ordered_list',
-        'todo_list',
-        'separator',
-        'blockquote',
-        'code_block',
-        'photo',
-        'table',
-        'separator',
-        'undo',
-        'redo',
-      ]
+      options: {
+        content: BasicFeaturesArticle,
+        editable: false,
+        toolbar: [
+          'add-more',
+          'separator',
+          'bold',
+          'italic',
+          'underline',
+          'strike',
+          'code',
+          'separator',
+          'heading',
+          'font-family',
+          'fore-color',
+          'back-color',
+          'format_clear',
+          'separator',
+          'align-dropdown',
+          'indent',
+          'outdent',
+          'line-height',
+          'separator',
+          'horizontal',
+          'bullet_list',
+          'ordered_list',
+          'todo_list',
+          'separator',
+          'blockquote',
+          'code_block',
+          'photo',
+          'table',
+          'separator',
+          'undo',
+          'redo',
+        ]
+      }
     }
   },
   components: {

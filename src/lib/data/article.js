@@ -6,7 +6,12 @@
  * @date 2020.04.11
  */
 export const BasicFeaturesArticle = `
-json <h1>Basic Features</h1><h2 id="d5fb3c" level="2">Introduction</h2><p>🔥Quasar <strong>Tiptap</strong> Editor 🔥is a WYSIWYG rich-text editor using&nbsp;tiptap&nbsp;and Quasar. That's easy to use, friendly to developers, fully extensible and clean in design.</p><table><tbody><tr><th><p></p></th><th><p></p></th><th><p></p></th></tr><tr><td><p><span style="font-family: Roboto">add</span></p></td><td><p><span style="font-family: Monaco">bddd</span></p></td><td><p><span style="font-family: Impact">cddd</span></p></td></tr></tbody></table><h2 id="3b0d30" level="2">Text</h2><p data-text-align="center"><strong>Bold text</strong></p><p><em>Italictext</em></p><p><u>Underline text</u></p><p><s>Strike through text</s></p><p><code>Inline code</code></p><p><span style="color: #ff0000">Text with color</span></p><p><span style="background: #ffff00">Text with background</span></p><p></p><h2 id="2c1e92" level="2">Alignment</h2><p data-indent="1">This a indent Text.</p><blockquote><p>This is a block quote</p><p>Second line</p></blockquote><pre><code>let a = 10
+<h1>json Basic Features</h1><h2 id="d5fb3c" level="2">Introduction</h2><p>🔥Quasar <strong>Tiptap</strong> Editor 🔥is a WYSIWYG rich-text editor using&nbsp;tiptap&nbsp;and Quasar. That's easy to use, friendly to developers, fully extensible and clean in design.</p><table><tbody><tr><th><p></p></th><th><p></p></th><th><p></p></th></tr><tr><td><p><span style="font-family: Roboto">add</span></p></td><td><p><span style="font-family: Monaco">bddd</span></p></td><td><p><span style="font-family: Impact">cddd</span></p></td></tr></tbody></table><h2 id="ce7176" level="2">Diagram</h2><p></p><diagram src="graph TD
+A[Christmas] -->|Get money| B(Go shopping)
+B --> C{Let me think}
+C -->|One| D[Laptop]
+C -->|Two| E[iPhonee]
+C -->|Three| F[Cars]"></diagram><p></p><p></p><h2 id="3b0d30" level="2">Text</h2><p data-text-align="center"><strong>Bold text</strong></p><p><em>Italictext</em></p><p><u>Underline text</u></p><p><s>Strike through text</s></p><p><code>Inline code</code></p><p><span style="color: #ff0000">Text with color</span></p><p><span style="background: #ffff00">Text with background</span></p><p></p><h2 id="2c1e92" level="2">Alignment</h2><p data-indent="1">This a indent Text.</p><blockquote><p>This is a block quote</p><p>Second line</p></blockquote><pre><code>let a = 10
 let b = 20</code></pre><p></p>
 `
 

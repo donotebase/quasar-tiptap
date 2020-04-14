@@ -1,10 +1,10 @@
 <template>
   <section class="o-diagram" :class="contentClass">
-    <div class="row col-12 justify-between o-toolbar" v-if="view.editable">
+    <div class="row col-12 justify-between o-toolbar">
       <div class="row col items-center providers">文本绘图</div>
       <div class="col-auto actions">
         <q-btn :label="$t('help')" to="/help/mermaid" flat v-if="false" />
-        <q-btn-dropdown :label="$t('template')" menu-anchor="bottom left" menu-self="top left" :menu-offset="[0, 8]" content-class="o-menu" dense flat>
+        <q-btn-dropdown :label="$t('template')" menu-anchor="bottom left" menu-self="top left" :menu-offset="[0, 8]" content-class="o-menu" dense flat v-if="view.editable">
           <q-list>
             <q-item v-for="(item, index) of mermaidDiagrams" :key="index" @click.native="onSelectTemplate(item)" clickable v-close-popup>
               <q-item-section side v-if="false"><q-icon name="format_align_left" /></q-item-section>
@@ -17,12 +17,12 @@
           <q-btn icon="fullscreen" @click="toggleFullScreen" flat>
             <q-tooltip>{{$t('action.fullscreen')}}</q-tooltip>
           </q-btn>
-          <q-btn :label="toggleLabel" @click="toggleMode" class="bg-blue text-white" flat />
+          <q-btn :label="toggleLabel" @click="toggleMode" class="bg-blue text-white" flat v-if="view.editable" />
         </template>
       </div>
     </div>
     <section class="row col-12 diagram">
-      <section class="col source" v-if="mode==='edit' || fullScreen">
+      <section class="col source" v-if="(mode==='edit' || fullScreen) && view.editable">
         <codemirror class="diagram-editor"
                     id="codemirror"
                     v-model="src"
