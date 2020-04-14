@@ -13,8 +13,14 @@
 
 <script>
 import QuasarTiptap from 'src/lib/components/QuasarTiptap'
+import {
+  Placeholder,
+} from 'tiptap-extensions'
 
+import { RecommendedExtensions } from 'src/lib/extentions'
 import { BasicFeaturesArticle } from 'src/lib/data/article'
+
+import OAddMoreBtn from 'src/lib/components/buttons/OAddMoreBtn'
 
 export default {
   name: 'page-quasar-tiptap-basic',
@@ -22,9 +28,21 @@ export default {
     return {
       options: {
         content: BasicFeaturesArticle,
-        editable: false,
+        editable: true,
+        extensions: [
+          ...RecommendedExtensions,
+          new Placeholder({
+            showOnlyCurrent: false,
+            emptyNodeText: node => {
+              if (node.type.name === 'title') {
+                return 'Title'
+              }
+              return 'Content'
+            }
+          }),
+        ],
         toolbar: [
-          'add-more',
+          OAddMoreBtn,
           'separator',
           'bold',
           'italic',
@@ -60,7 +78,8 @@ export default {
     }
   },
   components: {
-    QuasarTiptap
+    QuasarTiptap,
+    OAddMoreBtn
   },
   methods: {
   },

@@ -26,7 +26,7 @@
 
 <script>
 import OMenubarBtn from './OMenubarBtn'
-import OCommonItem from 'src/lib/components/common/OCommonItem'
+import OCommonItem from '../common/OCommonItem'
 import OMetaInput from '../common/OMetaInput'
 export default {
   name: 'o-add-more-btn',

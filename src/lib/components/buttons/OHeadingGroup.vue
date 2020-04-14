@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
+import OMenubarBtn from './OMenubarBtn'
 export default {
   name: 'o-heading-group',
   data () {

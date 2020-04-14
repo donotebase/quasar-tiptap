@@ -1,19 +1,71 @@
 <template>
   <q-page class="page-quasar-tiptap-all">
-    <quasar-tiptap :content="content" scrollable />
+    <quasar-tiptap v-bind="options" scrollable />
   </q-page>
 </template>
 
 <script>
 import QuasarTiptap from 'src/lib/components/QuasarTiptap'
+import {
+  Placeholder,
+} from 'tiptap-extensions'
 
+import { RecommendedExtensions } from 'src/lib/extentions'
 import { FullFeaturedArticle } from 'src/lib/data/article'
 
 export default {
   name: 'page-quasar-tiptap-all',
   data () {
     return {
-      content: FullFeaturedArticle
+      options: {
+        content: FullFeaturedArticle,
+        editable: true,
+        extensions: [
+          ...RecommendedExtensions,
+          new Placeholder({
+            showOnlyCurrent: false,
+            emptyNodeText: node => {
+              if (node.type.name === 'title') {
+                return 'Title'
+              }
+              return 'Content'
+            }
+          }),
+        ],
+        toolbar: [
+          'add-more',
+          'separator',
+          'bold',
+          'italic',
+          'underline',
+          'strike',
+          'code',
+          'separator',
+          'heading',
+          'font-family',
+          'fore-color',
+          'back-color',
+          'format_clear',
+          'separator',
+          'align-dropdown',
+          'indent',
+          'outdent',
+          'line-height',
+          'separator',
+          'horizontal',
+          'bullet_list',
+          'ordered_list',
+          'todo_list',
+          'separator',
+          'blockquote',
+          'code_block',
+          'photo',
+          'table',
+          'separator',
+          'undo',
+          'redo',
+        ]
+      }
     }
   },
   components: {

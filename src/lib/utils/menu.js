@@ -35,3 +35,19 @@ export const TableToolbar = [
   'separator',
   'table'
 ]
+
+/**
+ * Bubble toolbar
+ */
+export const BubbleToolbar = [
+  'bold',
+  'italic',
+  'strike',
+  'underline',
+  'separator',
+  'font-family',
+  'fore-color',
+  'back-color',
+  'separator',
+  'align-dropdown',
+]

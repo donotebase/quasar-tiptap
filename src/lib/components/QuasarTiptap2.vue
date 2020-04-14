@@ -1,9 +1,6 @@
 <template>
   <section class="tiptap tiptap-editor quasar-tiptap">
-    <!-- Main Toolbar -->
     <o-editor-menu-bar :editor="editor" :toolbar="toolbar" v-if="editable" />
-
-    <o-editor-menu-bubble :editor="editor" />
 
     <q-scroll-area ref="editorScroll" class="editor-scroll-area" :class="`view-${pageView}`" v-if="scrollable">
       <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
@@ -63,14 +60,10 @@ import {
   ODiagram,
   OKatexBlock,
   OKatexInline,
-  OFormatClear,
-  RecommendedExtensions
-} from '../extentions'
-
-import DynamicClass from '../extentions/dynamic'
+  OFormatClear
+} from 'src/lib/extentions'
 
 import OEditorMenuBar from './menubars/OEditorMenuBar'
-import OEditorMenuBubble from './menubars/OEditorMenuBubble'
 
 export default {
   name: 'quasar-tiptap',
@@ -103,31 +96,30 @@ export default {
       type: Boolean,
       default: false
     },
-    extensions: {
+    toolbar: {
       type: Array,
       default: function () {
         return []
       }
     },
-    toolbar: {
-      type: Array,
+    options: {
+      type: Object,
       default: function () {
-        return []
+        return {
+          content: '',
+          scrollable: false,
+          toolbar: []
+        }
       }
     }
   },
   components: {
     EditorContent,
     OEditorMenuBar,
-    OEditorMenuBubble,
   },
   methods: {
     initEditor () {
-      const customExtensions = this.generateExtensions()
       const extensions = [
-        // custom
-        ...customExtensions,
-
         // required
         new HardBreak(),
         new History(),
@@ -138,7 +130,65 @@ export default {
         new TrailingNode({
           node: 'paragraph',
           notAfter: ['paragraph']
-        })
+        }),
+
+        // tiptop
+        new Bold(),
+        new Italic(),
+        new Strike(),
+        new Underline(),
+        new Code(),
+        new CodeBlock(),
+        new CodeBlockHighlight({
+          languages: {
+            java,
+            javascript,
+            css
+          }
+        }),
+        new BulletList(),
+        new ListItem(),
+        new OrderedList(),
+        new TodoList(),
+        new HorizontalRule(),
+        new Table({
+          resizable: true
+        }),
+        new TableHeader(),
+        new TableCell(),
+        new TableRow(),
+        new Placeholder({
+          showOnlyCurrent: false,
+          emptyNodeText: node => {
+            if (node.type.name === 'title') {
+              return 'Title'
+            }
+            return 'Content'
+          }
+        }),
+        new Link(),
+        new Image(),
+
+        // quasar-tiptop
+        new OTitle(),
+        new ODoc(),
+        new OParagraph(),
+        new OBlockquote(),
+        new OTodoItem({
+          nested: true
+        }),
+        new OHeading({ levels: [1, 2, 3, 4, 5] }),
+        new OAlignment(),
+        new OIndent(),
+        new OLineHeight(),
+        new OForeColor(),
+        new OBackColor(),
+        new OFontFamily(),
+        new OIframe(),
+        new ODiagram(),
+        new OKatexBlock(),
+        new OKatexInline(),
+        new OFormatClear()
       ]
 
       this.editor = new Editor({
@@ -149,54 +199,9 @@ export default {
         onUpdate: ({ state, getJSON, getHTML }) => {
           this.json = getJSON()
           this.html = getHTML()
-          console.log('html', this.html)
+          console.log('json', this.html)
         }
       })
-    },
-    generateExtensions () {
-      let extensions = []
-      for (let extension of this.extensions) {
-        if (typeof extension === 'string') {
-          if (!RecommendedExtensions.includes(extension)) {
-            continue
-          }
-
-          switch (extension) {
-            // tiptop
-            case 'CodeBlockHighlight':
-              extension = new CodeBlockHighlight({
-                languages: { java, javascript, css }
-              })
-              break
-            case 'Table':
-              extension = new Table({
-                resizable: true
-              })
-              extensions.push(extension)
-              extensions.push(new TableHeader())
-              extensions.push(new TableCell())
-              extensions.push(new TableRow())
-              continue
-
-            // quasar-tiptop
-            case 'OTodoItem':
-              extension = new OTodoItem({ nested: true })
-              break
-            case 'OHeading':
-              extension = new OHeading({ levels: [1, 2, 3, 4, 5] })
-              break
-            default:
-              try {
-                extension = new DynamicClass(extension)
-              } catch (e) {
-                console.error(e.message)
-              }
-              break
-          }
-        }
-        extensions.push(extension)
-      }
-      return extensions
     },
     // content
     setContent () {

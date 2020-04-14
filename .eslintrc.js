@@ -59,6 +59,7 @@ module.exports = {
     'no-undef': 0,
     'comma-dangle': 0,
     'prefer-const': 0,
+    'no-unused-vars': 0,
     'vue/no-unused-components': 0
   }
 }

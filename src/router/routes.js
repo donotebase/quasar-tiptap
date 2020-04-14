@@ -9,6 +9,7 @@ const routes = [
       { path: 'tiptap/test1', component: () => import('pages/tiptap/basic/index.vue') },
       { path: 'tiptap/test2', component: () => import('pages/tiptap/basic/index.vue') },
       { path: 'quasar-tiptap/basic', component: () => import('pages/quasar-tiptap/basic.vue') },
+      { path: 'quasar-tiptap/readonly', component: () => import('pages/quasar-tiptap/readonly.vue') },
       { path: 'quasar-tiptap/all', component: () => import('pages/quasar-tiptap/all.vue') }
     ]
   }

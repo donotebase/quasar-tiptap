@@ -120,7 +120,7 @@ import css from 'highlight.js/lib/languages/css'
 import {
   OTitle,
   ODoc,
-  OAlign,
+  OAlignment,
   OBackColor,
   OForeColor,
   OHeading,
@@ -179,7 +179,7 @@ export default {
           new OTitle(),
           new ODoc(),
           new OHeading({ levels: [1, 2, 3, 4, 5] }),
-          new OAlign(),
+          new OAlignment(),
           new OForeColor(),
           new OBackColor(),
           new Blockquote(),

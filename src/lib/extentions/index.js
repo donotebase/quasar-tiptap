@@ -6,6 +6,9 @@
  * @date 2020.04.11
  */
 
+// --------------------------------------------------------------------------------
+// Extensions
+// --------------------------------------------------------------------------------
 // Nodes
 export { default as OTitle } from './Title'
 export { default as ODoc } from './Doc'
@@ -28,3 +31,48 @@ export { default as OAlignment } from './Alignment'
 export { default as OIndent } from './Indent'
 export { default as OLineHeight } from './LineHeight'
 export { default as OFormatClear } from './FormatClear'
+
+// --------------------------------------------------------------------------------
+// Exposed Extension List
+// --------------------------------------------------------------------------------
+export const TipTapExtensions = [
+  'Bold',
+  'Italic',
+  'Strike',
+  'Underline',
+  'Code',
+  'CodeBlock',
+  'CodeBlockHighlight',
+  'BulletList',
+  'OrderedList',
+  'ListItem',
+  'TodoList',
+  'HorizontalRule',
+  'Table',
+  'Link',
+  'Image',
+]
+
+export const QuasarTipTapExtensions = [
+  'OTitle',
+  'ODoc',
+  'OParagraph',
+  'OBlockquote',
+  'OTodoItem',
+  'OHeading',
+  'OAlignment',
+  'OLineHeight',
+  'OForeColor',
+  'OBackColor',
+  'OFontFamily',
+  'OIframe',
+  'ODiagram',
+  'OKatexBlock',
+  'OKatexInline',
+  'OFormatClear',
+]
+
+export const RecommendedExtensions = [
+  ...TipTapExtensions,
+  ...QuasarTipTapExtensions
+]

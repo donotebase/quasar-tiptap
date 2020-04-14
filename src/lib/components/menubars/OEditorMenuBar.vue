@@ -3,7 +3,7 @@
     <section class="row col-12 justify-between items-center bg-light tiptap-menubar">
 
       <!-- Table -->
-      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': editorContext.focused }" v-if="editorContext.isActive.table()">
+      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': editorContext.focused }" v-if="editorContext.isActive.table && editorContext.isActive.table()">
         <template v-for="(item, index) of tableToolbar">
           <q-separator vertical inset :key="index" v-if="item==='separator'" />
           <component :key="index"
@@ -26,8 +26,12 @@
                      :is="getName(item)"
                      :editor="editor"
                      v-bind="editorContext"
-                     v-else>
-          </component>
+                     v-else-if="typeof item === 'string'" />
+          <component :key="index"
+                     :is="item"
+                     :editor="editor"
+                     v-bind="editorContext"
+                     v-else />
         </template>
       </div>
     </section>
@@ -38,24 +42,24 @@
 import { EditorMenuBar } from 'tiptap'
 import { CommandComponents, TableToolbar } from '../../utils/menu'
 
-import OForeColorDropdown from 'src/lib/components/buttons/OForeColorDropdown'
-import OBackColorDropdown from 'src/lib/components/buttons/OBackColorDropdown'
-import OFontFamilyDropdown from 'src/lib/components/buttons/OFontFamilyDropdown'
-import OAlignDropdown from 'src/lib/components/buttons/OAlignDropdown'
-import OAlignGroup from 'src/lib/components/buttons/OAlignGroup'
-import OLineHeightDropdown from 'src/lib/components/buttons/OLineHeightDropdown'
-import OHeadingDropdown from 'src/lib/components/buttons/OHeadingDropdown'
-import OHeadingGroup from 'src/lib/components/buttons/OHeadingGroup'
-import OHeadingList from 'src/lib/components/buttons/OHeadingList'
+import OForeColorDropdown from '../buttons/OForeColorDropdown'
+import OBackColorDropdown from '../buttons/OBackColorDropdown'
+import OFontFamilyDropdown from '../buttons/OFontFamilyDropdown'
+import OAlignDropdown from '../buttons/OAlignDropdown'
+import OAlignGroup from '../buttons/OAlignGroup'
+import OLineHeightDropdown from '../buttons/OLineHeightDropdown'
+import OHeadingDropdown from '../buttons/OHeadingDropdown'
+import OHeadingGroup from '../buttons/OHeadingGroup'
+import OHeadingList from '../buttons/OHeadingList'
 
-import OAddMoreBtn from 'src/lib/components/buttons/OAddMoreBtn'
-import OPhotoBtn from 'src/lib/components/buttons/OPhotoBtn'
-import OTableBtn from 'src/lib/components/buttons/OTableBtn'
-import OTableGroup from 'src/lib/components/buttons/OTableGroup'
+import OAddMoreBtn from '../buttons/OAddMoreBtn'
+import OPhotoBtn from '../buttons/OPhotoBtn'
+import OTableBtn from '../buttons/OTableBtn'
+import OTableGroup from '../buttons/OTableGroup'
 
-import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
-import OSimpleCommandBtn from 'src/lib/components/buttons/OSimpleCommandBtn'
-import OMetaInput from 'src/lib/components/common/OMetaInput'
+import OMenubarBtn from '../buttons/OMenubarBtn'
+import OSimpleCommandBtn from '../buttons/OSimpleCommandBtn'
+import OMetaInput from '../common/OMetaInput'
 
 export default {
   name: 'page-quasar-tiptap-all',
