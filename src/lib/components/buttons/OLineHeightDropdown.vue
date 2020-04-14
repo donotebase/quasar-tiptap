@@ -3,7 +3,7 @@
     <q-list>
       <template v-for="(item, index) of types">
         <q-separator :key="index" v-if="item.separator" />
-        <q-item :key="index" clickable v-close-popup
+        <q-item :class="{ 'is-active': isActive(item.value) }" :key="index" clickable v-close-popup
                 @click.native="commands.lineHeight({lineHeight: item.value})" v-else>
           <q-item-section>{{item.label}}</q-item-section>
         </q-item>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { isNodeActive } from '../../utils/node'
 export default {
   name: 'o-line-height-dropdown',
   data () {
@@ -29,11 +30,17 @@ export default {
     }
   },
   props: {
+    editor: {
+      type: Object
+    },
     commands: {
       type: Object
     }
   },
   methods: {
+    isActive (lineHeight) {
+      return isNodeActive(this.editor.state, 'lineHeight', lineHeight)
+    }
   },
   computed: {
   }

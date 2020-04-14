@@ -11,24 +11,6 @@ const ALLOWED_NODE_TYPES = [
   'todo_item',
 ]
 
-export function isAlignmentActive (state, alignment) {
-  const { selection, doc } = state
-  const { from, to } = selection
-
-  let keepLooking = true
-  let active = false
-
-  doc.nodesBetween(from, to, (node) => {
-    if (keepLooking && node.attrs.textAlign === alignment) {
-      keepLooking = false
-      active = true
-    }
-    return keepLooking
-  })
-
-  return active
-}
-
 export function setAlignment (tr, alignment) {
   const { selection, doc } = tr
 

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { isAlignmentActive } from '../../utils/alignment'
+import { isNodeActive } from '../../utils/node'
 export default {
   name: 'o-align-dropdown',
   data () {
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     isActive (alignment) {
-      return isAlignmentActive(this.editor.state, alignment)
+      return isNodeActive(this.editor.state, 'textAlign', alignment)
     }
   },
   computed: {

@@ -1,6 +1,6 @@
 <template>
   <q-btn-dropdown icon="mdi-format-header-pound" menu-anchor="bottom left" menu-self="top left" class="o-heading-dropdown" content-class="o-menu o-heading-dropdown-menu" flat>
-    <o-heading-list :commands="commands" :is-active="isActive" />
+    <o-heading-list :editor="editor" :commands="commands" />
   </q-btn-dropdown>
 </template>
 
@@ -13,10 +13,10 @@ export default {
     }
   },
   props: {
-    commands: {
+    editor: {
       type: Object
     },
-    isActive: {
+    commands: {
       type: Object
     }
   },
