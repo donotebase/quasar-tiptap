@@ -7,6 +7,7 @@ import replace from '@rollup/plugin-replace'
 
 import vue from 'rollup-plugin-vue'
 import babel from 'rollup-plugin-babel'
+import copy from 'rollup-plugin-copy'
 import { terser } from 'rollup-plugin-terser'
 import postcss from 'rollup-plugin-postcss'
 import postcssPresetEnv from 'postcss-preset-env'
@@ -55,7 +56,6 @@ function getConfig ({
     },
     external: [
       'vue',
-      'quasar',
       'tiptap',
       'tiptap-extensions',
       'prosemirror-utils',
@@ -93,6 +93,14 @@ function getConfig ({
         minimize: true,
         plugins: [
           postcssPresetEnv()
+        ]
+      }),
+      copy({
+        targets: [
+          {
+            src: path.resolve(srcDir, 'css/katex/fonts/**'),
+            dest: path.resolve(libDir, 'fonts')
+          }
         ]
       }),
       vue({

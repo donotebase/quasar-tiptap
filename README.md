@@ -2,17 +2,40 @@
 
 A modern WYSIWYG rich-text editor built on top of tiptap and Quasar for Vue.js
 
-## Install the dependencies
+## Installation
 ```bash
-yarn
+yarn add quasar-tiptap
 ```
 
-### Lint the files
+or
 ```bash
-yarn run lint
+npm install --save quasar-tiptap
 ```
 
-### Build the library
+## Usage
+
+```vue
+<template>
+  <div>
+    <quasar-tiptap><quasar-tiptap>
+  </div>
+</template>
+
+<script>
+import { QuasarTiptap } from 'quasar-tiptap'
+import 'quasar-tiptap/lib/index.css'
+
+export default {
+  components: {
+    'quasar-tiptap': QuasarTiptap,
+  },
+}
+</script>
+```
+
+## Development
+
+### Build
 ```bash
 yarn run build
 ```
