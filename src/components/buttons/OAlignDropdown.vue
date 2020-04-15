@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { isNodeActive } from '../../utils/node'
+import { isNodeActive } from 'src/utils/node'
 export default {
   name: 'o-align-dropdown',
   data () {

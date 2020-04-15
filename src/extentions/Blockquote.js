@@ -1,5 +1,5 @@
 import { Blockquote as TiptapBlockquote } from 'tiptap-extensions'
-import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './Paragraph'
+import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from 'src/extentions/Paragraph'
 
 export const BlockquoteNodeSpec = {
   ...ParagraphNodeSpec,

@@ -1,5 +1,5 @@
 import { Extension } from 'tiptap'
-import { setLineHeight } from '../utils/line_height'
+import { setLineHeight } from 'src/utils/line_height'
 
 export default class LineHeight extends Extension {
   get name () {

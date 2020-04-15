@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import OMenubarBtn from './OMenubarBtn'
-import OMetaInput from '../common/OMetaInput'
+import OMenubarBtn from 'src/components/buttons/OMenubarBtn'
+import OMetaInput from 'src/components/common/OMetaInput'
 export default {
   name: 'o-photo-btn',
   data () {

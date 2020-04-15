@@ -7,7 +7,7 @@
  * @see katex https://github.com/KaTeX/KaTeX
  */
 import { Node } from 'tiptap'
-import OKatexInline from 'components/extensions/OKatexInline'
+import OKatexInlineView from 'src/components/views/OKatexInlineView'
 
 export default class KatexInline extends Node {
   get name () {
@@ -47,6 +47,6 @@ export default class KatexInline extends Node {
   }
 
   get view () {
-    return OKatexInline
+    return OKatexInlineView
   }
 }

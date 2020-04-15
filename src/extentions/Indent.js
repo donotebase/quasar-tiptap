@@ -1,5 +1,5 @@
 import { Extension } from 'tiptap'
-import { createIndentCommand } from '../utils/indent'
+import { createIndentCommand } from 'src/utils/indent'
 
 export default class Indent extends Extension {
   get name () {

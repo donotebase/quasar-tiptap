@@ -1,13 +1,16 @@
 import path from 'path'
+
+import alias from '@rollup/plugin-alias'
+import cjs from '@rollup/plugin-commonjs'
+import node from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
+
 import vue from 'rollup-plugin-vue'
 import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
-import cjs from 'rollup-plugin-commonjs'
-import node from 'rollup-plugin-node-resolve'
-import replace from 'rollup-plugin-replace'
 import postcss from 'rollup-plugin-postcss'
 import postcssPresetEnv from 'postcss-preset-env'
-import alias from '@rollup/plugin-alias'
+import typescript from 'rollup-plugin-typescript2'
 
 const isProduction = process.env.BUILD === 'production'
 const libDir = path.resolve(__dirname, 'dist/lib')
@@ -52,8 +55,19 @@ function getConfig ({
     },
     external: [
       'vue',
+      'quasar',
       'tiptap',
+      'tiptap-extensions',
+      'prosemirror-utils',
+      'prosemirror-state',
+      'prosemirror-model',
+      'prosemirror-tables',
       'vue-awesome',
+      'vue-codemirror',
+      'codemirror',
+      'mermaid',
+      'katex',
+      'crypto',
     ],
     plugins: [
       replace({
@@ -61,8 +75,12 @@ function getConfig ({
       }),
       alias({
         entries: {
-          '@': srcDir,
+          'src': srcDir,
         },
+      }),
+      typescript({
+        clear: true,
+        typescript: require('typescript'),
       }),
       node({
         extensions: ['.ts', '.js', '.vue'],
@@ -93,7 +111,7 @@ function getConfig ({
             {
               modules: false,
               useBuiltIns: 'usage',
-              corejs: 3,
+              corejs: 2,
             },
           ],
         ],

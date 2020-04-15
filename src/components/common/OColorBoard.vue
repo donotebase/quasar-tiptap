@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { highlightColor } from '../../utils/shared'
+import { highlightColor } from 'src/utils/shared'
 
 export default {
   name: 'o-color-board',

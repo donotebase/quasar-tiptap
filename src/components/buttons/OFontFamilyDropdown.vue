@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { findActiveMarkAttribute } from '../../utils/mark'
+import { findActiveMarkAttribute } from 'src/utils/mark'
 export default {
   name: 'o-font-family',
   data () {

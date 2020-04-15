@@ -49,7 +49,7 @@ import {
   OKatexBlock,
   OKatexInline,
   OFormatClear
-} from './index'
+} from 'src/extentions'
 
 const classes = {
   BulletList,

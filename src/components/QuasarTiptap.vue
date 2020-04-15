@@ -65,12 +65,12 @@ import {
   OKatexInline,
   OFormatClear,
   RecommendedExtensions
-} from '../extentions'
+} from 'src/extentions'
 
-import DynamicClass from '../extentions/dynamic'
+import DynamicClass from 'src/extentions/dynamic'
 
-import OEditorMenuBar from './menubars/OEditorMenuBar'
-import OEditorMenuBubble from './menubars/OEditorMenuBubble'
+import OEditorMenuBar from 'src/components/menubars/OEditorMenuBar'
+import OEditorMenuBubble from 'src/components/menubars/OEditorMenuBubble'
 
 export default {
   name: 'quasar-tiptap',

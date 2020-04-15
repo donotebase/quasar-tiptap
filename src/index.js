@@ -1,4 +1,4 @@
-import QuasarTiptap from './components/QuasarTiptap'
+import QuasarTiptap from 'src/components/QuasarTiptap'
 
 const QuasarTiptapPlugin = {
   installed: false,
@@ -16,7 +16,7 @@ const QuasarTiptapPlugin = {
   },
 }
 
-export * from './extentions/index'
+export * from 'src/extentions/index'
 
 export {
   QuasarTiptapPlugin,

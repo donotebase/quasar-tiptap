@@ -8,7 +8,7 @@
 # Quasar: http://quasar-framework.org/guide/quasar-cli.html
 # ==============================================================================
 PROMPT=Oriovo
-APP="Donote"
+APP="quasar-tiptap"
 
 ## Run from here
 ## -----------------------------------------------------------------------------
@@ -41,19 +41,6 @@ run_build() {
   quasar $type -m $mode
 }
 
-electron_packager() {
-  quasar build -m electron -T all -b packager
-
-  cd dist/electron
-
-  rm -vf *.zip
-  zip -r "$APP-linux-x64-$VERSION.zip" "$APP-linux-x64"
-  zip -r "$APP-win32-x64-$VERSION.zip" "$APP-win32-x64"
-  zip -r "$APP-darwin-x64-$VERSION.zip" "$APP-darwin-x64"
-
-  cd -
-}
-
 electron_builder() {
   quasar build -m electron -T all -b builder
   # quasar build -m electron -t ios -T darwin -b builder
@@ -65,9 +52,6 @@ electron_builder() {
 ## Run from here
 ## -----------------------------------------------------------------------------
 case $type in
-  "packager")
-    electron_packager
-    ;;
   "builder")
     electron_builder
     ;;

@@ -49,12 +49,10 @@ import 'codemirror/addon/edit/continuelist'
 import 'codemirror/addon/selection/active-line'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/neat.css'
-import 'codemirror/theme/neo.css'
 import 'codemirror/mode/markdown/markdown'
-import 'codemirror/keymap/sublime'
 import 'src/css/katex/katex.min.css'
 
-import { MermaidTemplates } from '../../data/diagrams'
+import { MermaidTemplates } from 'src/data/diagrams'
 const katex = require('katex')
 
 export default {
@@ -81,7 +79,7 @@ export default {
         lineWrapping: true,
         lineNumbers: true,
         // sublime、emacs、vim三种键位模式，支持你的不同操作习惯
-        keyMap: 'sublime',
+        // keyMap: 'sublime',
         // 按键映射
         extraKeys: {
           Enter: 'newlineAndIndentContinueMarkdownList'

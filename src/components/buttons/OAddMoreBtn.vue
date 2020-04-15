@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import OMenubarBtn from './OMenubarBtn'
-import OCommonItem from '../common/OCommonItem'
-import OMetaInput from '../common/OMetaInput'
+import OMenubarBtn from 'src/components/buttons/OMenubarBtn'
+import OCommonItem from 'src/components/common/OCommonItem'
+import OMetaInput from 'src/components/common/OMetaInput'
 export default {
   name: 'o-add-more-btn',
   data () {

@@ -1,6 +1,6 @@
 import { markInputRule } from 'tiptap-commands'
 import { Mark } from 'tiptap'
-import { applyMark } from '../utils/mark'
+import { applyMark } from 'src/utils/mark'
 
 export default class Align extends Mark {
   get name () {

@@ -1,6 +1,6 @@
 import { Node } from 'tiptap'
 import { setBlockType, textblockTypeInputRule, toggleBlockType } from 'tiptap-commands'
-import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from './Paragraph'
+import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from 'src/extentions/Paragraph'
 
 function getAttrs (dom) {
   const attrs = getParagraphNodeAttrs(dom)

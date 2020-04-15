@@ -1,5 +1,5 @@
 import { TodoItem as TiptapTodoItem } from 'tiptap-extensions'
-import OTodoItem from 'components/extensions/OTodoItem'
+import OTodoItemView from 'src/components/views/OTodoItemView'
 
 function getAttrs (dom) {
   let {
@@ -62,6 +62,6 @@ export default class TodoItem extends TiptapTodoItem {
   }
 
   get view () {
-    return OTodoItem
+    return OTodoItemView
   }
 }

@@ -7,7 +7,7 @@
  * @see mermaid https://github.com/mermaid-js/mermaid
  */
 import { Node } from 'tiptap'
-import ODiagram from 'components/extensions/ODiagram'
+import ODiagramView from 'src/components/views/ODiagramView'
 
 export default class Diagram extends Node {
   get name () {
@@ -50,6 +50,6 @@ export default class Diagram extends Node {
   }
 
   get view () {
-    return ODiagram
+    return ODiagramView
   }
 }

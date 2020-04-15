@@ -1,6 +1,6 @@
 import { markInputRule } from 'tiptap-commands'
 import { Mark } from 'tiptap'
-import { applyMark } from '../utils/mark'
+import { applyMark } from 'src/utils/mark'
 
 export default class FontFamily extends Mark {
   get name () {

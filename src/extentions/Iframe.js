@@ -6,7 +6,7 @@
  * @date 2020.03.02
  */
 import { Node } from 'tiptap'
-import IFrame from 'components/extensions/IFrame'
+import IFrameView from 'src/components/views/IFrameView'
 
 export default class Iframe extends Node {
   get name () {
@@ -75,6 +75,6 @@ export default class Iframe extends Node {
   // }
 
   get view () {
-    return IFrame
+    return IFrameView
   }
 }

@@ -10,27 +10,27 @@
 // Extensions
 // --------------------------------------------------------------------------------
 // Nodes
-export { default as OTitle } from './Title'
-export { default as ODoc } from './Doc'
-export { default as OParagraph } from './Paragraph'
-export { default as OBlockquote } from './Blockquote'
-export { default as OTodoItem } from './TodoItem'
-export { default as ODiagram } from './Diagram'
-export { default as OHeading } from './Heading'
-export { default as OIframe } from './Iframe'
-export { default as OKatexBlock } from './KatexBlock'
-export { default as OKatexInline } from './KatexInline'
+export { default as OTitle } from 'src/extentions/Title'
+export { default as ODoc } from 'src/extentions/Doc'
+export { default as OParagraph } from 'src/extentions/Paragraph'
+export { default as OBlockquote } from 'src/extentions/Blockquote'
+export { default as OTodoItem } from 'src/extentions/TodoItem'
+export { default as ODiagram } from 'src/extentions/Diagram'
+export { default as OHeading } from 'src/extentions/Heading'
+export { default as OIframe } from 'src/extentions/Iframe'
+export { default as OKatexBlock } from 'src/extentions/KatexBlock'
+export { default as OKatexInline } from 'src/extentions/KatexInline'
 
 // Marks
-export { default as OBackColor } from './BackColor'
-export { default as OForeColor } from './ForeColor'
-export { default as OFontFamily } from './FontFamily'
+export { default as OBackColor } from 'src/extentions/BackColor'
+export { default as OForeColor } from 'src/extentions/ForeColor'
+export { default as OFontFamily } from 'src/extentions/FontFamily'
 
 // Extensions
-export { default as OAlignment } from './Alignment'
-export { default as OIndent } from './Indent'
-export { default as OLineHeight } from './LineHeight'
-export { default as OFormatClear } from './FormatClear'
+export { default as OAlignment } from 'src/extentions/Alignment'
+export { default as OIndent } from 'src/extentions/Indent'
+export { default as OLineHeight } from 'src/extentions/LineHeight'
+export { default as OFormatClear } from 'src/extentions/FormatClear'
 
 // --------------------------------------------------------------------------------
 // Exposed Extension List

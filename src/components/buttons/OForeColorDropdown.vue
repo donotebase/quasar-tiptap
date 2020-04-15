@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import OColorBoard from '../common/OColorBoard'
-import { findActiveMarkAttribute } from '../../utils/mark'
+import OColorBoard from 'src/components/common/OColorBoard'
+import { findActiveMarkAttribute } from 'src/utils/mark'
 export default {
   name: 'o-fore-color-dropdown',
   data () {
