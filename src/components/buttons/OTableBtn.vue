@@ -82,8 +82,8 @@ export default {
       }
 
       .cell.selected {
-        border solid 1px $blue
-        background rgba($blue, 0.2)
+        border solid 1px #1976D2
+        background rgba(#1976D2, 0.2)
       }
     }
   }
