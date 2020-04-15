@@ -8,9 +8,9 @@ const routes = [
       { path: 'tiptap/basic', component: () => import('pages/tiptap/basic/index.vue') },
       { path: 'tiptap/test1', component: () => import('pages/tiptap/basic/index.vue') },
       { path: 'tiptap/test2', component: () => import('pages/tiptap/basic/index.vue') },
-      { path: 'quasar-tiptap/basic', component: () => import('pages/quasar-tiptap/basic.vue') },
-      { path: 'quasar-tiptap/readonly', component: () => import('pages/quasar-tiptap/readonly.vue') },
-      { path: 'quasar-tiptap/all', component: () => import('pages/quasar-tiptap/all.vue') }
+      { path: 'examples/basic', component: () => import('pages/examples/basic.vue') },
+      { path: 'examples/readonly', component: () => import('pages/examples/readonly.vue') },
+      { path: 'examples/all', component: () => import('pages/examples/all.vue') }
     ]
   }
 ]

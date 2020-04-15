@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import QuasarTiptap from 'src/lib/components/QuasarTiptap'
+import QuasarTiptap from 'src/components/QuasarTiptap'
 
-import { BasicFeaturesArticle } from 'src/lib/data/article'
-import { RecommendedExtensions } from 'src/lib/extentions'
+import { BasicFeaturesArticle } from 'src/data/article'
+import { RecommendedExtensions } from 'src/extentions'
 
 export default {
   name: 'page-quasar-tiptap-basic',

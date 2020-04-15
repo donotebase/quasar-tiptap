@@ -52,7 +52,7 @@ import 'codemirror/theme/neat.css'
 import 'codemirror/theme/neo.css'
 import 'codemirror/mode/markdown/markdown'
 import 'codemirror/keymap/sublime'
-import 'src/lib/css/markdown/katex/katex.min.css'
+import 'src/css/katex/katex.min.css'
 
 import { MermaidTemplates } from '../../data/diagrams'
 const katex = require('katex')

@@ -40,24 +40,24 @@
 <script>
 import { EditorMenuBar } from 'tiptap'
 
-import OForeColorDropdown from 'src/lib/components/buttons/OForeColorDropdown'
-import OBackColorDropdown from 'src/lib/components/buttons/OBackColorDropdown'
-import OFontFamilyDropdown from 'src/lib/components/buttons/OFontFamilyDropdown'
-import OAlignDropdown from 'src/lib/components/buttons/OAlignDropdown'
-import OAlignGroup from 'src/lib/components/buttons/OAlignGroup'
-import OLineHeightDropdown from 'src/lib/components/buttons/OLineHeightDropdown'
-import OHeadingDropdown from 'src/lib/components/buttons/OHeadingDropdown'
-import OHeadingGroup from 'src/lib/components/buttons/OHeadingGroup'
-import OHeadingList from 'src/lib/components/buttons/OHeadingList'
+import OForeColorDropdown from 'src/components/buttons/OForeColorDropdown'
+import OBackColorDropdown from 'src/components/buttons/OBackColorDropdown'
+import OFontFamilyDropdown from 'src/components/buttons/OFontFamilyDropdown'
+import OAlignDropdown from 'src/components/buttons/OAlignDropdown'
+import OAlignGroup from 'src/components/buttons/OAlignGroup'
+import OLineHeightDropdown from 'src/components/buttons/OLineHeightDropdown'
+import OHeadingDropdown from 'src/components/buttons/OHeadingDropdown'
+import OHeadingGroup from 'src/components/buttons/OHeadingGroup'
+import OHeadingList from 'src/components/buttons/OHeadingList'
 
-import OAddMoreBtn from 'src/lib/components/buttons/OAddMoreBtn'
-import OPhotoBtn from 'src/lib/components/buttons/OPhotoBtn'
-import OTableBtn from 'src/lib/components/buttons/OTableBtn'
-import OTableGroup from 'src/lib/components/buttons/OTableGroup'
+import OAddMoreBtn from 'src/components/buttons/OAddMoreBtn'
+import OPhotoBtn from 'src/components/buttons/OPhotoBtn'
+import OTableBtn from 'src/components/buttons/OTableBtn'
+import OTableGroup from 'src/components/buttons/OTableGroup'
 
-import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
-import OSimpleCommandBtn from 'src/lib/components/buttons/OSimpleCommandBtn'
-import OMetaInput from 'src/lib/components/common/OMetaInput'
+import OMenubarBtn from 'src/components/buttons/OMenubarBtn'
+import OSimpleCommandBtn from 'src/components/buttons/OSimpleCommandBtn'
+import OMetaInput from 'src/components/common/OMetaInput'
 
 export default {
   name: 'page-quasar-tiptap-all',

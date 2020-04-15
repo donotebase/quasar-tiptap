@@ -7,7 +7,7 @@
  * @see mermaid https://github.com/mermaid-js/mermaid
  */
 import { Node } from 'tiptap'
-import ODiagram from '../components/extensions/ODiagram'
+import ODiagram from 'components/extensions/ODiagram'
 
 export default class Diagram extends Node {
   get name () {

@@ -128,18 +128,18 @@ import {
   ODiagram,
   OKatexBlock,
   OKatexInline
-} from 'src/lib/extentions'
+} from 'src/extentions'
 
-import OForeColorDropdown from 'src/lib/components/buttons/OForeColorDropdown'
-import OBackColorDropdown from 'src/lib/components/buttons/OBackColorDropdown'
-import OAlignDropdown from 'src/lib/components/buttons/OAlignDropdown'
-import OAlignGroup from 'src/lib/components/buttons/OAlignGroup'
-import OHeadingDropdown from 'src/lib/components/buttons/OHeadingDropdown'
-import OHeadingGroup from 'src/lib/components/buttons/OHeadingGroup'
-import OHeadingList from 'src/lib/components/buttons/OHeadingList'
+import OForeColorDropdown from 'src/components/buttons/OForeColorDropdown'
+import OBackColorDropdown from 'src/components/buttons/OBackColorDropdown'
+import OAlignDropdown from 'src/components/buttons/OAlignDropdown'
+import OAlignGroup from 'src/components/buttons/OAlignGroup'
+import OHeadingDropdown from 'src/components/buttons/OHeadingDropdown'
+import OHeadingGroup from 'src/components/buttons/OHeadingGroup'
+import OHeadingList from 'src/components/buttons/OHeadingList'
 
-import OMenubarBtn from 'src/lib/components/buttons/OMenubarBtn'
-import OCommonItem from 'src/lib/components/common/OCommonItem'
+import OMenubarBtn from 'src/components/buttons/OMenubarBtn'
+import OCommonItem from 'src/components/common/OCommonItem'
 
 export default {
   name: 'page-tiptap-basic',
@@ -278,7 +278,7 @@ export default {
 </script>
 
 <style lang="stylus">
-  @import "../../../lib/css/tiptap.styl";
+  @import "../../../css/tiptap.styl";
 
   .editor-scroll-area {
     position absolute

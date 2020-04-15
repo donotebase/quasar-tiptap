@@ -1,5 +1,5 @@
 import { TodoItem as TiptapTodoItem } from 'tiptap-extensions'
-import OTodoItem from '../components/extensions/OTodoItem'
+import OTodoItem from 'components/extensions/OTodoItem'
 
 function getAttrs (dom) {
   let {

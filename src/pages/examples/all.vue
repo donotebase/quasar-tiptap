@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import QuasarTiptap from 'src/lib/components/QuasarTiptap'
+import QuasarTiptap from 'src/components/QuasarTiptap'
 import {
   Placeholder,
 } from 'tiptap-extensions'
 
-import { RecommendedExtensions } from 'src/lib/extentions'
-import { FullFeaturedArticle } from 'src/lib/data/article'
+import { RecommendedExtensions } from 'src/extentions'
+import { FullFeaturedArticle } from 'src/data/article'
 
 export default {
   name: 'page-quasar-tiptap-all',

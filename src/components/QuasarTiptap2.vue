@@ -61,7 +61,7 @@ import {
   OKatexBlock,
   OKatexInline,
   OFormatClear
-} from 'src/lib/extentions'
+} from 'src/extentions'
 
 import OEditorMenuBar from './menubars/OEditorMenuBar'
 
