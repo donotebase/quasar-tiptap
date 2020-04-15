@@ -13,7 +13,7 @@ import postcssPresetEnv from 'postcss-preset-env'
 import typescript from 'rollup-plugin-typescript2'
 
 const isProduction = process.env.BUILD === 'production'
-const libDir = path.resolve(__dirname, 'dist/lib')
+const libDir = path.resolve(__dirname, 'lib')
 const srcDir = path.resolve(__dirname, 'src')
 
 export default () => [

@@ -3,6 +3,7 @@
 .thumbs.db
 node_modules
 /dist
+/lib
 /src-cordova
 /src-electron
 npm-debug.log*

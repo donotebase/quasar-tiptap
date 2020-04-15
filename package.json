@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "description": "A modern WYSIWYG rich-text editor built on top of tiptap and Quasar for Vue.js",
   "productName": "Quasar Tiptap",
-  "author": "Micle Bu <mekery@qq.com>",
-  "private": false,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"No test specified\" && exit 0",
     "build": "rollup -c --environment BUILD:production"
   },
+  "main": "lib/quasar-tiptap.common.js",
+  "module": "lib/quasar-tiptap.esm.js",
+  "unpkg": "lib/quasar-tiptap.min.js",
+  "jsdelivr": "lib/quasar-tiptap.min.js",
+  "files": [
+    "lib/*",
+    "src/*"
+  ],
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
@@ -58,31 +64,37 @@
   "resolutions": {
     "@babel/parser": "7.7.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/donotebase/quasar-tiptap.git"
+  },
   "bugs": {
     "url": "https://github.com/donotebase/quasar-tiptap/issues"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
   },
   "homepage": "https://github.com/donotebase/quasar-tiptapr#readme",
   "keywords": [
     "editor",
+    "wysiwyg",
+    "vue",
+    "vuejs",
     "quasar",
     "tiptap",
     "prosemirror",
-    "vue.js",
-    "wysiwyg",
     "donote"
   ],
+  "author": {
+    "name": "Micle Bu",
+    "email": "mekery@qq.com",
+    "url": "https://www.donote.info"
+  },
   "license": "MIT",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "lint-staged": {
     "*.{js,vue}": [
       "vue-cli-service lint",
       "git add"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/donotebase/quasar-tiptap.git"
   }
 }
