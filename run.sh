@@ -14,7 +14,7 @@ APP="quasar-tiptap"
 ## -----------------------------------------------------------------------------
 if [ $# -lt 1 ]
 then
-    echo "Usage: `basename "$0"` dev|build|packager|builder [pwa|electron]"
+    echo "Usage: `basename "$0"` dev|build|deploy|packager|builder [pwa|electron]"
     exit 1
 fi
 
@@ -41,9 +41,19 @@ run_build() {
   quasar $type -m $mode
 }
 
+run_deploy() {
+  cd dist/spa
+
+  git init
+  git add -A
+  git commit -m 'deploy: 🎉[skip ci]'
+  git push -f git@github.com:donotebase/quasar-tiptap.git master:gh-pages
+
+  cd -
+}
+
 electron_builder() {
   quasar build -m electron -T all -b builder
-  # quasar build -m electron -t ios -T darwin -b builder
 
   cd dist/electron
   cd -
@@ -52,6 +62,11 @@ electron_builder() {
 ## Run from here
 ## -----------------------------------------------------------------------------
 case $type in
+  "deploy")
+    type="build"
+    run_build
+    run_deploy
+    ;;
   "builder")
     electron_builder
     ;;

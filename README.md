@@ -1,6 +1,6 @@
 # Quasar Tiptap (quasar-tiptap)
 
-A modern WYSIWYG rich-text editor built on top of [tiptap](https://github.com/scrumpy/tiptap) and [Quasar Framework](https://github.com/quasarframework) for [Vue.js](https://github.com/vuejs/vue)
+A modern WYSIWYG rich-text editor built on top of [tiptap](https://github.com/scrumpy/tiptap) and [Quasar Framework](https://github.com/quasarframework) for Vue.js. https://donotebase.github.io/quasar-tiptap
 
 ## Installation
 ```bash
@@ -48,4 +48,4 @@ yarn run build
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/donotebase/quasar-tiptap/blob/master/LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/donotebase/quasar-tiptap/blob/master/LICENSE) for more information.

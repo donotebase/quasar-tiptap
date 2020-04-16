@@ -85,6 +85,7 @@ module.exports = function (ctx) {
       vueRouterMode: 'history', // available values: 'hash', 'history'
       vueCompiler: true,
       distDir: 'dist/' + ctx.modeName,
+      publicPath: 'quasar-tiptap',
 
       // rtl: false, // https://quasar.dev/options/rtl-support
       // showProgress: false,
