@@ -135,7 +135,6 @@ import OBackColorDropdown from 'src/components/buttons/OBackColorDropdown'
 import OAlignDropdown from 'src/components/buttons/OAlignDropdown'
 import OAlignGroup from 'src/components/buttons/OAlignGroup'
 import OHeadingDropdown from 'src/components/buttons/OHeadingDropdown'
-import OHeadingGroup from 'src/components/buttons/OHeadingGroup'
 import OHeadingList from 'src/components/buttons/OHeadingList'
 
 import OMenubarBtn from 'src/components/buttons/OMenubarBtn'
@@ -169,7 +168,6 @@ export default {
     OAlignDropdown,
     OAlignGroup,
     OHeadingDropdown,
-    OHeadingGroup,
     OHeadingList
   },
   methods: {

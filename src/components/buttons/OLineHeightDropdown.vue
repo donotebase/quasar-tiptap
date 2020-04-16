@@ -1,15 +1,21 @@
 <template>
-  <q-btn-dropdown icon="mdi-format-line-spacing" menu-anchor="bottom left" menu-self="top left" class="o-line-height-dropdown" content-class="o-menu o-line-height-dropdown-menu" dense flat>
-    <q-list>
-      <template v-for="(item, index) of types">
-        <q-separator :key="index" v-if="item.separator" />
-        <q-item :class="{ 'is-active': isActive(item.value) }" :key="index" clickable v-close-popup
-                @click.native="commands.lineHeight({lineHeight: item.value})" v-else>
-          <q-item-section>{{item.label}}</q-item-section>
-        </q-item>
-      </template>
-    </q-list>
-  </q-btn-dropdown>
+  <div>
+    <q-btn-dropdown icon="mdi-format-line-spacing" menu-anchor="bottom left" menu-self="top left" class="o-line-height-dropdown" content-class="o-menu o-line-height-dropdown-menu" dense flat>
+      <q-list>
+        <template v-for="(item, index) of types">
+          <q-separator :key="index" v-if="item.separator" />
+          <q-item :class="{ 'is-active': isActive(item.value) }" :key="index" clickable v-close-popup
+                  @click.native="commands.lineHeight({lineHeight: item.value})" v-else>
+            <q-item-section>{{item.label}}</q-item-section>
+            <q-item-section side>
+              <q-icon name="mdi-check" class="checked" />
+            </q-item-section>
+          </q-item>
+        </template>
+      </q-list>
+    </q-btn-dropdown>
+    <q-tooltip>{{$o.lang.editor.lineHeight}}</q-tooltip>
+  </div>
 </template>
 
 <script>
@@ -19,7 +25,7 @@ export default {
   data () {
     return {
       types: [
-        { label: 'Default', value: '0' },
+        { label: this.$o.lang.editor.default, value: '0' },
         { label: '1', value: '1', separator: true },
         { label: '1.15', value: '1.15' },
         { label: '1.5', value: '1.5' },

@@ -1,7 +1,7 @@
 <template>
-  <o-menubar-btn icon="photo" class="o-photo-btn">
+  <o-menubar-btn icon="photo" :tooltip="$o.lang.editor.photo" class="o-photo-btn">
     <q-menu ref="photoPopover" anchor="bottom middle" self="top middle" class="shadow-5">
-      <o-meta-input :title="$t('action.picture')" icon="image"
+      <o-meta-input :title="$o.lang.editor.photo" icon="image"
                     @primaryAction="insertImage(commands.image, $event)">
       </o-meta-input>
     </q-menu>

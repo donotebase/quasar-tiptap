@@ -1,19 +1,45 @@
 <template>
-  <o-menubar-btn icon="add" :tooltip="$t('add')" class="o-add-more-btn">
+  <o-menubar-btn icon="add" :tooltip="$o.lang.editor.addMore" class="o-add-more-btn">
     <q-menu ref="addPopover" anchor="bottom left" self="top left" content-class="o-menu">
       <section>
-        <o-common-item icon="mdi-code-braces" :label="$t('code_block')" @click.native="commands.code_block" v-close-popup />
-        <o-common-item icon="mdi-sigma" :label="$t('formula')" :side-label="$t('block')" @click.native="commands.katex_block" v-close-popup />
-        <o-common-item icon="mdi-sigma" :label="$t('formula')" :side-label="$t('inline')" @click.native="commands.katex_inline" v-close-popup />
-        <o-common-item icon="mdi-sitemap" :label="$t('diagram.text')" @click.native="commands.diagram" v-close-popup>
+        <o-common-item icon="mdi-code-braces"
+                       :label="$o.lang.editor.codeBlock"
+                       @click.native="commands.code_block" v-close-popup />
+        <o-common-item icon="photo"
+                       :label="$o.lang.editor.photo">
+          <q-menu ref="photoPopover" anchor="top right" self="top left" :offset="[2, 0]">
+            <o-meta-input :title="$o.lang.editor.photo" icon="image"
+                          @primaryAction="insertImage(commands.image, $event)">
+            </o-meta-input>
+          </q-menu>
+        </o-common-item>
+        <o-common-item icon="mdi-sigma"
+                       :label="$o.lang.editor.formula"
+                       side-icon="keyboard_arrow_right">
+          <q-menu ref="formulaPopover" anchor="top right" self="top left" content-class="o-menu" :offset="[2, 0]">
+            <div class="row col-12 justify-around q-pa-md">
+              <div class="o-button" @click="commands.katex_block">
+                <div><q-icon name="mdi-sigma" /></div>
+                <div>{{$o.lang.editor.blockFormula}}</div>
+              </div>
+              <div class="o-button" @click="commands.katex_inline">
+                <div><q-icon name="mdi-sigma" /></div>
+                <div>{{$o.lang.editor.inlineFormula}}</div>
+              </div>
+            </div>
+          </q-menu>
+        </o-common-item>
+        <o-common-item icon="mdi-sitemap"
+                       :label="$o.lang.diagram.name"
+                       @click.native="commands.diagram" v-close-popup>
           <q-tooltip anchor="center right" self="center left">
             <div class="text-bold">Mermaid</div>
-            <div class="text-white">{{$t('diagram.text.tips')}}</div>
+            <div class="text-white">{{$o.lang.diagram.tips}}</div>
           </q-tooltip>
         </o-common-item>
         <q-separator />
         <o-common-item icon="mdi-iframe" :label="$t('iframe')">
-          <q-menu ref="iframePopover" anchor="top right" self="top left" class="shadow-5">
+          <q-menu ref="iframePopover" anchor="top right" self="top left" :offset="[2, 0]">
             <o-meta-input :title="$t('iframe')" icon="link"
                           @primaryAction="insertIframe(commands.iframe, $event)">
             </o-meta-input>
@@ -51,6 +77,13 @@ export default {
     insertIframe (command, src) {
       if (src) {
         command({ src })
+      }
+    },
+    insertImage (command, src) {
+      if (src) {
+        command({ src })
+
+        this.$refs.addPopover.hide()
       }
     }
   },

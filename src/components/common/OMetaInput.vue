@@ -4,15 +4,19 @@
     <div class="fields">
       <q-input v-model="value" ref="input" standout="bg-blue" flat
                :autofocus="true"
-               @keyup.enter.native="onConfirm" placeholder="输入地址">
+               @keyup.enter.native="onConfirm" :placeholder="$o.lang.label.linkAddress">
         <template v-slot:prepend>
           <q-icon :name="icon" />
         </template>
       </q-input>
     </div>
     <div class="actions row justify-between">
-      <q-btn :icon="secondIcon" @click="$emit('secondAction')" flat v-close-popup>{{secondLabel}}</q-btn>
-      <q-btn color="primary" class="bg-blue text-text" @click="onConfirm" flat v-close-popup>{{$t('action.ok')}}</q-btn>
+      <q-btn class="bg-grey-3" @click="$emit('secondAction')" flat v-close-popup>
+        {{$o.lang.label.cancel}}
+      </q-btn>
+      <q-btn class="bg-blue text-white" @click="onConfirm" flat v-close-popup>
+        {{$o.lang.label.ok}}
+      </q-btn>
     </div>
   </section>
 </template>
@@ -44,7 +48,7 @@ export default {
     },
     secondLabel: {
       type: String,
-      default: 'Cancel'
+      default: ''
     }
   },
   methods: {

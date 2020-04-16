@@ -1,24 +1,22 @@
 <template>
-  <q-btn-dropdown icon="format_align_center" menu-anchor="bottom left" menu-self="top left" class="o-align-dropdown" content-class="o-menu o-align-dropdown-menu" dense flat>
-    <q-list>
-      <q-item :class="{ 'is-active': isActive('left') }" @click.native="commands.align_left()" clickable v-close-popup>
-        <q-item-section side><q-icon name="format_align_left" /></q-item-section>
-        <q-item-section>左对齐</q-item-section>
-      </q-item>
-      <q-item :class="{ 'is-active': isActive('center') }" @click.native="commands.align_center()" clickable v-close-popup>
-        <q-item-section side><q-icon name="format_align_center" /></q-item-section>
-        <q-item-section>居中对齐</q-item-section>
-      </q-item>
-      <q-item :class="{ 'is-active': isActive('right') }" @click.native="commands.align_right()" clickable v-close-popup>
-        <q-item-section side><q-icon name="format_align_right" /></q-item-section>
-        <q-item-section>右对齐</q-item-section>
-      </q-item>
-      <q-item :class="{ 'is-active': isActive('justify') }" @click.native="commands.align_justify()" clickable v-close-popup>
-        <q-item-section side><q-icon name="format_align_justify" /></q-item-section>
-        <q-item-section>两端对齐</q-item-section>
-      </q-item>
-    </q-list>
-  </q-btn-dropdown>
+  <div>
+    <q-btn-dropdown icon="format_align_center" menu-anchor="bottom left" menu-self="top left" class="o-align-dropdown" content-class="o-menu o-align-dropdown-menu" dense flat>
+      <q-list>
+        <q-item v-for="(item, index) in alignments" :key="index"
+                :class="{ 'is-active': isActive(item.value) }"
+                @click.native="item.command()" clickable v-close-popup>
+          <q-item-section side>
+            <q-icon :name="`format_align_${item.value}`" />
+          </q-item-section>
+          <q-item-section>{{item.label}}</q-item-section>
+          <q-item-section side>
+            <q-icon name="mdi-check" class="checked" />
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-btn-dropdown>
+    <q-tooltip>{{$o.lang.editor.align}}</q-tooltip>
+  </div>
 </template>
 
 <script>
@@ -43,6 +41,14 @@ export default {
     }
   },
   computed: {
+    alignments () {
+      return [
+        { label: this.$o.lang.editor.left, value: 'left', command: this.commands.align_left },
+        { label: this.$o.lang.editor.center, value: 'center', command: this.commands.align_center },
+        { label: this.$o.lang.editor.right, value: 'right', command: this.commands.align_right },
+        { label: this.$o.lang.editor.justify, value: 'justify', command: this.commands.align_justify },
+      ]
+    }
   }
 }
 </script>

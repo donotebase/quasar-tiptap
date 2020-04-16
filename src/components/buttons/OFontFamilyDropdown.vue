@@ -1,15 +1,22 @@
 <template>
-  <q-btn-dropdown icon="mdi-format-font" menu-anchor="bottom left" menu-self="top left" class="o-font-family" content-class="o-menu o-align-dropdown-menu" dense flat>
-    <q-list>
-      <template v-for="(item, index) of fontFamilies">
-        <q-separator :key="index" v-if="item.separator" />
-        <q-item :key="index" :class="{ 'is-active': isActive(item.value) }"
-                @click.native="commands.fontFamily({fontFamily: item.value})" clickable v-close-popup v-else>
-          <q-item-section :style="`font-family: ${item.value}`">{{item.label}}</q-item-section>
-        </q-item>
-      </template>
-    </q-list>
-  </q-btn-dropdown>
+  <div>
+    <q-btn-dropdown icon="mdi-format-font" menu-anchor="bottom left" menu-self="top left" class="o-font-family" content-class="o-menu o-align-dropdown-menu" dense flat>
+      <q-list>
+        <template v-for="(item, index) of fontFamilies">
+          <q-separator :key="index" v-if="item.separator" />
+          <q-item :key="index"
+                  :class="{ 'is-active': isActive(item.value) }"
+                  @click.native="commands.fontFamily({fontFamily: item.value})" clickable v-close-popup v-else>
+            <q-item-section :style="`font-family: ${item.value}`">{{item.label}}</q-item-section>
+            <q-item-section side>
+              <q-icon name="mdi-check" class="checked" />
+            </q-item-section>
+          </q-item>
+        </template>
+      </q-list>
+    </q-btn-dropdown>
+    <q-tooltip>{{$o.lang.editor.fontFamily}}</q-tooltip>
+  </div>
 </template>
 
 <script>
@@ -19,7 +26,7 @@ export default {
   data () {
     return {
       fontFamilies: [
-        { label: 'Default', value: 'Roboto' },
+        { label: this.$o.lang.editor.default, value: 'Roboto' },
         { label: 'Arial', value: 'Arial', separator: true },
         { label: 'Arial Black', value: 'Arial Black' },
         { label: 'Georgia', value: 'Georgia' },

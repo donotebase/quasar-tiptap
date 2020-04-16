@@ -1,23 +1,28 @@
 <template>
   <section class="o-katex" :class="contentClass">
-    <div class="row col-12 justify-between o-toolbar" v-if="view.editable">
-      <div class="row col items-center providers">数学公式</div>
+    <div class="row col-12 justify-between o-toolbar">
+      <div class="row col items-center providers">{{$o.lang.editor.blockFormula}}</div>
       <div class="col-auto actions">
-        <q-btn :label="$t('help')" to="/help/katex" flat />
-        <q-btn-dropdown :label="$t('template')" menu-anchor="bottom left" menu-self="top left" :menu-offset="[0, 8]" content-class="o-menu" dense flat v-if="false">
+        <q-btn icon="help_outline" @click="onHelp" flat />
+        <q-btn-dropdown :label="$t('template')" menu-anchor="bottom left" menu-self="top left"
+                        :menu-offset="[0, 8]" content-class="o-menu" dense flat v-if="false">
           <q-list>
-            <q-item v-for="(item, index) of mermaidDiagrams" :key="index" @click.native="onSelectTemplate(item)" clickable v-close-popup>
-              <q-item-section side v-if="false"><q-icon name="format_align_left" /></q-item-section>
+            <q-item v-for="(item, index) of mermaidDiagrams" :key="index"
+                    @click.native="onSelectTemplate(item)" clickable v-close-popup>
+              <q-item-section side v-if="false">
+                <q-icon name="format_align_left" />
+              </q-item-section>
               <q-item-section>{{item.label}}</q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
-        <q-btn icon="close" @click="fullScreen=false" class="bg-blue text-white" flat v-if="fullScreen" />
+        <q-btn icon="close" class="bg-blue text-white" size="0.8rems"
+               @click="fullScreen=false" flat v-if="fullScreen" />
         <template v-else>
           <q-btn icon="fullscreen" @click="toggleFullScreen" flat>
-            <q-tooltip>{{$t('action.fullscreen')}}</q-tooltip>
+            <q-tooltip>{{$o.lang.editor.toggleFullscreen}}</q-tooltip>
           </q-btn>
-          <q-btn :label="toggleLabel" @click="toggleMode" class="bg-blue text-white" flat />
+          <q-btn :label="toggleLabel" @click="toggleMode" class="bg-blue text-white" flat v-if="view.editable" />
         </template>
       </div>
     </div>
@@ -43,6 +48,7 @@
 </template>
 
 <script>
+import { openURL } from 'quasar'
 // Code Mirror
 import { codemirror } from 'vue-codemirror'
 import 'codemirror/addon/edit/continuelist'
@@ -163,6 +169,9 @@ export default {
         this.src = MermaidTemplates[item.value]
         this.renderKatex()
       }
+    },
+    onHelp () {
+      openURL('https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference')
     }
   },
   computed: {
@@ -177,7 +186,7 @@ export default {
       }
     },
     toggleLabel () {
-      return this.mode === 'edit' ? this.$t('view.preview') : this.$t('view.edit')
+      return this.mode === 'edit' ? this.$o.lang.label.preview : this.$o.lang.label.edit
     },
     contentClass () {
       return this.fullScreen ? 'full-screen' : ''

@@ -1,12 +1,15 @@
 <template>
-  <q-btn-dropdown menu-anchor="bottom left" menu-self="top left" :menu-offset="[20, 0]"
-                  class="o-fore-color-dropdown" content-class="o-fore-color-menu" @click="onSelectCurrent" split flat>
-    <section class="row justify-center label" slot="label">
-      <div><q-icon name="mdi-format-color-text"/></div>
-      <div class="indicator" :style="`background: ${hex}`"></div>
-    </section>
-    <o-color-board :active-color="activeColor" @select="onSelect" v-close-popup="closable" />
-  </q-btn-dropdown>
+  <div>
+    <q-btn-dropdown menu-anchor="bottom left" menu-self="top left" :menu-offset="[20, 0]"
+                    class="o-fore-color-dropdown" content-class="o-fore-color-menu" @click="onSelectCurrent" split flat>
+      <section class="row justify-center label" slot="label">
+        <div><q-icon name="mdi-format-color-text"/></div>
+        <div class="indicator" :style="`background: ${hex}`"></div>
+      </section>
+      <o-color-board :active-color="activeColor" @select="onSelect" v-close-popup="closable" />
+    </q-btn-dropdown>
+    <q-tooltip>{{$o.lang.editor.textColor}}</q-tooltip>
+  </div>
 </template>
 
 <script>

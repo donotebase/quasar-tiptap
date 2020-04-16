@@ -512,10 +512,44 @@
       }
     }
   }
+
+  .q-btn, .q-tab {
+    text-transform unset
+  }
 }
 
 .o-menu {
+  .q-item {
+    .checked {
+      visibility hidden
+    }
+  }
   .q-item.is-active {
     background rgba(0, 0, 0, 0.08)
+
+    .checked {
+      visibility visible
+    }
   }
+
+  .o-button {
+    cursor pointer
+    text-align center
+    padding 4px 10px
+    margin 0 4px
+    background rgba(0, 0, 0, 0.05)
+    border-radius 4px
+
+    .q-icon {
+      font-size 1.2rem
+    }
+  }
+  .o-button:hover {
+    background rgba(0, 0, 0, 0.1)
+  }
+}
+
+.q-tooltip {
+  color #ffffff
+  background #272A3E
 }

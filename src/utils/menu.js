@@ -12,6 +12,7 @@ export const CommandComponents = {
   'fore-color': 'o-fore-color-dropdown',
   'back-color': 'o-back-color-dropdown',
   'align-dropdown': 'o-align-dropdown',
+  'align-group': 'o-align-group',
   'line-height': 'o-line-height-dropdown',
   heading: 'o-heading-dropdown',
   photo: 'o-photo-btn',
@@ -49,5 +50,5 @@ export const BubbleToolbar = [
   'fore-color',
   'back-color',
   'separator',
-  'align-dropdown',
+  'align-group',
 ]

@@ -1,7 +1,10 @@
 <template>
-  <q-btn-dropdown icon="mdi-format-header-pound" menu-anchor="bottom left" menu-self="top left" class="o-heading-dropdown" content-class="o-menu o-heading-dropdown-menu" flat>
-    <o-heading-list :editor="editor" :commands="commands" />
-  </q-btn-dropdown>
+  <div>
+    <q-btn-dropdown icon="mdi-format-header-pound" menu-anchor="bottom left" menu-self="top left" class="o-heading-dropdown" content-class="o-menu o-heading-dropdown-menu" flat>
+      <o-heading-list :editor="editor" :commands="commands" />
+    </q-btn-dropdown>
+    <q-tooltip>{{$o.lang.editor.headings}}</q-tooltip>
+  </div>
 </template>
 
 <script>
@@ -42,7 +45,7 @@ export default {
   .o-heading-dropdown-menu {
     .q-list {
       .q-icon {
-        font-size 1.4rem
+        font-size 1rem
       }
 
       .q-item.is-active {

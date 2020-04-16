@@ -2,28 +2,17 @@
   <q-list class="o-heading-list">
     <q-item clickable v-close-popup @click.native="commands.paragraph">
       <q-item-section side><q-icon name="mdi-format-pilcrow" /></q-item-section>
-      <q-item-section>正文</q-item-section>
+      <q-item-section>{{$o.lang.editor.paragraph}}</q-item-section>
     </q-item>
     <q-separator />
-    <q-item :class="{ 'is-active': isActive(1) }" clickable v-close-popup @click.native="commands.heading({ level: 1 })">
-      <q-item-section side>H1</q-item-section>
-      <q-item-section>H1 标题</q-item-section>
-    </q-item>
-    <q-item :class="{ 'is-active': isActive(2) }" clickable v-close-popup @click.native="commands.heading({ level: 2 })">
-      <q-item-section side>H2</q-item-section>
-      <q-item-section>H2 标题</q-item-section>
-    </q-item>
-    <q-item :class="{ 'is-active': isActive(3) }" clickable v-close-popup @click.native="commands.heading({ level: 3 })">
-      <q-item-section side>H3</q-item-section>
-      <q-item-section>H3 标题</q-item-section>
-    </q-item>
-    <q-item :class="{ 'is-active': isActive(4) }" clickable v-close-popup @click.native="commands.heading({ level: 4 })">
-      <q-item-section side>H4</q-item-section>
-      <q-item-section>H4 标题</q-item-section>
-    </q-item>
-    <q-item :class="{ 'is-active': isActive(5) }" clickable v-close-popup @click.native="commands.heading({ level: 5 })">
-      <q-item-section side>H5</q-item-section>
-      <q-item-section>H5 标题</q-item-section>
+    <q-item v-for="(item, index) in headings" :key="index"
+            :class="{ 'is-active': isActive(item.value) }"
+            @click.native="commands.heading({ level: item.value })" clickable v-close-popup>
+      <q-item-section side>{{`H${item.value}`}}</q-item-section>
+      <q-item-section>{{item.label}}</q-item-section>
+      <q-item-section side>
+        <q-icon name="mdi-check" class="checked" />
+      </q-item-section>
     </q-item>
   </q-list>
 </template>
@@ -50,6 +39,15 @@ export default {
     }
   },
   computed: {
+    headings () {
+      return [
+        { label: this.$o.lang.editor.heading1, value: 1 },
+        { label: this.$o.lang.editor.heading2, value: 2 },
+        { label: this.$o.lang.editor.heading3, value: 3 },
+        { label: this.$o.lang.editor.heading4, value: 4 },
+        { label: this.$o.lang.editor.heading5, value: 5 },
+      ]
+    }
   }
 }
 </script>

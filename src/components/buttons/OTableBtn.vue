@@ -1,5 +1,5 @@
 <template>
-  <o-menubar-btn icon="mdi-table" class="o-table-btn">
+  <o-menubar-btn icon="mdi-table" :tooltip="$o.lang.table.insert" class="o-table-btn">
     <q-menu ref="tablePopover" anchor="bottom middle" self="top middle" content-class="o-menu o-table-btn-menu" @hide="onHide">
       <section class="grid">
         <div class="row justify-start cursor-pointer" v-for="(row, i) in rows" :key="`row-${i}`">

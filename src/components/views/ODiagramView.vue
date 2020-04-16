@@ -1,21 +1,26 @@
 <template>
   <section class="o-diagram" :class="contentClass">
     <div class="row col-12 justify-between o-toolbar">
-      <div class="row col items-center providers">文本绘图</div>
+      <div class="row col items-center providers">{{$o.lang.diagram.name}}</div>
       <div class="col-auto actions">
         <q-btn :label="$t('help')" to="/help/mermaid" flat v-if="false" />
-        <q-btn-dropdown :label="$t('template')" menu-anchor="bottom left" menu-self="top left" :menu-offset="[0, 8]" content-class="o-menu" dense flat v-if="view.editable">
+        <q-btn-dropdown :label="$o.lang.label.template" menu-anchor="bottom left" menu-self="top left"
+                        :menu-offset="[0, 8]" content-class="o-menu" dense flat v-if="view.editable">
           <q-list>
-            <q-item v-for="(item, index) of mermaidDiagrams" :key="index" @click.native="onSelectTemplate(item)" clickable v-close-popup>
-              <q-item-section side v-if="false"><q-icon name="format_align_left" /></q-item-section>
+            <q-item v-for="(item, index) of mermaidDiagrams" :key="index"
+                    @click.native="onSelectTemplate(item)" clickable v-close-popup>
+              <q-item-section side v-if="false">
+                <q-icon name="format_align_left" />
+              </q-item-section>
               <q-item-section>{{item.label}}</q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
-        <q-btn icon="close" @click="fullScreen=false" class="bg-blue text-white" flat v-if="fullScreen" />
+        <q-btn icon="close" class="bg-blue text-white" size="0.8rem"
+               @click="fullScreen=false" flat v-if="fullScreen" />
         <template v-else>
           <q-btn icon="fullscreen" @click="toggleFullScreen" flat>
-            <q-tooltip>{{$t('action.fullscreen')}}</q-tooltip>
+            <q-tooltip>{{$o.lang.editor.toggleFullscreen}}</q-tooltip>
           </q-btn>
           <q-btn :label="toggleLabel" @click="toggleMode" class="bg-blue text-white" flat v-if="view.editable" />
         </template>
@@ -110,8 +115,6 @@ export default {
     initDiagram () {
       if (this.provider === 'mermaid') {
         if (!this.src) {
-          // this.src = MermaidTemplates.flow
-          console.log('HOOOOOOOOOOOOOOO')
           setTimeout(() => {
             this.src = MermaidTemplates.flow
             this.renderMermaid()
@@ -220,18 +223,18 @@ export default {
       }
     },
     toggleLabel () {
-      return this.mode === 'edit' ? this.$t('view.preview') : this.$t('view.edit')
+      return this.mode === 'edit' ? this.$o.lang.label.preview : this.$o.lang.label.edit
     },
     contentClass () {
       return this.fullScreen ? 'full-screen' : ''
     },
     mermaidDiagrams () {
       return [
-        { label: '流程图 (Flow)', value: 'flow' },
-        { label: '时序图 (Sequence)', value: 'sequence' },
-        { label: '类图 (Class)', value: 'class' },
-        { label: '状态图 (State)', value: 'state' },
-        { label: '甘特图 (Gantt)', value: 'gantt' }
+        { label: this.$o.lang.diagram.flow, value: 'flow' },
+        { label: this.$o.lang.diagram.sequence, value: 'sequence' },
+        { label: this.$o.lang.diagram.class, value: 'class' },
+        { label: this.$o.lang.diagram.state, value: 'state' },
+        { label: this.$o.lang.diagram.gantt, value: 'gantt' }
       ]
     }
   },
@@ -244,6 +247,7 @@ export default {
 <style lang="stylus">
   .o-diagram {
     position relative
+    cursor crosshair
 
     .o-toolbar {
       position absolute

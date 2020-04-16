@@ -8,9 +8,9 @@
                     :options="editorOption"
                     @input="onEditorChanged" />
         <div class="row col-12 justify-between o-toolbar">
-          <div class="row col items-center q-px-md">行内公式</div>
+          <div class="row col items-center q-px-md">{{$o.lang.editor.inlineFormula}}</div>
           <div class="col-auto actions">
-            <q-btn :label="$t('help')" to="/help/katex" flat />
+            <q-btn icon="help_outline" @click="onHelp" flat />
           </div>
         </div>
       </section>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { openURL } from 'quasar'
 // Code Mirror
 import { codemirror } from 'vue-codemirror'
 import 'codemirror/addon/edit/continuelist'
@@ -103,6 +104,9 @@ export default {
       }, 300)
     },
     onSelectTemplate (item) {
+    },
+    onHelp () {
+      openURL('https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference')
     }
   },
   computed: {
