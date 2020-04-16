@@ -13,8 +13,6 @@
                        @click.native="options.pageView='page'" />
       </template>
       <template slot="toolbar-right">
-        <o-menubar-btn :icon="isSlideShow ? `mdi-pause-circle-outline` : `mdi-play-box-outline`"
-                       :tooltip="$t('presentation')" @click.native="onSlideShow" />
         <o-menubar-btn :icon="$q.fullscreen.isActive ? `fullscreen_exit` : `fullscreen`"
                        :tooltip="$t('action.fullscreen')" @click.native="$q.fullscreen.toggle()" />
       </template>
