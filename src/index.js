@@ -1,9 +1,7 @@
-import { version } from '../package.json'
 import Lang from 'src/lang'
 import QuasarTiptap from 'src/components/QuasarTiptap'
 
 export const $o = {
-  version,
   config: {}
 }
 

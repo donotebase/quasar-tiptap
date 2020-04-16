@@ -106,3 +106,7 @@ export function highlightColor (rgb) {
 
   return color
 }
+
+export function openUrl (url) {
+  window.open(url, '_blank')
+}

@@ -48,7 +48,8 @@
 </template>
 
 <script>
-import { openURL } from 'quasar'
+import { openUrl } from 'src/utils/shared'
+
 // Code Mirror
 import { codemirror } from 'vue-codemirror'
 import 'codemirror/addon/edit/continuelist'
@@ -171,7 +172,7 @@ export default {
       }
     },
     onHelp () {
-      openURL('https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference')
+      openUrl('https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference')
     }
   },
   computed: {
