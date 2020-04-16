@@ -1,7 +1,14 @@
 <template>
   <section class="tiptap tiptap-editor quasar-tiptap">
     <!-- Main Toolbar -->
-    <o-editor-menu-bar :editor="editor" :toolbar="toolbar" v-if="editable" />
+    <o-editor-menu-bar :editor="editor" :toolbar="toolbar" v-if="editable">
+      <template slot="left">
+        <slot name="toolbar-left" />
+      </template>
+      <template slot="right">
+        <slot name="toolbar-right" />
+      </template>
+    </o-editor-menu-bar>
 
     <o-editor-menu-bubble :editor="editor" :selected-cell-size="selectedCellSize" />
 
@@ -107,6 +114,10 @@ export default {
       default: function () {
         return []
       }
+    },
+    pageView: {
+      type: String,
+      default: 'page'
     },
     options: {
       type: Object,

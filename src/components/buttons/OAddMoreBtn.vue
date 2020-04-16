@@ -1,5 +1,5 @@
 <template>
-  <o-menubar-btn icon="add" :tooltip="$o.lang.editor.addMore" class="o-add-more-btn">
+  <o-menubar-btn icon="add" :tooltip="$o.lang.editor.addMore" class="text-blue o-add-more-btn">
     <q-menu ref="addPopover" anchor="bottom left" self="top left" content-class="o-menu">
       <section>
         <o-common-item icon="mdi-code-braces"

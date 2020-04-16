@@ -32,6 +32,7 @@ const QuasarTiptapPlugin = {
 }
 
 export * from 'src/extentions/index'
+export * from 'src/components/index'
 
 export {
   QuasarTiptapPlugin,

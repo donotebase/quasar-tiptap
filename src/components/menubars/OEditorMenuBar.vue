@@ -2,38 +2,49 @@
   <editor-menu-bar :editor="editor" v-slot="editorContext">
     <section class="row col-12 justify-between items-center bg-light tiptap-menubar">
 
-      <!-- Table -->
-      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': editorContext.focused }" v-if="editorContext.isActive.table && editorContext.isActive.table()">
-        <template v-for="(item, index) of tableToolbar">
-          <q-separator vertical inset :key="index" v-if="item==='separator'" />
-          <component :key="index"
-                     :name="item"
-                     :is="getName(item)"
-                     :editor="editor"
-                     v-bind="editorContext"
-                     v-else>
-          </component>
-          <o-table-group v-bind="editorContext" :key="`table-${index}`" v-if="item==='table'" />
+      <!-- Toolbar: left -->
+      <section class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': editorContext.focused }">
+        <!-- Table -->
+        <template v-if="editorContext.isActive.table && editorContext.isActive.table()">
+          <template v-for="(item, index) of tableToolbar">
+            <q-separator vertical inset :key="index" v-if="item==='separator'" />
+            <component :key="index"
+                       :name="item"
+                       :is="getName(item)"
+                       :editor="editor"
+                       v-bind="editorContext"
+                       v-else>
+            </component>
+            <o-table-group v-bind="editorContext" :key="`table-${index}`" v-if="item==='table'" />
+          </template>
         </template>
-      </div>
 
-      <!-- Normal -->
-      <div class="row q-px-xs menubar is-hidden" :class="{ 'is-focused': editorContext.focused }" v-else>
-        <template v-for="(item, index) of toolbar">
-          <q-separator vertical inset :key="index" v-if="item==='separator'" />
-          <component :key="index"
-                     :name="item"
-                     :is="getName(item)"
-                     :editor="editor"
-                     v-bind="editorContext"
-                     v-else-if="typeof item === 'string'" />
-          <component :key="index"
-                     :is="item"
-                     :editor="editor"
-                     v-bind="editorContext"
-                     v-else />
+        <!-- Normal -->
+        <template v-else>
+          <template v-for="(item, index) of toolbar">
+            <q-separator vertical inset :key="index" v-if="item==='separator'" />
+            <component :key="index"
+                       :name="item"
+                       :is="getName(item)"
+                       :editor="editor"
+                       v-bind="editorContext"
+                       v-else-if="typeof item === 'string'" />
+            <component :key="index"
+                       :is="item"
+                       :editor="editor"
+                       v-bind="editorContext"
+                       v-else />
+          </template>
         </template>
-      </div>
+
+        <!-- Extra -->
+        <slot name="left" />
+      </section>
+
+      <!-- Toolbar: right -->
+      <section class="row q-px-xs">
+        <slot name="right" />
+      </section>
     </section>
   </editor-menu-bar>
 </template>

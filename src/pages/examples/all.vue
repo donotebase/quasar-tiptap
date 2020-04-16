@@ -1,11 +1,29 @@
 <template>
   <q-page class="page-quasar-tiptap-all">
-    <quasar-tiptap v-bind="options" scrollable />
+    <quasar-tiptap v-bind="options" scrollable>
+      <template slot="toolbar-left">
+        <q-separator vertical inset />
+        <o-menubar-btn icon="mdi-overscan"
+                       :tooltip="$t('page.view.full')"
+                       :class="{ 'is-active': options.pageView === 'full' }"
+                       @click.native="options.pageView='full'" />
+        <o-menubar-btn icon="mdi-fit-to-page-outline"
+                       :tooltip="$t('page.view.page')"
+                       :class="{ 'is-active': options.pageView === 'page' }"
+                       @click.native="options.pageView='page'" />
+      </template>
+      <template slot="toolbar-right">
+        <o-menubar-btn :icon="isSlideShow ? `mdi-pause-circle-outline` : `mdi-play-box-outline`"
+                       :tooltip="$t('presentation')" @click.native="onSlideShow" />
+        <o-menubar-btn :icon="$q.fullscreen.isActive ? `fullscreen_exit` : `fullscreen`"
+                       :tooltip="$t('action.fullscreen')" @click.native="$q.fullscreen.toggle()" />
+      </template>
+    </quasar-tiptap>
   </q-page>
 </template>
 
 <script>
-import QuasarTiptap from 'src/components/QuasarTiptap'
+import { QuasarTiptap, OMenubarBtn } from 'src/index'
 import {
   Placeholder,
 } from 'tiptap-extensions'
@@ -20,6 +38,7 @@ export default {
       options: {
         content: FullFeaturedArticle,
         editable: true,
+        pageView: 'page',
         extensions: [
           ...RecommendedExtensions,
           new Placeholder({
@@ -65,13 +84,16 @@ export default {
           'undo',
           'redo',
         ]
-      }
+      },
+      isSlideShow: false
     }
   },
   components: {
-    QuasarTiptap
+    QuasarTiptap,
+    OMenubarBtn,
   },
   methods: {
+    onSlideShow () {}
   },
   mounted: function () {
   },
