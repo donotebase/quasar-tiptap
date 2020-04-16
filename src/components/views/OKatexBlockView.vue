@@ -121,8 +121,6 @@ export default {
         } else {
           this.renderKatex()
         }
-
-        console.log('init', this.src)
       }
     },
     renderKatex () {

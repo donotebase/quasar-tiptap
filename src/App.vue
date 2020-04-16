@@ -9,7 +9,7 @@ import Vue from 'vue'
 import { QuasarTiptapPlugin } from './index'
 
 Vue.use(QuasarTiptapPlugin, {
-  language: 'en-us',
+  language: 'zh-hans',
   spellcheck: true
 })
 

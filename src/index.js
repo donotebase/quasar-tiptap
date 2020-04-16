@@ -11,7 +11,6 @@ const QuasarTiptapPlugin = {
 
   install (Vue, options = {}) {
     $o.config = Object.freeze(options)
-    console.log('install plugin', $o)
 
     this.spellcheck = options.spellcheck == null
       ? true
