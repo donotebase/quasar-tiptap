@@ -61,6 +61,7 @@ export const QuasarTipTapExtensions = [
   'OTodoItem',
   'OHeading',
   'OAlignment',
+  'OIndent',
   'OLineHeight',
   'OForeColor',
   'OBackColor',
