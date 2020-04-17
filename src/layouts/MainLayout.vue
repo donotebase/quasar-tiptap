@@ -10,7 +10,7 @@
     >
       <header class="row justify-center items-center">
         <q-btn icon="mdi-github" flat @click="gotoRepo">
-          <div class="q-px-xs" v-if="!miniState">Quasar Tiptap</div>
+          <div class="q-px-xs" v-if="!miniState">Quasar Tiptap {{version}}</div>
         </q-btn>
       </header>
 
@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import { version } from '../../package'
 import { openURL } from 'quasar'
 
 export default {
@@ -62,6 +63,7 @@ export default {
     return {
       leftDrawerOpen: false,
       miniState: false,
+      version: version,
       links: [
         {
           label: 'Examples',
