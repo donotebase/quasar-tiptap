@@ -57,8 +57,6 @@ framework: [
 ]
 ```
 
-
-
 ## Usage
 
 Register `quasar-tiptap` globally by installing plugin, or import `QuasarTiptap` component as needed.

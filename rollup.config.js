@@ -75,7 +75,7 @@ function getConfig ({
       }),
       alias({
         entries: {
-          'src': srcDir,
+          src: srcDir,
         },
       }),
       typescript({

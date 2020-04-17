@@ -71,9 +71,9 @@ export function rgbToHex (rgb) {
   }
 
   let splits = rgb.split(',')
-  let r = parseInt(splits[0].split('(')[1])
-  let g = parseInt(splits[1])
-  let b = parseInt(splits[2].split(')')[0])
+  let r = parseInt(splits[0].split('(')[1], 10)
+  let g = parseInt(splits[1], 10)
+  let b = parseInt(splits[2].split(')')[0], 10)
   let hex = '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
 
   return hex
