@@ -40,7 +40,9 @@ export function setAlignment (tr, alignment) {
     return true
   })
 
-  if (!tasks.length) return tr
+  if (!tasks.length) {
+    return tr
+  }
 
   tasks.forEach(job => {
     const { node, pos, nodeType } = job

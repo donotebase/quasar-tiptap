@@ -9,7 +9,9 @@ import { clamp } from './shared'
 function updateIndentLevel (tr, delta) {
   const { doc, selection } = tr
 
-  if (!doc || !selection) return tr
+  if (!doc || !selection) {
+    return tr
+  }
 
   if (!(selection instanceof TextSelection || selection instanceof AllSelection)) {
     return tr
@@ -37,10 +39,14 @@ function updateIndentLevel (tr, delta) {
 }
 
 function setNodeIndentMarkup (tr, pos, delta) {
-  if (!tr.doc) return tr
+  if (!tr.doc) {
+    return tr
+  }
 
   const node = tr.doc.nodeAt(pos)
-  if (!node) return tr
+  if (!node) {
+    return tr
+  }
 
   const minIndent = 0
   const maxIndent = 7
@@ -57,7 +63,6 @@ function setNodeIndentMarkup (tr, pos, delta) {
     ...node.attrs,
     indent,
   }
-  console.log('indent', nodeAttrs, node.marks)
 
   return tr.setNodeMarkup(pos, node.type, nodeAttrs, node.marks)
 }
@@ -81,7 +86,9 @@ export function createIndentCommand (delta) {
 export function cleanIndent (tr) {
   const { doc, selection } = tr
 
-  if (!doc || !selection) return tr
+  if (!doc || !selection) {
+    return tr
+  }
 
   if (!(selection instanceof TextSelection || selection instanceof AllSelection)) {
     return tr

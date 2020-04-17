@@ -1,20 +1,5 @@
 import { Paragraph as TiptapParagraph } from 'tiptap'
 
-export const ParagraphNodeSpec = {
-  attrs: {
-    textAlign: { default: null },
-    indent: { default: null },
-    lineHeight: { default: null },
-  },
-  content: 'inline*',
-  group: 'block',
-  parseDOM: [{
-    tag: 'p',
-    getAttrs,
-  }],
-  toDOM,
-}
-
 function getAttrs (dom) {
   let {
     textAlign,
@@ -54,6 +39,21 @@ function toDOM (node) {
   }
 
   return ['p', attrs, 0]
+}
+
+export const ParagraphNodeSpec = {
+  attrs: {
+    textAlign: { default: null },
+    indent: { default: null },
+    lineHeight: { default: null },
+  },
+  content: 'inline*',
+  group: 'block',
+  parseDOM: [{
+    tag: 'p',
+    getAttrs,
+  }],
+  toDOM,
 }
 
 export default class Paragraph extends TiptapParagraph {

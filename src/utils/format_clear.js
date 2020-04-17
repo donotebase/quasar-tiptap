@@ -20,16 +20,22 @@ const FORMAT_MARK_NAMES = [
 
 export function clearMarks (tr, schema) {
   const { doc, selection } = tr
-  if (!selection || !doc) return tr
+  if (!selection || !doc) {
+    return tr
+  }
 
   const { from, to, empty } = selection
-  if (empty) return tr
+  if (empty) {
+    return tr
+  }
 
   const markTypesToRemove = new Set(
     FORMAT_MARK_NAMES.map(n => schema.marks[n]).filter(Boolean)
   )
 
-  if (!markTypesToRemove.size) return tr
+  if (!markTypesToRemove.size) {
+    return tr
+  }
 
   const tasks = []
   doc.nodesBetween(from, to, (node, pos) => {

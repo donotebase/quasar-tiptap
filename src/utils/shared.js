@@ -7,7 +7,7 @@ export function noop () {}
 /**
  * Check whether a value is NaN
  */
-export function isNaN (any) {
+export function isNaN (val) {
   return Number.isNaN(val)
 }
 

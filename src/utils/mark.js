@@ -15,19 +15,25 @@ function markApplies (doc, ranges, type) {
       can = node.inlineContent && node.type.allowsMarkType(type)
       return true
     })
-    if (can) return true
+    if (can) {
+      return true
+    }
   }
   return false
 }
 
 // https://github.com/ProseMirror/prosemirror-commands/blob/master/src/commands.js
 function applyMark (tr, markType, attrs) {
-  if (!tr.selection || !tr.doc || !markType) return tr
+  if (!tr.selection || !tr.doc || !markType) {
+    return tr
+  }
 
   // @ts-ignore
   const { empty, $cursor, ranges } = tr.selection
 
-  if ((empty && !$cursor) || !markApplies(tr.doc, ranges, markType)) return tr
+  if ((empty && !$cursor) || !markApplies(tr.doc, ranges, markType)) {
+    return tr
+  }
 
   if ($cursor) {
     tr = tr.removeStoredMark(markType)
@@ -57,7 +63,9 @@ function findActiveFontFamily (state) {
   const { schema, selection, tr } = state
   const markType = schema.marks.fontFamily
 
-  if (!markType) return ''
+  if (!markType) {
+    return ''
+  }
 
   const { empty } = selection
 
@@ -79,7 +87,9 @@ function findActiveFontFamily (state) {
   const attrs = getMarkAttrs(state, markType)
   const fontFamily = attrs.fontFamily
 
-  if (!fontFamily) return ''
+  if (!fontFamily) {
+    return ''
+  }
 
   return fontFamily
 }
@@ -88,7 +98,9 @@ function findActiveMarkAttribute (state, name) {
   const { schema, selection, tr } = state
   const markType = schema.marks[name]
 
-  if (!markType) return ''
+  if (!markType) {
+    return ''
+  }
 
   const { empty } = selection
 
@@ -110,7 +122,9 @@ function findActiveMarkAttribute (state, name) {
   const attrs = getMarkAttrs(state, markType)
   const value = attrs[name]
 
-  if (!value) return ''
+  if (!value) {
+    return ''
+  }
 
   return value
 }

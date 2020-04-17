@@ -10,7 +10,7 @@ const QuasarTiptapPlugin = {
   spellcheck: true,
 
   install (Vue, opts = {}) {
-    this.spellcheck = opts.spellcheck == null
+    this.spellcheck = opts.spellcheck === null
       ? true
       : opts.spellcheck
     Vue.prototype.$o.lang.set(opts.language)

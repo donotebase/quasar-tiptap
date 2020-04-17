@@ -17,25 +17,6 @@ const isProduction = process.env.BUILD === 'production'
 const libDir = path.resolve(__dirname, 'lib')
 const srcDir = path.resolve(__dirname, 'src')
 
-export default () => [
-  getConfig({
-    optimize: true,
-    file: path.resolve(libDir, 'quasar-tiptap.min.js'),
-    format: 'umd',
-    esModule: true,
-  }),
-  getConfig({
-    optimize: true,
-    file: path.resolve(libDir, 'quasar-tiptap.common.js'),
-    format: 'cjs',
-  }),
-  getConfig({
-    file: path.resolve(libDir, 'quasar-tiptap.esm.js'),
-    format: 'es',
-    esModule: true,
-  }),
-]
-
 function getConfig ({
   file,
   format,
@@ -137,3 +118,22 @@ function getConfig ({
     ],
   }
 }
+
+export default () => [
+  getConfig({
+    optimize: true,
+    file: path.resolve(libDir, 'quasar-tiptap.min.js'),
+    format: 'umd',
+    esModule: true,
+  }),
+  getConfig({
+    optimize: true,
+    file: path.resolve(libDir, 'quasar-tiptap.common.js'),
+    format: 'cjs',
+  }),
+  getConfig({
+    file: path.resolve(libDir, 'quasar-tiptap.esm.js'),
+    format: 'es',
+    esModule: true,
+  }),
+]
