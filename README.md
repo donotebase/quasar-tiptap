@@ -5,6 +5,7 @@ A modern WYSIWYG rich-text editor built on top of [tiptap](https://github.com/sc
 [![](https://img.shields.io/npm/v/quasar-tiptap.svg?label=version)](https://www.npmjs.com/package/quasar-tiptap)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe954819c420439485737e74aff30485)](https://www.codacy.com/gh/donotebase/quasar-tiptap?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=donotebase/quasar-tiptap&amp;utm_campaign=Badge_Grade)
 [![](https://img.shields.io/npm/dependency-version/quasar-tiptap/peer/vue?color=vue)](https://www.npmjs.com/package/quasar-tiptap)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![](https://img.shields.io/npm/l/quasar-tiptap.svg)](https://www.npmjs.com/package/quasar-tiptap)
 
 ## Examples & Demos
