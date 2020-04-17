@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import QuasarTiptap from 'src/components/QuasarTiptap'
+import { QuasarTiptap } from 'src/index'
 import {
   Placeholder,
 } from 'tiptap-extensions'
@@ -90,7 +90,8 @@ export default {
       console.log('html', this.html)
     }
   },
-  mounted: function () {
+  mounted () {
+    this.$o.lang.set('zh-hans')
   },
   deactivated () {
   },

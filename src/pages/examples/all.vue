@@ -21,7 +21,13 @@
 </template>
 
 <script>
-import { QuasarTiptap, OMenubarBtn } from 'src/index'
+import Vue from 'vue'
+import { QuasarTiptapPlugin, OMenubarBtn } from 'src/index'
+Vue.use(QuasarTiptapPlugin, {
+  language: 'en-us',
+  spellcheck: true
+})
+
 import {
   Placeholder,
 } from 'tiptap-extensions'
@@ -87,13 +93,13 @@ export default {
     }
   },
   components: {
-    QuasarTiptap,
     OMenubarBtn,
   },
   methods: {
     onSlideShow () {}
   },
-  mounted: function () {
+  mounted () {
+    this.$o.lang.set('en-us')
   },
   deactivated () {
   },

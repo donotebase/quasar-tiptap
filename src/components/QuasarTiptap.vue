@@ -79,7 +79,6 @@ import DynamicClass from 'src/extentions/dynamic'
 
 import OEditorMenuBar from 'src/components/menubars/OEditorMenuBar'
 import OEditorMenuBubble from 'src/components/menubars/OEditorMenuBubble'
-import Lang from 'src/lang'
 
 export default {
   name: 'quasar-tiptap',
@@ -243,15 +242,6 @@ export default {
     },
     showSidePanel () {},
     onSlideShow () {}
-  },
-  beforeCreate () {
-    if (!this.$o) {
-      let $o = {}
-      Lang.install($o, '')
-      Vue.prototype.$o = $o
-    } else {
-      console.log('Lang installed')
-    }
   },
   mounted: function () {
     this.html = this.content

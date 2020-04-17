@@ -1,28 +1,23 @@
-import Lang from 'src/lang'
+import Vue from 'vue'
+
+import install from 'src/install'
 import QuasarTiptap from 'src/components/QuasarTiptap'
 
-export const $o = {
-  config: {}
-}
+Vue.use({ install }, {})
 
 const QuasarTiptapPlugin = {
   installed: false,
   spellcheck: true,
 
-  install (Vue, options = {}) {
-    $o.config = Object.freeze(options)
-
-    this.spellcheck = options.spellcheck == null
+  install (Vue, opts = {}) {
+    this.spellcheck = opts.spellcheck == null
       ? true
-      : options.spellcheck
-
-    // required plugins
-    Lang.install($o, options.language)
+      : opts.spellcheck
+    Vue.prototype.$o.lang.set(opts.language)
 
     // quasar-tiptap
     Vue.component('quasar-tiptap', QuasarTiptap)
     Vue.prototype.$quasarTiptapPlugin = this
-    Vue.prototype.$o = $o
 
     this.installed = true
   },

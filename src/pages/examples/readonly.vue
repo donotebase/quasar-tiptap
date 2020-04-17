@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import QuasarTiptap from 'src/components/QuasarTiptap'
+import { QuasarTiptap } from 'src/index'
 
 import { BasicFeaturesArticle } from 'src/data/article'
 import { RecommendedExtensions } from 'src/extentions'

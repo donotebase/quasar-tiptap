@@ -10,10 +10,16 @@ export default {
       lang.set = this.set
       lang.getLocale = this.getLocale
 
-      Vue.util.defineReactive($o, 'lang', lang)
+      if ($o !== undefined && $o.lang !== undefined) {
+        $o.lang = lang
+      } else {
+        Vue.util.defineReactive($o, 'lang', lang)
+      }
+
       this.isoName = lang.isoName
       this.nativeName = lang.nativeName
       this.props = lang
+      console.log('install lang, $o', language, lang, $o)
     }
 
     this.set(language)
@@ -26,7 +32,6 @@ export default {
       navigator.userLanguage ||
       navigator.systemLanguage
 
-    console.log('lang', val)
     if (val) {
       return val.toLowerCase()
     }
