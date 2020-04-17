@@ -126,7 +126,7 @@
   text-rendering: auto;
 }
 .katex * {
-  -ms-high-contrast-adjust: none !important;
+  -ms-high-contrast-adjust: none;
 }
 .katex .katex-version::after {
   content: "0.11.1";

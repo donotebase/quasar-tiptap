@@ -7,14 +7,13 @@
 # Updated On: 2018.03.18
 # Quasar: http://quasar-framework.org/guide/quasar-cli.html
 # ==============================================================================
-PROMPT=Oriovo
 APP="quasar-tiptap"
 
 ## Run from here
 ## -----------------------------------------------------------------------------
 if [ $# -lt 1 ]
 then
-    echo "Usage: `basename "$0"` dev|build|deploy|packager|builder [pwa|electron]"
+    echo "Usage: $(basename "$0") dev|build|deploy|packager|builder [pwa|electron]"
     exit 1
 fi
 
@@ -23,7 +22,7 @@ fi
 type=$1
 mode=$2
 
-if [ -z $mode ]
+if [ -z "$mode" ]
 then
   mode="pwa"
 fi
@@ -31,14 +30,14 @@ fi
 
 ## Preprocess
 ## -----------------------------------------------------------------------------
-VERSION=`cat package.json | python2 -c 'import json,sys;obj=json.load(sys.stdin);print obj["version"]'`
+VERSION=$(cat package.json | python2 -c 'import json,sys;obj=json.load(sys.stdin);print obj["version"]')
 echo "Building $APP $VERSION ..."
 
 
 ## Func
 ## -----------------------------------------------------------------------------
 run_build() {
-  quasar $type -m $mode
+  quasar "$type" -m "$mode"
 }
 
 run_deploy() {

@@ -183,39 +183,38 @@ export const RecommendedExtensions = [
 
 |extension   |toolbar  |Remarks  |
 |:------|:------------|:--------|
-| 'Bold' |'bold' | |
-| 'Italic' |'italic' | |
-| 'Strike' |'strike' | |
-| 'Underline' |'underline' | |
-| 'Code' |'code' | |
-| 'CodeBlock' |'code_blok' | |
-| 'CodeBlockHighlight' | | |
-| 'BulletList' |'bullet_list' | |
-| 'OrderedList' |'ordered_list' | |
-| 'ListItem' | | |
-| 'TodoList' |'todo_list' | |
-| 'HorizontalRule' |'horizontal' | |
-| 'Table' |'table' | |
-| 'Link' | | |
-| 'Image' |'photo' | |
-| 'OTitle' | | |
-| 'ODoc' | | |
-| 'OParagraph' | | |
-| 'OBlockquote' |'blockquote' | |
-| 'OTodoItem' | | |
-| 'OHeading' |'heading' | |
-| 'OIndent' |'indent', 'outdent' | |
-| 'OAlignment' |'align-dropdown', 'align-group' | |
-| 'OLineHeight' |'line-height' | |
-| 'OForeColor' |'fore-color' | |
-| 'OBackColor' |'back-color' | |
-| 'OFontFamily' |'font-family' | |
-| 'OIframe' | |'add-more' |
-| 'ODiagram' | |'add-more' |
-| 'OKatexBlock' | |'add-more' |
-| 'OKatexInline' | |'add-more' |
-| 'OFormatClear' |'format_clear' | |
-
+|'Bold' |'bold' | |
+|'Italic' |'italic' | |
+|'Strike' |'strike' | |
+|'Underline' |'underline' | |
+|'Code' |'code' | |
+|'CodeBlock' |'code_blok' | |
+|'CodeBlockHighlight' | | |
+|'BulletList' |'bullet_list' | |
+|'OrderedList' |'ordered_list' | |
+|'ListItem' | | |
+|'TodoList' |'todo_list' | |
+|'HorizontalRule' |'horizontal' | |
+|'Table' |'table' | |
+|'Link' | | |
+|'Image' |'photo' | |
+|'OTitle' | | |
+|'ODoc' | | |
+|'OParagraph' | | |
+|'OBlockquote' |'blockquote' | |
+|'OTodoItem' | | |
+|'OHeading' |'heading' | |
+|'OIndent' |'indent', 'outdent' | |
+|'OAlignment' |'align-dropdown', 'align-group' | |
+|'OLineHeight' |'line-height' | |
+|'OForeColor' |'fore-color' | |
+|'OBackColor' |'back-color' | |
+|'OFontFamily' |'font-family' | |
+|'OIframe' | |'add-more' |
+|'ODiagram' | |'add-more' |
+|'OKatexBlock' | |'add-more' |
+|'OKatexInline' | |'add-more' |
+|'OFormatClear' |'format_clear' | |
 
 ## 🏗 Contributing ![PR or ISSUE](https://img.shields.io/badge/PR%20or%20ISSUE-welcome-brightgreen)
 

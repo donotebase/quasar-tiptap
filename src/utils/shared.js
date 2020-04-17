@@ -95,9 +95,9 @@ export function highlightColor (rgb) {
   }
 
   let splits = rgb.split(',')
-  let r = parseInt(splits[0].split('(')[1])
-  let g = parseInt(splits[1])
-  let b = parseInt(splits[2].split(')')[0])
+  let r = parseInt(splits[0].split('(')[1], 10)
+  let g = parseInt(splits[1], 10)
+  let b = parseInt(splits[2].split(')')[0], 10)
   let sum = r + g + b
   let color = '#000000'
   if (sum < 180 * 3) {
