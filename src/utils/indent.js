@@ -6,6 +6,37 @@ import { TextSelection, AllSelection } from 'prosemirror-state'
 import { isListNode } from './list'
 import { clamp } from './shared'
 
+function setNodeIndentMarkup (tr, pos, delta) {
+  if (!tr.doc) {
+    return tr
+  }
+
+  const node = tr.doc.nodeAt(pos)
+  if (!node) {
+    return tr
+  }
+
+  const minIndent = 0
+  const maxIndent = 7
+
+  const indent = clamp(
+    (node.attrs.indent || 0) + delta,
+    minIndent,
+    maxIndent,
+  )
+
+  if (indent === node.attrs.indent) {
+    return tr
+  }
+
+  const nodeAttrs = {
+    ...node.attrs,
+    indent,
+  }
+
+  return tr.setNodeMarkup(pos, node.type, nodeAttrs, node.marks)
+}
+
 function updateIndentLevel (tr, delta) {
   const { doc, selection } = tr
 
@@ -36,35 +67,6 @@ function updateIndentLevel (tr, delta) {
   })
 
   return tr
-}
-
-function setNodeIndentMarkup (tr, pos, delta) {
-  if (!tr.doc) {
-    return tr
-  }
-
-  const node = tr.doc.nodeAt(pos)
-  if (!node) {
-    return tr
-  }
-
-  const minIndent = 0
-  const maxIndent = 7
-
-  const indent = clamp(
-    (node.attrs.indent || 0) + delta,
-    minIndent,
-    maxIndent,
-  )
-
-  if (indent === node.attrs.indent) return tr
-
-  const nodeAttrs = {
-    ...node.attrs,
-    indent,
-  }
-
-  return tr.setNodeMarkup(pos, node.type, nodeAttrs, node.marks)
 }
 
 export function createIndentCommand (delta) {

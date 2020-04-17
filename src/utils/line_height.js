@@ -49,7 +49,7 @@ export function setLineHeight (tr, lineHeight) {
     let { attrs } = node
     attrs = {
       ...attrs,
-      lineHeight: lineHeight,
+      lineHeight,
     }
 
     tr = tr.setNodeMarkup(pos, nodeType, attrs, node.marks)
