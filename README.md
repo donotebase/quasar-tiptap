@@ -7,6 +7,7 @@ A modern WYSIWYG rich-text editor built on top of [tiptap](https://github.com/sc
 [![Build Status](https://travis-ci.org/donotebase/quasar-tiptap.svg?branch=dev)](https://travis-ci.org/donotebase/quasar-tiptap)
 [![](https://img.shields.io/npm/dependency-version/quasar-tiptap/peer/vue?color=vue)](https://www.npmjs.com/package/quasar-tiptap)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Join the chat at discord](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/QAzbWuq)
 [![](https://img.shields.io/npm/l/quasar-tiptap.svg)](https://www.npmjs.com/package/quasar-tiptap)
 
 ## Examples & Demos
