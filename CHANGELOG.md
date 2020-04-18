@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/donotebase/quasar-tiptap/compare/@1.0.0...@1.1.0) (2020-04-18)
+
+
+### Features
+
+* **editor:** Editor options, close [#1](https://github.com/donotebase/quasar-tiptap/issues/1) ([3f8b4c8](https://github.com/donotebase/quasar-tiptap/commit/3f8b4c89502b5d79cd1dd3f674e4588a4e0f4e2e))
+
 # 1.0.0 (2020-04-17)
 
 
