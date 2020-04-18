@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/donotebase/quasar-tiptap/compare/@1.1.0...@1.1.1) (2020-04-18)
+
+
+### Bug Fixes
+
+* **alignment:** alignment in table, fixed [#2](https://github.com/donotebase/quasar-tiptap/issues/2) ([13c9cf3](https://github.com/donotebase/quasar-tiptap/commit/13c9cf38c4b0dfc77a30639ba0780c1500b1c7d9))
+
 # [1.1.0](https://github.com/donotebase/quasar-tiptap/compare/@1.0.0...@1.1.0) (2020-04-18)
 
 
