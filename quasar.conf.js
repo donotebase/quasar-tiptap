@@ -60,6 +60,7 @@ module.exports = function (ctx) {
         'QAvatar',
         'QColor',
         'QInput',
+        'QToggle',
       ],
 
       directives: [

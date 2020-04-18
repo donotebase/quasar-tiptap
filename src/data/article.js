@@ -15,6 +15,10 @@ C -->|Two| E[iPhonee]
 C -->|Three| F[Cars]"></diagram><h2 id="a4baf0" level="2">Math</h2><p><span style="color: rgb(0, 0, 0)"><span style="font-family: Roboto, -apple-system, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif">Write inline formula, such as&nbsp;</span></span><ki src="\\Gamma(n) = (n-1)!\\quad\\forall n\\in\\mathbb N"></ki>，or block formula:</p><p></p><katex src="E=mc^2"></katex><p></p><katex src="e^x=\\lim_{n\\to\\infty} \\left( 1+\\frac{x}{n} \\right)^n"></katex><p></p>
 `
 
+export const BasicFeaturesArticleJson = `
+{"type":"doc","content":[{"type":"title","content":[{"type":"text","text":"quasar-tiptap"}]},{"type":"heading","attrs":{"textAlign":"","indent":0,"lineHeight":"","level":"2","id":"d5fb3c"},"content":[{"type":"text","text":"Introduction"}]},{"type":"paragraph","attrs":{"textAlign":null,"indent":null,"lineHeight":null}}]}
+`
+
 export const FullFeaturedArticle = `
 <h1>Full Featured</h1>
 <h2 id="78b268" level="2">Introduction</h2>

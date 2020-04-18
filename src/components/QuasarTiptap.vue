@@ -1,7 +1,7 @@
 <template>
   <section class="tiptap tiptap-editor quasar-tiptap">
     <!-- Main Toolbar -->
-    <o-editor-menu-bar :editor="editor" :toolbar="toolbar" v-if="editable">
+    <o-editor-menu-bar :editor="editor" :toolbar="editorMenuBar" v-if="editable && showToolbar">
       <template slot="left">
         <slot name="toolbar-left" />
       </template>
@@ -10,7 +10,8 @@
       </template>
     </o-editor-menu-bar>
 
-    <o-editor-menu-bubble :editor="editor" :selected-cell-size="selectedCellSize" />
+    <!-- Main Bubble -->
+    <o-editor-menu-bubble :editor="editor" :selected-cell-size="selectedCellSize" v-if="editable && showBubble" />
 
     <q-scroll-area ref="editorScroll" class="editor-scroll-area" :class="`view-${pageView}`" v-if="scrollable">
       <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
@@ -22,7 +23,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import { Editor, EditorContent } from 'tiptap'
 import {
   BulletList,
@@ -80,6 +80,8 @@ import DynamicClass from 'src/extentions/dynamic'
 import OEditorMenuBar from 'src/components/menubars/OEditorMenuBar'
 import OEditorMenuBubble from 'src/components/menubars/OEditorMenuBubble'
 
+import { DefaultToolbar } from 'src/data/editor'
+
 export default {
   name: 'quasar-tiptap',
   data () {
@@ -97,6 +99,14 @@ export default {
       default: ''
     },
     editable: {
+      type: Boolean,
+      default: true
+    },
+    showToolbar: {
+      type: Boolean,
+      default: true
+    },
+    showBubble: {
       type: Boolean,
       default: true
     },
@@ -132,6 +142,11 @@ export default {
     EditorContent,
     OEditorMenuBar,
     OEditorMenuBubble,
+  },
+  computed: {
+    editorMenuBar () {
+      return this.toolbar.length > 0 ? this.toolbar : DefaultToolbar
+    }
   },
   methods: {
     initEditor () {
@@ -225,6 +240,12 @@ export default {
     },
     // content
     setContent () {
+      try {
+        this.json = JSON.parse(this.content)
+      } catch (e) {
+        this.html = this.content
+      }
+
       // From JSON
       if (this.json.type) {
         this.editor.setContent(this.json, true)
@@ -243,9 +264,19 @@ export default {
     showSidePanel () {},
     onSlideShow () {}
   },
+  watch: {
+    editable (to, from) {
+      console.log('editable', to)
+      this.editor.options.editable = to
+    },
+    content (to, from) {
+      this.setContent()
+    }
+  },
   mounted: function () {
-    this.html = this.content
     this.initEditor()
+
+    // set content
     this.setContent()
   },
   deactivated () {
