@@ -32,9 +32,13 @@ export const TableToolbar = [
   'fore-color',
   'back-color',
   'separator',
+  'bullet_list',
+  'ordered_list',
+  'todo_list',
+  'separator',
   'align-dropdown',
   'separator',
-  'table'
+  'table',
 ]
 
 /**

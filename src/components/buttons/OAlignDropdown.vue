@@ -4,7 +4,7 @@
       <q-list>
         <q-item v-for="(item, index) in alignments" :key="index"
                 :class="{ 'is-active': isActive(item.value) }"
-                @click.native="item.command()" clickable v-close-popup>
+                @click.native="item.command({ textAlign: item.value })" clickable v-close-popup>
           <q-item-section side>
             <q-icon :name="`format_align_${item.value}`" />
           </q-item-section>
@@ -43,10 +43,10 @@ export default {
   computed: {
     alignments () {
       return [
-        { label: this.$o.lang.editor.left, value: 'left', command: this.commands.align_left },
-        { label: this.$o.lang.editor.center, value: 'center', command: this.commands.align_center },
-        { label: this.$o.lang.editor.right, value: 'right', command: this.commands.align_right },
-        { label: this.$o.lang.editor.justify, value: 'justify', command: this.commands.align_justify },
+        { label: this.$o.lang.editor.left, value: 'left', command: this.commands.alignment },
+        { label: this.$o.lang.editor.center, value: 'center', command: this.commands.alignment },
+        { label: this.$o.lang.editor.right, value: 'right', command: this.commands.alignment },
+        { label: this.$o.lang.editor.justify, value: 'justify', command: this.commands.alignment },
       ]
     }
   }

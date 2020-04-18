@@ -1,6 +1,6 @@
 <template>
   <q-page class="page-quasar-tiptap-all">
-    <quasar-tiptap v-bind="options" scrollable>
+    <quasar-tiptap v-bind="options" @update="onUpdate" scrollable>
       <template slot="toolbar-left">
         <q-separator vertical inset />
         <o-menubar-btn icon="mdi-overscan"
@@ -89,13 +89,21 @@ export default {
           'redo',
         ]
       },
-      isSlideShow: false
+      isSlideShow: false,
+      json: '',
+      html: ''
     }
   },
   components: {
     OMenubarBtn,
   },
   methods: {
+    onUpdate ({ state, getJSON, getHTML }) {
+      this.json = getJSON()
+      this.html = getHTML()
+      console.log('html', this.html)
+      // console.log('json', JSON.stringify(this.json))
+    },
     onSlideShow () {}
   },
   mounted () {

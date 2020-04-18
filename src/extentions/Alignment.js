@@ -2,6 +2,12 @@ import { Extension } from 'tiptap'
 import { setAlignment } from 'src/utils/alignment'
 
 export default class Alignment extends Extension {
+  constructor (options = {}) {
+    super(options)
+
+    this._alignment = options.alignment || 'left'
+  }
+
   get name () {
     return 'alignment'
   }
@@ -17,25 +23,7 @@ export default class Alignment extends Extension {
     }
   }
 
-  commands () {
-    return this.options.alignments.reduce((commands, alignment) => {
-      return {
-        ...commands,
-        [`align_${alignment}`]: () => (state, dispatch) => {
-          const { selection } = state
-          const tr = setAlignment(
-            state.tr.setSelection(selection),
-            alignment === 'left' ? null : alignment,
-          )
-
-          if (tr.docChanged) {
-            dispatch && dispatch(tr)
-            return true
-          } else {
-            return false
-          }
-        },
-      }
-    }, {})
+  commands ({ type }) {
+    return attrs => setAlignment(type, attrs)
   }
 }

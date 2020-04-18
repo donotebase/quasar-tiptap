@@ -65,7 +65,7 @@ export default {
       this.json = getJSON()
       this.html = getHTML()
       console.log('html', this.html)
-      console.log('json', JSON.stringify(this.json))
+      // console.log('json', JSON.stringify(this.json))
     }
   },
   mounted () {

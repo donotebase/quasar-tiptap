@@ -13,8 +13,12 @@
                        :is="getName(item)"
                        :editor="editor"
                        v-bind="editorContext"
-                       v-else>
-            </component>
+                       v-else-if="typeof item === 'string'" />
+            <component :key="index"
+                       :is="item"
+                       :editor="editor"
+                       v-bind="editorContext"
+                       v-else />
             <o-table-group v-bind="editorContext" :key="`table-${index}`" v-if="item==='table'" />
           </template>
         </template>

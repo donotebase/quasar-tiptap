@@ -9,7 +9,7 @@
   >
     <div
       contenteditable="false"
-      class="row items-center todo-checkbox"
+      class="row col-12 items-center todo-checkbox"
       @click.stop="toggle"
     >
       <q-icon :name="done ? 'check_box' : 'check_box_outline_blank'" />
@@ -18,7 +18,7 @@
     <div
       ref="content"
       :contenteditable="view.editable.toString()"
-      class="todo-content"
+      class="full-width todo-content"
     />
   </li>
 </template>

@@ -4,7 +4,7 @@
                    :icon="`format_align_${item.value}`"
                    :tooltip="item.label"
                    :class="{ 'is-active': isActive(item.value) }"
-                   @click.native="item.command" />
+                   @click.native="item.command({ textAlign: item.value })" />
   </section>
 </template>
 
@@ -36,9 +36,9 @@ export default {
   computed: {
     alignments () {
       return [
-        { label: this.$o.lang.editor.left, value: 'left', command: this.commands.align_left },
-        { label: this.$o.lang.editor.center, value: 'center', command: this.commands.align_center },
-        { label: this.$o.lang.editor.right, value: 'right', command: this.commands.align_right },
+        { label: this.$o.lang.editor.left, value: 'left', command: this.commands.alignment },
+        { label: this.$o.lang.editor.center, value: 'center', command: this.commands.alignment },
+        { label: this.$o.lang.editor.right, value: 'right', command: this.commands.alignment },
       ]
     }
   }
