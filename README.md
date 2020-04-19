@@ -235,6 +235,10 @@ export const RecommendedExtensions = [
 5. 🚀Push to the branch: `git push origin your-branch`
 6. 🎉Submit a PR to `dev` branch
 
+## Roadmap
+
+A todo list will be shown in [QuasarTiptap Project](https://github.com/donotebase/quasar-tiptap/projects/1) kanban.
+
 ## Thanks
 
 - Authors of [Quasar Framework](https://github.com/quasarframework)
