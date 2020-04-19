@@ -57,6 +57,7 @@ export default {
         indent: { icon: 'format_indent_increase', tooltip: this.$o.lang.editor.indent, isActive: false, command: this.commands.indent },
         outdent: { icon: 'format_indent_decrease', tooltip: this.$o.lang.editor.outdent, isActive: false, command: this.commands.outdent },
         format_clear: { icon: 'format_clear', tooltip: this.$o.lang.editor.removeFormat, isActive: false, command: this.commands.formatClear },
+        print: { icon: 'print', tooltip: this.$o.lang.editor.print, isActive: false, command: this.commands.print },
       }
     },
     config () {

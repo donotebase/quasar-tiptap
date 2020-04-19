@@ -38,4 +38,6 @@ export const DefaultToolbar = [
   'separator',
   'undo',
   'redo',
+  'separator',
+  'print',
 ]

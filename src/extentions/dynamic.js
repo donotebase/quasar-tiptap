@@ -48,7 +48,8 @@ import {
   ODiagram,
   OKatexBlock,
   OKatexInline,
-  OFormatClear
+  OFormatClear,
+  OPrint,
 } from 'src/extentions'
 
 const classes = {
@@ -92,7 +93,8 @@ const classes = {
   ODiagram,
   OKatexBlock,
   OKatexInline,
-  OFormatClear
+  OFormatClear,
+  OPrint,
 }
 
 class DynamicClass {

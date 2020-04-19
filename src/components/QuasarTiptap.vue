@@ -72,6 +72,7 @@ import {
   OKatexBlock,
   OKatexInline,
   OFormatClear,
+  OPrint,
   RecommendedExtensions
 } from 'src/extentions'
 

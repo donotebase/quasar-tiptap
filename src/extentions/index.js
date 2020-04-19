@@ -31,6 +31,7 @@ export { default as OAlignment } from 'src/extentions/Alignment'
 export { default as OIndent } from 'src/extentions/Indent'
 export { default as OLineHeight } from 'src/extentions/LineHeight'
 export { default as OFormatClear } from 'src/extentions/FormatClear'
+export { default as OPrint } from 'src/extentions/Print'
 
 // --------------------------------------------------------------------------------
 // Exposed Extension List
@@ -71,6 +72,7 @@ export const QuasarTipTapExtensions = [
   'OKatexBlock',
   'OKatexInline',
   'OFormatClear',
+  'OPrint',
 ]
 
 export const RecommendedExtensions = [
