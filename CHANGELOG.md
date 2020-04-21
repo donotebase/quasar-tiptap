@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/donotebase/quasar-tiptap/compare/@1.1.1...@1.2.0) (2020-04-21)
+
+
+### Features
+
+* **editor:** image extension ([a9e9be1](https://github.com/donotebase/quasar-tiptap/commit/a9e9be10f5bc57f592192decf391464c984aabca))
+* **editor:** print extension ([c1d7cbd](https://github.com/donotebase/quasar-tiptap/commit/c1d7cbd8b497373edd4f27069143273c6a1097de))
+
 ## [1.1.1](https://github.com/donotebase/quasar-tiptap/compare/@1.1.0...@1.1.1) (2020-04-18)
 
 
