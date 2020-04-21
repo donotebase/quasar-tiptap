@@ -6,7 +6,7 @@
  * @date 2020.04.11
  */
 export const BasicFeaturesArticle = `
-<h1>quasar-tiptap</h1><h2 id="d5fb3c" level="2">Introduction</h2><p><strong><span style="color: #1890ff">Quasar Tiptap Editor</span></strong>&nbsp;is a WYSIWYG rich-text editor built on top of tiptap&nbsp;and Quasar.🔥</p><p></p><h2 id="ce7176" level="2">Diagram</h2><p></p><diagram src="graph TD
+<h1>quasar-tiptap</h1><h2 id="d5fb3c" level="2">Introduction</h2><p><strong><span style="color: #1890ff">Quasar Tiptap Editor</span></strong>&nbsp;is a WYSIWYG rich-text editor built on top of tiptap&nbsp;and Quasar.🔥</p><h2 id="846676" level="2">Image</h2><p data-text-align="center"><img src="https://www.donote.info/statics/logo.png" caption="Caption" ref="https://www.donote.info/"></p><h2 id="ce7176" level="2">Diagram</h2><p></p><diagram src="graph TD
 A[Christmas] -->|Get money| B(Go shopping)
 B --> C{Let me think}
 C -->|One| D[Laptop]
@@ -18,7 +18,7 @@ import "fmt"
 
 func main() {
     fmt.Println("Hello, world!")
-}</code></pre><h2 id="f0df1b" level="2">Table</h2><table><tbody><tr><th><p>Title</p></th><th><p>Name</p></th><th><p>Description</p></th></tr><tr><td><p data-text-align="center">1</p></td><td><p data-text-align="center">2</p></td><td><p>3</p></td></tr><tr><td><p data-text-align="right">a</p></td><td><p data-text-align="right">b</p></td><td><p data-text-align="right">c</p></td></tr></tbody></table><p></p><h2 id="3b0d30" level="2">Text</h2><p><strong><span style="font-family: Arial Black">Bold text</span></strong></p><p><em>Italic text</em></p><p><u>Underline text</u></p><p><s>Strike through text</s></p><p><code>Inline code</code></p><p><span style="color: #ff4d4f">Text with color</span></p><p><span style="background: #ffec3d">Text with </span><span style="color: #ffffff"><span style="background: #52c41a">highlight</span></span><span style="background: #ffec3d"> background</span></p><p data-indent="1">Text with indent</p><h2 id="f0df1b" level="2"></h2><p></p>
+}</code></pre><h2 id="f0df1b" level="2">Table</h2><table><tbody><tr><th><p>Title</p></th><th><p>Name</p></th><th><p>Description</p></th></tr><tr><td><p data-text-align="center">1</p></td><td><p data-text-align="center">2</p></td><td><p>3</p></td></tr><tr><td><p data-text-align="right">a</p></td><td><p data-text-align="right">b</p></td><td><p data-text-align="right">c</p></td></tr></tbody></table><p></p><h2 id="3b0d30" level="2">Text</h2><p><strong><span style="font-family: Arial Black">Bold text</span></strong></p><p><em>Italic text</em></p><p><u>Underline text</u></p><p><s>Strike through text</s></p><p><code>Inline code</code></p><p><span style="color: #ff4d4f">Text with color</span></p><p><span style="background: #ffec3d">Text with </span><span style="color: #ffffff"><span style="background: #52c41a">highlight</span></span><span style="background: #ffec3d"> background</span></p><p data-indent="1">Text with indent</p>
 `
 
 export const BasicFeaturesArticleJson = `

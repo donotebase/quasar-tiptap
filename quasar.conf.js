@@ -48,6 +48,7 @@ module.exports = function (ctx) {
         'QTooltip',
         'QBtn',
         'QBtnDropdown',
+        'QBtnToggle',
         'QIcon',
         'QList',
         'QItem',

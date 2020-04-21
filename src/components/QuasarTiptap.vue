@@ -47,7 +47,7 @@ import {
   Focus,
   HorizontalRule,
   TrailingNode,
-  Image
+  // Image
 } from 'tiptap-extensions'
 
 import java from 'highlight.js/lib/languages/java'
@@ -73,6 +73,7 @@ import {
   OKatexInline,
   OFormatClear,
   OPrint,
+  OImage,
   RecommendedExtensions
 } from 'src/extentions'
 

@@ -50,6 +50,7 @@ import {
   OKatexInline,
   OFormatClear,
   OPrint,
+  OImage,
 } from 'src/extentions'
 
 const classes = {
@@ -75,7 +76,7 @@ const classes = {
   Focus,
   HorizontalRule,
   TrailingNode,
-  Image,
+  // Image,
 
   OTitle,
   ODoc,
@@ -95,6 +96,7 @@ const classes = {
   OKatexInline,
   OFormatClear,
   OPrint,
+  OImage,
 }
 
 class DynamicClass {

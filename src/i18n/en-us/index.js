@@ -89,5 +89,14 @@ export default {
     insertRowDown: 'Insert row down',
     removeRows: 'Remove selected rows',
     merge: 'Merge/Unmerge cells',
+  },
+  image: {
+    preferences: 'Image Preferences',
+    size: 'Size',
+    width: 'Width',
+    height: 'Height',
+    src: 'Image Source',
+    caption: 'Caption',
+    link: 'Link',
   }
 }

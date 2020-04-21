@@ -89,5 +89,14 @@ export default {
     insertRowDown: '下方插入行',
     removeRows: '删除选中行',
     merge: '合并/拆分 单元格',
+  },
+  image: {
+    preferences: '图片设置',
+    size: '尺寸',
+    width: '宽度',
+    height: '高度',
+    src: '图片地址',
+    caption: '图片说明',
+    link: '链接',
   }
 }

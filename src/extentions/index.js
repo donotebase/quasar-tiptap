@@ -32,6 +32,7 @@ export { default as OIndent } from 'src/extentions/Indent'
 export { default as OLineHeight } from 'src/extentions/LineHeight'
 export { default as OFormatClear } from 'src/extentions/FormatClear'
 export { default as OPrint } from 'src/extentions/Print'
+export { default as OImage } from 'src/extentions/Image'
 
 // --------------------------------------------------------------------------------
 // Exposed Extension List
@@ -51,7 +52,7 @@ export const TipTapExtensions = [
   'HorizontalRule',
   'Table',
   'Link',
-  'Image',
+  // 'Image',
 ]
 
 export const QuasarTipTapExtensions = [
@@ -73,6 +74,7 @@ export const QuasarTipTapExtensions = [
   'OKatexInline',
   'OFormatClear',
   'OPrint',
+  'OImage',
 ]
 
 export const RecommendedExtensions = [

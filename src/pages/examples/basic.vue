@@ -50,6 +50,36 @@ export default {
           }),
         ],
         toolbar: [
+          'add-more',
+          'separator',
+          'bold',
+          'italic',
+          'underline',
+          'strike',
+          'code',
+          'separator',
+          'heading',
+          'font-family',
+          'fore-color',
+          'back-color',
+          'format_clear',
+          'separator',
+          'align-dropdown',
+          'indent',
+          'outdent',
+          'line-height',
+          'separator',
+          'horizontal',
+          'bullet_list',
+          'ordered_list',
+          'todo_list',
+          'separator',
+          'blockquote',
+          'code_block',
+          'photo',
+          'table',
+          'separator',
+          'print',
         ]
       },
       json: '',
@@ -70,7 +100,7 @@ export default {
   },
   mounted () {
     this.$o.lang.set('en-us')
-    console.log('editor', this.$refs.editor.editor)
+    // console.log('editor', this.$refs.editor.editor)
   },
   deactivated () {
   },

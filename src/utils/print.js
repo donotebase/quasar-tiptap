@@ -11,6 +11,7 @@ export function printHtml (dom) {
   style = style.replace(new RegExp('fonts/', 'g'), '/fonts/')
 
   const content = style + `<section class="tiptap tiptap-editor quasar-tiptap">${dom.outerHTML}</section>`
+  console.log('html', content)
 
   if (IS_TEST) {
     // open a new window, for test

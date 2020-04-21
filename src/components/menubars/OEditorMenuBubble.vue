@@ -1,7 +1,10 @@
 <template>
   <editor-menu-bubble :editor="editor" v-slot="editorContext">
     <section class="tiptap-menububble"
-             :class="{ 'is-active': editorContext.menu.isActive && selectedCellSize === 0 }"
+             :class="{ 'is-active': editorContext.focused &&
+                                    editorContext.menu.isActive &&
+                                    selectedCellSize === 0 &&
+                                    !editorContext.isActive.image() }"
              :style="`left: ${editorContext.menu.left}px; bottom: ${editorContext.menu.bottom + 8}px;`">
       <template v-for="(item, index) of bubbleToolbar">
         <q-separator vertical inset :key="index" v-if="item==='separator'" />
@@ -63,6 +66,10 @@ export default {
     selectedCellSize: {
       type: Number,
       default: 0
+    },
+    imgSelected: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
