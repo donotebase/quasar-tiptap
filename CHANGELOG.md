@@ -1,3 +1,11 @@
+## [1.2.1](https://github.com/donotebase/quasar-tiptap/compare/@1.2.0...@1.2.1) (2020-04-22)
+
+
+### Bug Fixes
+
+* **alignment:** add align mark for backwards compatibility ([af64e1f](https://github.com/donotebase/quasar-tiptap/commit/af64e1f2c406a3a6e63fec13baf75791f03e6bfa))
+* **print:** Remove unused js when printing ([1a28134](https://github.com/donotebase/quasar-tiptap/commit/1a28134e9eb6da1432d610dc9799c54383453bb2))
+
 # [1.2.0](https://github.com/donotebase/quasar-tiptap/compare/@1.1.1...@1.2.0) (2020-04-21)
 
 
