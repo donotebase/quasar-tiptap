@@ -60,6 +60,7 @@ import {
   OParagraph,
   OBlockquote,
   OTodoItem,
+  OAlign,
   OAlignment,
   OIndent,
   OLineHeight,
@@ -167,7 +168,8 @@ export default {
         new TrailingNode({
           node: 'paragraph',
           notAfter: ['paragraph']
-        })
+        }),
+        new OAlign()
       ]
 
       this.editor = new Editor({
