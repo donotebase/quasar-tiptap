@@ -6,9 +6,9 @@ export default class FormatClear extends Extension {
     return 'formatClear'
   }
 
-  commands () {
+  commands ({ type }) {
     return () => (state, dispatch) => {
-      const tr = clearMarks(state.tr.setSelection(state.selection), state.schema)
+      const tr = clearMarks(state.tr.setSelection(state.selection), state.schema, type)
 
       if (dispatch && tr.docChanged) {
         dispatch(tr)

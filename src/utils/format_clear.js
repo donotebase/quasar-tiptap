@@ -7,6 +7,7 @@ import { setLineHeight } from './line_height'
 import { cleanIndent } from './indent'
 
 const FORMAT_MARK_NAMES = [
+  'align',
   'bold',
   'italic',
   'underline',
@@ -18,7 +19,7 @@ const FORMAT_MARK_NAMES = [
   'indent',
 ]
 
-export function clearMarks (tr, schema) {
+export function clearMarks (tr, schema, type) {
   const { doc, selection } = tr
   if (!selection || !doc) {
     return tr
@@ -55,7 +56,7 @@ export function clearMarks (tr, schema) {
     tr = tr.removeMark(pos, pos + node.nodeSize, mark.type)
   })
 
-  tr = setAlignment(tr, null)
+  // setAlignment(type, { textAlign: 'right' })
   tr = setLineHeight(tr, null)
   tr = cleanIndent(tr)
 
