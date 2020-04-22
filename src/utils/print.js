@@ -7,11 +7,12 @@ const IS_TEST = false
 export function printHtml (dom) {
   let style = Array.from(document.querySelectorAll('style, link'))
     .reduce((str, style) => str + style.outerHTML, '')
-  style = style.replace(new RegExp('statics/', 'g'), '/statics/')
+  style = style.replace(new RegExp('<link href=".*.js" .*[ht]">', 'g'), '')
+  style = style.replace(new RegExp('href="', 'g'), 'href="/')
   style = style.replace(new RegExp('fonts/', 'g'), '/fonts/')
 
   const content = style + `<section class="tiptap tiptap-editor quasar-tiptap">${dom.outerHTML}</section>`
-  console.log('html', content)
+  // console.log('html', content)
 
   if (IS_TEST) {
     // open a new window, for test
