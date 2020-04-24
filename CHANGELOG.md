@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/donotebase/quasar-tiptap/compare/@1.2.2...@1.2.3) (2020-04-24)
+
+
+### Bug Fixes
+
+* **menububble:** customize menububble ([e846437](https://github.com/donotebase/quasar-tiptap/commit/e8464373afb1172a03cade0476beb8886d737871))
+
 ## [1.2.2](https://github.com/donotebase/quasar-tiptap/compare/@1.2.1...@1.2.2) (2020-04-24)
 
 
