@@ -15,6 +15,7 @@ export const CommandComponents = {
   'align-group': 'o-align-group',
   'line-height': 'o-line-height-dropdown',
   heading: 'o-heading-dropdown',
+  link: 'o-link-btn',
   photo: 'o-photo-btn',
   table: 'o-table-btn',
 }
@@ -23,14 +24,16 @@ export const CommandComponents = {
  * Table toolbar
  */
 export const TableToolbar = [
+  'add-more',
+  'separator',
   'bold',
   'italic',
-  'strike',
-  'underline',
+  'code',
   'separator',
   'font-family',
   'fore-color',
   'back-color',
+  'format_clear',
   'separator',
   'bullet_list',
   'ordered_list',

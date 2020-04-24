@@ -33,6 +33,7 @@ export const DefaultToolbar = [
   'separator',
   'blockquote',
   'code_block',
+  'link',
   'photo',
   'table',
   'separator',

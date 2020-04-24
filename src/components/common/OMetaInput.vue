@@ -2,7 +2,7 @@
   <section class="o-meta-input">
     <div class="title">{{title}}</div>
     <div class="fields">
-      <q-input v-model="value" ref="input" standout="bg-blue" flat
+      <q-input v-model="value" ref="input" standout="bg-blue" clearable flat
                :autofocus="true"
                @keyup.enter.native="onConfirm" :placeholder="$o.lang.label.linkAddress">
         <template v-slot:prepend>
@@ -30,6 +30,10 @@ export default {
     }
   },
   props: {
+    val: {
+      type: String,
+      default: ''
+    },
     title: {
       type: String,
       default: '超链接'
@@ -56,6 +60,14 @@ export default {
       this.$emit('primaryAction', this.value)
       this.value = ''
     }
+  },
+  watch: {
+    val (to, from) {
+      this.value = to
+    }
+  },
+  mounted () {
+    this.value = this.val
   }
 }
 </script>

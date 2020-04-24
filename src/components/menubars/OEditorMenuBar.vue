@@ -68,6 +68,7 @@ import OHeadingList from 'src/components/buttons/OHeadingList'
 
 import OAddMoreBtn from 'src/components/buttons/OAddMoreBtn'
 import OPhotoBtn from 'src/components/buttons/OPhotoBtn'
+import OLinkBtn from 'src/components/buttons/OLinkBtn'
 import OTableBtn from 'src/components/buttons/OTableBtn'
 import OTableGroup from 'src/components/buttons/OTableGroup'
 
@@ -110,6 +111,7 @@ export default {
     OHeadingList,
     OAddMoreBtn,
     OPhotoBtn,
+    OLinkBtn,
     OTableBtn,
     OTableGroup
   },
