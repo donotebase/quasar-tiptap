@@ -1,3 +1,11 @@
+## [1.2.2](https://github.com/donotebase/quasar-tiptap/compare/@1.2.1...@1.2.2) (2020-04-24)
+
+
+### Bug Fixes
+
+* **link:** link button ([7dc61c0](https://github.com/donotebase/quasar-tiptap/commit/7dc61c0385af26ddeb92c144e9ff4d0217cdd5a9))
+* format clear ([f8b7919](https://github.com/donotebase/quasar-tiptap/commit/f8b7919f74b82910ee581154149c496397f3fefb))
+
 ## [1.2.1](https://github.com/donotebase/quasar-tiptap/compare/@1.2.0...@1.2.1) (2020-04-22)
 
 
