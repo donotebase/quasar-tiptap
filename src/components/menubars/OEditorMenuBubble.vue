@@ -6,7 +6,7 @@
                                     selectedCellSize === 0 &&
                                     !editorContext.isActive.image() }"
              :style="`left: ${editorContext.menu.left}px; bottom: ${editorContext.menu.bottom + 8}px;`">
-      <template v-for="(item, index) of bubbleToolbar">
+      <template v-for="(item, index) of toolbar">
         <q-separator vertical inset :key="index" v-if="item==='separator'" />
         <component :key="index"
                    :name="item"
@@ -26,7 +26,7 @@
 
 <script>
 import { EditorMenuBubble } from 'tiptap'
-import { CommandComponents, BubbleToolbar } from 'src/utils/menu'
+import { CommandComponents } from 'src/data/editor'
 
 import OForeColorDropdown from 'src/components/buttons/OForeColorDropdown'
 import OBackColorDropdown from 'src/components/buttons/OBackColorDropdown'
@@ -38,6 +38,7 @@ import OHeadingDropdown from 'src/components/buttons/OHeadingDropdown'
 import OHeadingList from 'src/components/buttons/OHeadingList'
 
 import OAddMoreBtn from 'src/components/buttons/OAddMoreBtn'
+import OLinkBtn from 'src/components/buttons/OLinkBtn'
 import OPhotoBtn from 'src/components/buttons/OPhotoBtn'
 import OTableBtn from 'src/components/buttons/OTableBtn'
 import OTableGroup from 'src/components/buttons/OTableGroup'
@@ -50,7 +51,6 @@ export default {
   name: 'page-quasar-tiptap-all',
   data () {
     return {
-      bubbleToolbar: BubbleToolbar,
     }
   },
   props: {
@@ -86,6 +86,7 @@ export default {
     OHeadingDropdown,
     OHeadingList,
     OAddMoreBtn,
+    OLinkBtn,
     OPhotoBtn,
     OTableBtn,
     OTableGroup

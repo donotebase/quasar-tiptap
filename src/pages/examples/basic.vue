@@ -81,6 +81,18 @@ export default {
           'table',
           'separator',
           'print',
+        ],
+        bubble: [
+          'bold',
+          'italic',
+          'separator',
+          'font-family',
+          'fore-color',
+          'back-color',
+          'separator',
+          'link',
+          'separator',
+          'align-group',
         ]
       },
       json: '',

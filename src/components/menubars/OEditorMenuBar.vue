@@ -55,7 +55,7 @@
 
 <script>
 import { EditorMenuBar } from 'tiptap'
-import { CommandComponents, TableToolbar } from 'src/utils/menu'
+import { CommandComponents, TableToolbar } from 'src/data/editor'
 
 import OForeColorDropdown from 'src/components/buttons/OForeColorDropdown'
 import OBackColorDropdown from 'src/components/buttons/OBackColorDropdown'

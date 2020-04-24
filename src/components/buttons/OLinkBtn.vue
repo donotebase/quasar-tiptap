@@ -41,7 +41,6 @@ export default {
       this.href = ''
 
       let link = this.getMarkAttrs('link')
-      console.log('show', link)
       if (link) {
         this.href = link.href
       }

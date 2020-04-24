@@ -11,7 +11,7 @@
     </o-editor-menu-bar>
 
     <!-- Main Bubble -->
-    <o-editor-menu-bubble :editor="editor" :selected-cell-size="selectedCellSize" v-if="editable && showBubble" />
+    <o-editor-menu-bubble :editor="editor" :toolbar="editorMenuBubble" :selected-cell-size="selectedCellSize" v-if="editable && showBubble" />
 
     <q-scroll-area ref="editorScroll" class="editor-scroll-area" :class="`view-${pageView}`" v-if="scrollable">
       <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
@@ -83,7 +83,7 @@ import DynamicClass from 'src/extentions/dynamic'
 import OEditorMenuBar from 'src/components/menubars/OEditorMenuBar'
 import OEditorMenuBubble from 'src/components/menubars/OEditorMenuBubble'
 
-import { DefaultToolbar } from 'src/data/editor'
+import { DefaultToolbar, DefaultBubble } from 'src/data/editor'
 
 export default {
   name: 'quasar-tiptap',
@@ -129,6 +129,12 @@ export default {
         return []
       }
     },
+    bubble: {
+      type: Array,
+      default: function () {
+        return []
+      }
+    },
     pageView: {
       type: String,
       default: 'page'
@@ -149,6 +155,9 @@ export default {
   computed: {
     editorMenuBar () {
       return this.toolbar.length > 0 ? this.toolbar : DefaultToolbar
+    },
+    editorMenuBubble () {
+      return this.bubble.length > 0 ? this.bubble : DefaultBubble
     }
   },
   methods: {
