@@ -28,6 +28,8 @@ import { BasicFeaturesArticle, BasicFeaturesArticleJson } from 'src/data/article
 
 import OAddMoreBtn from 'src/components/buttons/OAddMoreBtn'
 
+import { DEFAULT_LOCALE } from 'src/i18n'
+
 export default {
   name: 'page-quasar-tiptap-basic',
   data () {
@@ -100,7 +102,7 @@ export default {
     }
   },
   mounted () {
-    this.$o.lang.set('en-us')
+    this.$o.lang.set(DEFAULT_LOCALE)
     // console.log('editor', this.$refs.editor.editor)
   },
   deactivated () {

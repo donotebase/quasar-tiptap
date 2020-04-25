@@ -23,8 +23,9 @@
 <script>
 import Vue from 'vue'
 import { QuasarTiptapPlugin, OMenubarBtn } from 'src/index'
+import { DEFAULT_LOCALE } from 'src/i18n'
 Vue.use(QuasarTiptapPlugin, {
-  language: 'en-us',
+  language: DEFAULT_LOCALE,
   spellcheck: true
 })
 
@@ -76,7 +77,7 @@ export default {
     onSlideShow () {}
   },
   mounted () {
-    this.$o.lang.set('en-us')
+    this.$o.lang.set(DEFAULT_LOCALE)
   },
   deactivated () {
   },
