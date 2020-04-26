@@ -24,6 +24,11 @@ A modern WYSIWYG rich-text editor built on top of [tiptap](https://github.com/sc
 - I18n support (`en-us`, `pl`, `zh-hans`)
 - Fully extensible for editor extensions, menubar
 
+### I18n
+- `en-us` default
+- `zh-hans`
+- `pl` by @qyloxe
+
 ## Installation
 
 ### Dependencies
