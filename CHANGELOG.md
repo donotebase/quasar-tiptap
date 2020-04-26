@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/donotebase/quasar-tiptap/compare/@1.2.3...@1.3.0) (2020-04-26)
+
+
+### Bug Fixes
+
+* **i18n:** iframe key, fixed [#8](https://github.com/donotebase/quasar-tiptap/issues/8) ([e46216a](https://github.com/donotebase/quasar-tiptap/commit/e46216a82a5bb1e79096897a9b39e0150b56d6b5))
+
+
+### Features
+
+* polish locale, project level DEFAULT_LOCALE ([419807a](https://github.com/donotebase/quasar-tiptap/commit/419807a0879059239519caa75562dd50d60b54d2))
+
 ## [1.2.3](https://github.com/donotebase/quasar-tiptap/compare/@1.2.2...@1.2.3) (2020-04-24)
 
 
