@@ -1,5 +1,7 @@
 /**
  * Utils: shared
+ * @author Leecason
+ * @see https://github.com/Leecason/element-tiptap/blob/master/src/utils/shared.ts
  */
 
 export function noop () {}

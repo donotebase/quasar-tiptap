@@ -1,3 +1,9 @@
+/**
+ * Extension: indent
+ *
+ * @author Leecason
+ * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/indent.ts
+ */
 import { Extension } from 'tiptap'
 import { createIndentCommand } from 'src/utils/indent'
 

@@ -1,5 +1,6 @@
 /**
  * Utils: image
+ * @author Leecason
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/utils/image.ts
  */
 const IMAGE_CACHE = {}

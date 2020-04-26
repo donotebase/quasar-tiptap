@@ -1,5 +1,6 @@
 /**
  * Utils: alignment
+ * @author Leecason
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/line_height.ts
  * @todo Table
  */

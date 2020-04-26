@@ -1,5 +1,6 @@
 /**
  * Utils: clear formats
+ * @author Leecason
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/utils/format_clear.ts
  */
 import { setAlignment } from './alignment'

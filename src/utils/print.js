@@ -1,5 +1,6 @@
 /**
  * Utils: print
+ * @author Leecason
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/utils/print.ts
  */
 const IS_TEST = false

@@ -1,5 +1,6 @@
 /**
  * Utils: mark
+ * @author Leecason
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/utils/apply_mark.ts
  */
 import { getMarkAttrs } from 'tiptap-utils'
