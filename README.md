@@ -21,7 +21,7 @@ A modern WYSIWYG rich-text editor built on top of [tiptap](https://github.com/sc
 - Extensions: tiptap official extensions, and dozens of great extensions
 - Markdown
 - Diagram and LaTex Math formula
-- I18n support (`en-us`, `zh-hans`)
+- I18n support (`en-us`, `pl`, `zh-hans`)
 - Fully extensible for editor extensions, menubar
 
 ## Installation
