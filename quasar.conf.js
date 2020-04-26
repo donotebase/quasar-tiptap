@@ -2,6 +2,10 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
 module.exports = function (ctx) {
+  const DEFAULT_LOCALE = 'en-us'
+  const appenv = {
+    DEFAULT_LOCALE: JSON.stringify(DEFAULT_LOCALE)
+  }
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -26,7 +30,7 @@ module.exports = function (ctx) {
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
       iconSet: 'material-icons', // Quasar icon set
-      lang: 'en-us', // Quasar language pack
+      lang: DEFAULT_LOCALE, // Quasar language pack
 
       // Possible values for "all":
       // * 'auto' - Auto-import needed Quasar components & directives
@@ -89,6 +93,7 @@ module.exports = function (ctx) {
       vueCompiler: true,
       distDir: 'dist/' + ctx.modeName,
       publicPath: 'quasar-tiptap',
+      env: appenv,
 
       // rtl: false, // https://quasar.dev/options/rtl-support
       // showProgress: false,
