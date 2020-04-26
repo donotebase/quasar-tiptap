@@ -38,9 +38,9 @@
           </q-tooltip>
         </o-common-item>
         <q-separator />
-        <o-common-item icon="mdi-iframe" :label="$t('iframe')">
+        <o-common-item icon="mdi-iframe" label="IFrame">
           <q-menu ref="iframePopover" anchor="top right" self="top left" :offset="[2, 0]">
-            <o-meta-input :title="$t('iframe')" icon="link"
+            <o-meta-input title="IFrame" icon="link"
                           @primaryAction="insertIframe(commands.iframe, $event)">
             </o-meta-input>
           </q-menu>
