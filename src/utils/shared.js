@@ -1,6 +1,7 @@
 /**
  * Utils: shared
  * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/utils/shared.ts
  */
 

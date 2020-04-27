@@ -1,6 +1,7 @@
 /**
  * Utils: alignment
  * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/line_height.ts
  * @todo Table
  */

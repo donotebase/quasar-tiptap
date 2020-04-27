@@ -1,3 +1,10 @@
+/**
+ * Extension: format clear
+ *
+ * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
+ * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/format_clear.ts
+ */
 import { Extension } from 'tiptap'
 import { clearMarks } from 'src/utils/format_clear'
 

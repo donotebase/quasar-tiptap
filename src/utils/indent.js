@@ -1,6 +1,7 @@
 /**
  * Utils: indent
  * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/indent.ts
  */
 import { TextSelection, AllSelection } from 'prosemirror-state'

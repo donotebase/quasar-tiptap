@@ -1,3 +1,10 @@
+/**
+ * Extension: print
+ *
+ * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
+ * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/print.ts
+ */
 import { Extension } from 'tiptap'
 import { printHtml } from 'src/utils/print'
 

@@ -1,3 +1,10 @@
+/**
+ * Extension: todo item
+ *
+ * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
+ * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/todo_item.ts
+ */
 import { TodoItem as TiptapTodoItem } from 'tiptap-extensions'
 import OTodoItemView from 'src/components/views/OTodoItemView'
 

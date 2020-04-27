@@ -1,6 +1,7 @@
 /**
  * Utils: image
  * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
  * @see https://github.com/Leecason/element-tiptap/blob/master/src/utils/image.ts
  */
 const IMAGE_CACHE = {}

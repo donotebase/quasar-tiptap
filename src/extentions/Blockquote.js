@@ -1,3 +1,10 @@
+/**
+ * Extension: blockquote
+ *
+ * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
+ * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/blockquote.ts
+ */
 import { Blockquote as TiptapBlockquote } from 'tiptap-extensions'
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from 'src/extentions/Paragraph'
 

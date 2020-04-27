@@ -1,3 +1,9 @@
+/**
+ * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
+ * @see https://raw.githubusercontent.com/Leecason/element-tiptap/master/rollup.config.js
+ */
+
 import path from 'path'
 
 import alias from '@rollup/plugin-alias'

@@ -1,3 +1,10 @@
+/**
+ * Extension: paragraph
+ *
+ * @author Leecason
+ * @license MIT, https://github.com/Leecason/element-tiptap/blob/master/LICENSE
+ * @see https://github.com/Leecason/element-tiptap/blob/master/src/extensions/paragraph.ts
+ */
 import { Paragraph as TiptapParagraph } from 'tiptap'
 
 function getAttrs (dom) {
