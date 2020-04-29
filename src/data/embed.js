@@ -17,6 +17,7 @@ export const VideoServices = [
 
 export const MapServices = [
   { label: 'Google Map', value: 'google_map', icon: 'mdi-google-maps', color: 'blue' },
+  { label: 'AMap', value: 'amap', svgIcon: 'amap' },
   { label: 'Baidu Map', value: 'baidu_map', svgIcon: 'baidu-map' },
 ]
 
@@ -86,6 +87,25 @@ export const EmbedServiceLink = {
     src: 'https://v.qq.com/txp/iframe/player.html?vid=i0033cgr1vn',
     srcPrefix: 'https://v.qq.com/txp/iframe/player.html?vid',
     linkRule: 'v.qq.com\\/x\\/cover\\/\\w+\\/\\w+',
+  },
+  amap: {
+    link: 'https://www.amap.com/place/B000A84G4C',
+    src: 'https://www.amap.com/place/B000A84G4C',
+    srcPrefix: '',
+    linkRule: '\\.amap\\.com',
+  },
+  baidu_map: {
+    link: 'https://map.baidu.com/',
+    src: 'https://map.baidu.com/',
+    srcPrefix: '',
+    linkRule: 'map\\.baidu\\.com',
+  },
+  google_map: {
+    link: 'https://map.google.com/',
+    src: 'https://map.google.com/',
+    srcPrefix: '',
+    linkRule: 'https:\\/\\/www.google.com\\/maps\\/embed\\?pb=.+sus',
+    tips: 'Google Map > select location > Share > Embed a map > COPY HTML'
   }
 }
 
@@ -185,10 +205,62 @@ function getQQVideoSrc (originalLink, result) {
   return result
 }
 
+function getAMapSrc (originalLink, result) {
+  let link = EmbedServiceLink.amap
+  let linkRule = link.linkRule
+  let regex = new RegExp(linkRule)
+  let match = originalLink.match(regex)
+  if (match && match.length > 0) {
+    result.validLink = true
+
+    result.src = originalLink
+    result.validId = true
+  } else {
+    result.validLink = false
+  }
+
+  return result
+}
+
+function getBaiduMapSrc (originalLink, result) {
+  let link = EmbedServiceLink.baidu_map
+  let linkRule = link.linkRule
+  let regex = new RegExp(linkRule)
+  let match = originalLink.match(regex)
+  if (match && match.length > 0) {
+    result.validLink = true
+
+    result.src = originalLink
+    result.validId = true
+  } else {
+    result.validLink = false
+  }
+
+  return result
+}
+
+function getGoogleMapSrc (originalLink, result) {
+  let link = EmbedServiceLink.google_map
+  let linkRule = link.linkRule
+  let regex = new RegExp(linkRule)
+  let match = originalLink.match(regex)
+  if (match && match.length > 0) {
+    result.validLink = true
+
+    result.src = match[0]
+    result.validId = true
+  } else {
+    result.validLink = false
+  }
+
+  return result
+}
+
 export const getServiceSrc = (service, originalLink) => {
   let result = {
     validLink: false,
     validId: false,
+    originalLink: originalLink,
     src: ''
   }
 
@@ -201,6 +273,14 @@ export const getServiceSrc = (service, originalLink) => {
       return getBilibiliSrc(originalLink, result)
     case 'qqvideo':
       return getQQVideoSrc(originalLink, result)
+    case 'amap':
+      return getAMapSrc(originalLink, result)
+    case 'baidu_map':
+      return getBaiduMapSrc(originalLink, result)
+    case 'google_map':
+      result = getGoogleMapSrc(originalLink, result)
+      result.originalLink = result.src
+      return result
   }
 
   return result

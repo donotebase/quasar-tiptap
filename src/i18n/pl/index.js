@@ -113,6 +113,7 @@ export default {
     bilibili: 'Bilibili',
     qqvideo: 'QQ Video',
     google_map: 'Google Map',
+    amap: 'AMap',
     baidu_map: 'Baidu Map',
     modao: 'Modao',
     lanhu: 'Lanhu',

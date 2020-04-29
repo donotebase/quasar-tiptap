@@ -47,7 +47,8 @@ export default {
         return
       }
 
-      this.link = this.originalLink
+      this.originalLink = result.originalLink
+      this.link = result.originalLink
       this.src = result.src
       console.log('result', result)
     }
