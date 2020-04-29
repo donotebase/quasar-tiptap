@@ -49,6 +49,7 @@ export default {
 
       this.link = this.originalLink
       this.src = result.src
+      console.log('result', result)
     }
   },
   computed: {
