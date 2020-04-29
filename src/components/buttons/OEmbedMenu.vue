@@ -85,7 +85,7 @@ export default {
       //
       .q-item {
         min-height 40px
-        min-width 80px
+        min-width 120px
         border-radius 4px
         background rgba(0, 0, 0, 0.03)
       }

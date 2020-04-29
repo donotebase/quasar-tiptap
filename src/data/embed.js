@@ -7,10 +7,10 @@
  */
 export const VideoServices = [
   { label: 'Youtube', value: 'youtube', icon: 'mdi-youtube', color: 'red' },
-  { label: 'Vimeo', value: 'vimeo', icon: 'mdi-vimeo', color: 'green' },
-  { label: 'Netflix', value: 'netflix', icon: 'mdi-netflix', color: 'red' },
+  // { label: 'Vimeo', value: 'vimeo', icon: 'mdi-vimeo', color: 'green' },
+  // { label: 'Netflix', value: 'netflix', icon: 'mdi-netflix', color: 'red' },
   { label: 'Youku', value: 'youku', icon: '', svgIcon: 'youku', color: 'blue' },
-  { label: 'iqiyi', value: 'iqiyi', icon: '', svgIcon: 'iqiyi', color: 'green' },
+  // { label: 'iqiyi', value: 'iqiyi', icon: '', svgIcon: 'iqiyi', color: 'green' },
   { label: 'Bilibili', value: 'bilibili', icon: '', svgIcon: 'bilibili', color: 'blue' },
   { label: 'QQ Video', value: 'qqvideo', icon: '', svgIcon: 'qqvideo', color: 'green' },
 ]
@@ -26,7 +26,7 @@ export const DesignServices = [
   { label: 'Lanhu', value: 'lanhu', svgIcon: 'lanhu', color: 'blue' },
   { label: 'Figma', value: 'figma', svgIcon: 'figma' },
   { label: 'Canva', value: 'canva', svgIcon: 'canva' },
-  { label: 'ProcessOn', value: 'process', svgIcon: 'processon' },
+  { label: 'ProcessOn', value: 'processon', svgIcon: 'processon' },
 ]
 
 export const DevelopServices = [
@@ -106,27 +106,52 @@ export const EmbedServiceLink = {
     srcPrefix: '',
     linkRule: 'https:\\/\\/www.google.com\\/maps\\/embed\\?pb=.+sus',
     tips: 'Google Map > select location > Share > Embed a map > COPY HTML'
+  },
+  modao: {
+    link: 'https://free.modao.cc/app/2cd26580a6717a147454df7470e7ec464093cba3/embed/v2',
+    src: 'https://free.modao.cc/app/2cd26580a6717a147454df7470e7ec464093cba3/embed/v2',
+    srcPrefix: '',
+    linkRule: 'https:\\/\\/\\w+.modao.cc\\/app\\/\\w+\\/embed\\/v2',
+    tips: 'Modao > More > Share > Embed > COPY'
+  },
+  lanhu: {
+    link: 'https://lanhuapp.com/url/evP7L',
+    src: 'https://lanhuapp.com/url/evP7L',
+    srcPrefix: '',
+    linkRule: 'https:\\/\\/lanhuapp.com\\/url\\/\\w+',
+    tips: 'Lanhu > Project > Share > Copy Link'
+  },
+  figma: {
+    link: 'https://www.figma.com/file/aS9uSgPXoNpaPkzbjNcK8v/Demo?node-id=0%3A1',
+    src: 'https://www.figma.com/file/aS9uSgPXoNpaPkzbjNcK8v/Demo?node-id=0%3A1',
+    srcPrefix: 'https://www.figma.com/embed?embed_host=share&url',
+    linkRule: 'https:\\/\\/www.figma.com\\/file\\/\\w+'
+  },
+  canva: {
+    link: 'https://www.canva.cn/design/DAD61-t29UI/view',
+    src: 'https://www.canva.cn/design/DAD61-t29UI/view',
+    srcPrefix: '',
+    linkRule: 'https:\\/\\/www.canva.cn\\/design\\/.+\\/view'
+  },
+  processon: {
+    link: 'https://www.processon.com/embed/5ea99d8607912948b0e6fe78',
+    src: 'https://www.processon.com/embed/5ea99d8607912948b0e6fe78',
+    srcPrefix: '',
+    linkRule: 'https:\\/\\/www.processon.com\\/embed\\/\\w+'
   }
 }
 
 function getYoutubeSrc (originalLink, result) {
   let link = EmbedServiceLink.youtube
-  let linkRule = link.linkRule
-  let regex = new RegExp(linkRule)
-  let match = originalLink.match(regex)
-  if (match && match.length > 0) {
-    let url = match[0]
-    result.validLink = true
+  let url = result.matchedUrl
+  result.validLink = true
 
-    let splits = url.split('=')
-    let len = splits.length
-    if (len > 0) {
-      let id = splits[len - 1]
-      result.src = `${link.srcPrefix}/${id}`
-      result.validId = true
-    }
-  } else {
-    result.validLink = false
+  let splits = url.split('=')
+  let len = splits.length
+  if (len > 0) {
+    let id = splits[len - 1]
+    result.src = `${link.srcPrefix}/${id}`
+    result.validId = true
   }
 
   return result
@@ -134,26 +159,18 @@ function getYoutubeSrc (originalLink, result) {
 
 function getYoukuSrc (originalLink, result) {
   let link = EmbedServiceLink.youku
-  let linkRule = link.linkRule
-  let regex = new RegExp(linkRule)
-  let match = originalLink.match(regex)
+  let url = result.matchedUrl
+
+  let idRule = link.idRule
+  let regex = new RegExp(idRule)
+  let match = url.match(regex)
   if (match && match.length > 0) {
-    let url = match[0]
-    result.validLink = true
+    let id = match[0].substr(3)
 
-    let idRule = link.idRule
-    regex = new RegExp(idRule)
-    match = url.match(regex)
-    if (match && match.length > 0) {
-      let id = match[0].substr(3)
-
-      result.validId = true
-      result.src = `${link.srcPrefix}/${id}`
-    } else {
-      result.validId = false
-    }
+    result.validId = true
+    result.src = `${link.srcPrefix}/${id}`
   } else {
-    result.validLink = false
+    result.validId = false
   }
 
   return result
@@ -161,22 +178,14 @@ function getYoukuSrc (originalLink, result) {
 
 function getBilibiliSrc (originalLink, result) {
   let link = EmbedServiceLink.bilibili
-  let linkRule = link.linkRule
-  let regex = new RegExp(linkRule)
-  let match = originalLink.match(regex)
-  if (match && match.length > 0) {
-    let url = match[0]
-    result.validLink = true
+  let url = result.matchedUrl
 
-    let splits = url.split('/')
-    let len = splits.length
-    if (len > 0) {
-      let id = splits[len - 1]
-      result.src = `${link.srcPrefix}=${id}`
-      result.validId = true
-    }
-  } else {
-    result.validLink = false
+  let splits = url.split('/')
+  let len = splits.length
+  if (len > 0) {
+    let id = splits[len - 1]
+    result.src = `${link.srcPrefix}=${id}`
+    result.validId = true
   }
 
   return result
@@ -184,71 +193,91 @@ function getBilibiliSrc (originalLink, result) {
 
 function getQQVideoSrc (originalLink, result) {
   let link = EmbedServiceLink.qqvideo
-  let linkRule = link.linkRule
-  let regex = new RegExp(linkRule)
-  let match = originalLink.match(regex)
-  if (match && match.length > 0) {
-    let url = match[0]
-    result.validLink = true
+  let url = result.matchedUrl
 
-    let splits = url.split('/')
-    let len = splits.length
-    if (len > 0) {
-      let id = splits[len - 1]
-      result.src = `${link.srcPrefix}=${id}`
-      result.validId = true
-    }
-  } else {
-    result.validLink = false
+  let splits = url.split('/')
+  let len = splits.length
+  if (len > 0) {
+    let id = splits[len - 1]
+    result.src = `${link.srcPrefix}=${id}`
+    result.validId = true
   }
 
   return result
 }
 
 function getAMapSrc (originalLink, result) {
-  let link = EmbedServiceLink.amap
-  let linkRule = link.linkRule
-  let regex = new RegExp(linkRule)
-  let match = originalLink.match(regex)
-  if (match && match.length > 0) {
-    result.validLink = true
-
-    result.src = originalLink
-    result.validId = true
-  } else {
-    result.validLink = false
-  }
+  result.src = originalLink
+  result.validId = true
 
   return result
 }
 
 function getBaiduMapSrc (originalLink, result) {
-  let link = EmbedServiceLink.baidu_map
-  let linkRule = link.linkRule
-  let regex = new RegExp(linkRule)
-  let match = originalLink.match(regex)
-  if (match && match.length > 0) {
-    result.validLink = true
-
-    result.src = originalLink
-    result.validId = true
-  } else {
-    result.validLink = false
-  }
+  result.src = originalLink
+  result.validId = true
 
   return result
 }
 
 function getGoogleMapSrc (originalLink, result) {
-  let link = EmbedServiceLink.google_map
+  result.src = result.matchedUrl
+  result.validId = true
+  result.originalLink = result.src
+
+  return result
+}
+
+function getModaoSrc (originalLink, result) {
+  result.src = result.matchedUrl
+  result.validId = true
+  result.originalLink = result.src
+
+  return result
+}
+
+function getLanhuSrc (originalLink, result) {
+  result.src = result.matchedUrl
+  result.validId = true
+  result.originalLink = result.src
+
+  return result
+}
+
+function getFigmaSrc (originalLink, result) {
+  let link = EmbedServiceLink.figma
+  result.src = `${link.srcPrefix}=${encodeURIComponent(result.matchedUrl)}`
+  result.validId = true
+  result.originalLink = result.matchedUrl
+
+  return result
+}
+
+function getCanvaSrc (originalLink, result) {
+  result.src = `${result.matchedUrl}?embed`
+  result.validId = true
+  result.originalLink = originalLink
+
+  return result
+}
+
+function getProcessonSrc (originalLink, result) {
+  result.src = `${result.matchedUrl}`
+  result.validId = true
+  result.originalLink = originalLink
+
+  return result
+}
+
+function getMatchedUrl (service, originalLink, result) {
+  let link = EmbedServiceLink[service]
   let linkRule = link.linkRule
   let regex = new RegExp(linkRule)
   let match = originalLink.match(regex)
   if (match && match.length > 0) {
     result.validLink = true
 
-    result.src = match[0]
-    result.validId = true
+    result.matchedUrl = match[0]
   } else {
     result.validLink = false
   }
@@ -260,10 +289,18 @@ export const getServiceSrc = (service, originalLink) => {
   let result = {
     validLink: false,
     validId: false,
+    matchedUrl: '',
     originalLink: originalLink,
     src: ''
   }
 
+  // matched url
+  result = getMatchedUrl(service, originalLink, result)
+  if (!result.validLink) {
+    return result
+  }
+
+  // src
   switch (service) {
     case 'youtube':
       return getYoutubeSrc(originalLink, result)
@@ -278,9 +315,17 @@ export const getServiceSrc = (service, originalLink) => {
     case 'baidu_map':
       return getBaiduMapSrc(originalLink, result)
     case 'google_map':
-      result = getGoogleMapSrc(originalLink, result)
-      result.originalLink = result.src
-      return result
+      return getGoogleMapSrc(originalLink, result)
+    case 'modao':
+      return getModaoSrc(originalLink, result)
+    case 'lanhu':
+      return getLanhuSrc(originalLink, result)
+    case 'figma':
+      return getFigmaSrc(originalLink, result)
+    case 'canva':
+      return getCanvaSrc(originalLink, result)
+    case 'processon':
+      return getProcessonSrc(originalLink, result)
   }
 
   return result
