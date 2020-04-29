@@ -34,6 +34,7 @@ export { default as OLineHeight } from 'src/extentions/LineHeight'
 export { default as OFormatClear } from 'src/extentions/FormatClear'
 export { default as OPrint } from 'src/extentions/Print'
 export { default as OImage } from 'src/extentions/Image'
+export { default as OEmbed } from 'src/extentions/Embed'
 
 // --------------------------------------------------------------------------------
 // Exposed Extension List
@@ -76,6 +77,7 @@ export const QuasarTipTapExtensions = [
   'OFormatClear',
   'OPrint',
   'OImage',
+  'OEmbed',
 ]
 
 export const RecommendedExtensions = [

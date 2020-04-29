@@ -45,6 +45,13 @@
             </o-meta-input>
           </q-menu>
         </o-common-item>
+        <o-common-item icon="mdi-iframe"
+                       :label="$o.lang.editor.formula"
+                       side-icon="keyboard_arrow_right">
+          <q-menu ref="formulaPopover" anchor="center right" self="center left" content-class="o-menu" :offset="[2, 0]">
+            <o-embed-menu @select="onSelectService" />
+          </q-menu>
+        </o-common-item>
       </section>
     </q-menu>
   </o-menubar-btn>
@@ -52,6 +59,7 @@
 
 <script>
 import OMenubarBtn from 'src/components/buttons/OMenubarBtn'
+import OEmbedMenu from 'src/components/buttons/OEmbedMenu'
 import OCommonItem from 'src/components/common/OCommonItem'
 import OMetaInput from 'src/components/common/OMetaInput'
 export default {
@@ -70,6 +78,7 @@ export default {
   },
   components: {
     OMenubarBtn,
+    OEmbedMenu,
     OCommonItem,
     OMetaInput
   },
@@ -85,6 +94,10 @@ export default {
 
         this.$refs.addPopover.hide()
       }
+    },
+    onSelectService (service) {
+      console.log('service', service)
+      this.commands.embed({ service: service.value })
     }
   },
   computed: {

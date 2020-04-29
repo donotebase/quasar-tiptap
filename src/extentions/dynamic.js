@@ -51,6 +51,7 @@ import {
   OFormatClear,
   OPrint,
   OImage,
+  OEmbed,
 } from 'src/extentions'
 
 const classes = {
@@ -97,6 +98,7 @@ const classes = {
   OFormatClear,
   OPrint,
   OImage,
+  OEmbed,
 }
 
 class DynamicClass {

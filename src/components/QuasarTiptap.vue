@@ -75,6 +75,7 @@ import {
   OFormatClear,
   OPrint,
   OImage,
+  OEmbed,
   RecommendedExtensions
 } from 'src/extentions'
 
