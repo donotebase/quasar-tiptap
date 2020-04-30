@@ -127,8 +127,8 @@ export const EmbedServiceLink = {
     tips: 'Google Map > select location > Share > Embed a map > COPY HTML'
   },
   modao: {
-    link: 'https://free.modao.cc/app/2cd26580a6717a147454df7470e7ec464093cba3/embed/v2',
-    src: 'https://free.modao.cc/app/2cd26580a6717a147454df7470e7ec464093cba3/embed/v2',
+    link: 'https://free.modao.cc/app/6UkpAxcGE3nPz52GLqhnOZgC7MATBSy/embed/v2',
+    src: 'https://free.modao.cc/app/6UkpAxcGE3nPz52GLqhnOZgC7MATBSy/embed/v2',
     srcPrefix: '',
     linkRule: [
       'https:\\/\\/\\w+.modao.cc\\/app\\/\\w+\\/embed\\/v2'
@@ -166,6 +166,14 @@ export const EmbedServiceLink = {
     srcPrefix: '',
     linkRule: [
       'https:\\/\\/www.processon.com\\/embed\\/\\w+'
+    ]
+  },
+  codepen: {
+    link: 'https://codepen.io/mekery/embed/YzyrKOJ',
+    src: 'https://codepen.io/mekery/embed/YzyrKOJ',
+    srcPrefix: '',
+    linkRule: [
+      'https:\\/\\/codepen.io\\/.+\\/embed\\/\\w+'
     ]
   },
   jinshuju: {
@@ -323,6 +331,14 @@ function getProcessonSrc (originalLink, result) {
   return result
 }
 
+function getCodepenSrc (originalLink, result) {
+  result.src = `${result.matchedUrl}`
+  result.validId = true
+  result.originalLink = result.src
+
+  return result
+}
+
 function getJinshujuSrc (originalLink, result) {
   result.src = `${result.matchedUrl}?background=white&banner=show&embedded=true`
   result.validId = true
@@ -406,6 +422,8 @@ export const getServiceSrc = (service, originalLink) => {
       return getCanvaSrc(originalLink, result)
     case 'processon':
       return getProcessonSrc(originalLink, result)
+    case 'codepen':
+      return getCodepenSrc(originalLink, result)
     case 'jinshuju':
       return getJinshujuSrc(originalLink, result)
     case 'google_forms':
