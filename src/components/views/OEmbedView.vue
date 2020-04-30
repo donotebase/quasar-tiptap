@@ -84,7 +84,7 @@ export default {
         this.$q.notify({
           color: 'red',
           icon: 'mdi-alert-circle',
-          message: `${this.$o} ${this.$o.lang.embed.linkWarning}`,
+          message: `${this.$o.lang.embed[this.service.value]}, ${this.$o.lang.embed.linkWarning}`,
           position: 'top',
           timeout: 1500
         })
