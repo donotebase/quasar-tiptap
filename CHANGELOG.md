@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/donotebase/quasar-tiptap/compare/@1.4.0...@1.4.1) (2020-04-30)
+
+
+### Bug Fixes
+
+* **menububble:** typo ([a705ee9](https://github.com/donotebase/quasar-tiptap/commit/a705ee9c5ffde4bfc038891ada54f77bd5a45893))
+* **toolbar:** add toolbar type ([3ea27cc](https://github.com/donotebase/quasar-tiptap/commit/3ea27cc6e062e81a6a64d58803ba34f61fade186))
+
 # [1.4.0](https://github.com/donotebase/quasar-tiptap/compare/@1.3.0...@1.4.0) (2020-04-30)
 
 
