@@ -20,7 +20,7 @@
                        :opt="item.options"
                        :editor="editor"
                        v-bind="editorContext"
-                       v-else-if="typeof item === 'object' && typeof item.name === 'string'" />
+                       v-else-if="typeof item === 'object' && item.type === 'menu'" />
             <component :key="index"
                        :is="item"
                        :editor="editor"
@@ -46,7 +46,7 @@
                        :opt="item.options"
                        :editor="editor"
                        v-bind="editorContext"
-                       v-else-if="typeof item === 'object' && typeof item.name === 'string'" />
+                       v-else-if="typeof item === 'object' && item.type === 'menu'" />
             <component :key="index"
                        :is="item"
                        :editor="editor"

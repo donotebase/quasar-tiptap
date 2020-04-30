@@ -54,6 +54,7 @@ export default {
         toolbar: [
           {
             name: 'add-more',
+            type: 'menu',
             options: {
               embed: {
                 video: ['youtube', 'bilibili', 'youku'],
@@ -65,6 +66,7 @@ export default {
               }
             }
           },
+          OAddMoreBtn,
           'separator',
           'bold',
           'italic',
