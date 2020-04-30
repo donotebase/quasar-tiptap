@@ -1,8 +1,7 @@
 <template>
   <editor-menu-bubble :editor="editor" v-slot="editorContext">
     <section class="tiptap-menububble"
-             :class="{ 'is-active': editorContext.focused &&
-                                    editorContext.menu.isActive &&
+             :class="{ 'is-active': editorContext.menu.isActive &&
                                     selectedCellSize === 0 &&
                                     !editorContext.isActive.image() &&
                                     !editorContext.isActive.embed() }"
