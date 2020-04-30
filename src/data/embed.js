@@ -138,6 +138,19 @@ export const EmbedServiceLink = {
     src: 'https://www.processon.com/embed/5ea99d8607912948b0e6fe78',
     srcPrefix: '',
     linkRule: 'https:\\/\\/www.processon.com\\/embed\\/\\w+'
+  },
+  jinshuju: {
+    link: 'https://jinshuju.net/f/q9YvVf',
+    src: 'https://jinshuju.net/f/q9YvVf',
+    srcPrefix: '',
+    linkRule: 'https:\\/\\/jinshuju.net\\/f\\/\\w+'
+  },
+  google_forms: {
+    link: 'https://docs.google.com/forms/d/e/1FAIpQLSesQk_-5AGlkcI5PUdVIVqWbgKs39tEePBATL7Q8DNWT_lJYg/viewform?usp=sf_link',
+    src: 'https://docs.google.com/forms/d/e/1FAIpQLSesQk_-5AGlkcI5PUdVIVqWbgKs39tEePBATL7Q8DNWT_lJYg/viewform?embedded=true',
+    srcPrefix: '',
+    linkRule: 'https:\\/\\/docs.google.com\\/forms\\/.+\\/viewform',
+    tips: 'Google Forms > Send > Link or Embed HTML'
   }
 }
 
@@ -269,6 +282,22 @@ function getProcessonSrc (originalLink, result) {
   return result
 }
 
+function getJinshujuSrc (originalLink, result) {
+  result.src = `${result.matchedUrl}?background=white&banner=show&embedded=true`
+  result.validId = true
+  result.originalLink = originalLink
+
+  return result
+}
+
+function getGoogleFormsSrc (originalLink, result) {
+  result.src = `${result.matchedUrl}?embedded=true`
+  result.validId = true
+  result.originalLink = result.matchedUrl
+
+  return result
+}
+
 function getMatchedUrl (service, originalLink, result) {
   let link = EmbedServiceLink[service]
   let linkRule = link.linkRule
@@ -326,6 +355,10 @@ export const getServiceSrc = (service, originalLink) => {
       return getCanvaSrc(originalLink, result)
     case 'processon':
       return getProcessonSrc(originalLink, result)
+    case 'jinshuju':
+      return getJinshujuSrc(originalLink, result)
+    case 'google_forms':
+      return getGoogleFormsSrc(originalLink, result)
   }
 
   return result
