@@ -42,7 +42,7 @@
                        :label="$o.lang.editor.thirdPartyService"
                        side-icon="keyboard_arrow_right">
           <q-menu ref="formulaPopover" anchor="center right" self="center left" content-class="o-menu" :offset="[2, 0]">
-            <o-embed-menu @select="onSelectService" />
+            <o-embed-menu :embed-services="embedServices" @select="onSelectService" />
           </q-menu>
         </o-common-item>
       </section>
@@ -67,7 +67,13 @@ export default {
     },
     isActive: {
       type: Object
-    }
+    },
+    opt: {
+      type: Object,
+      default: function () {
+        return {}
+      }
+    },
   },
   components: {
     OMenubarBtn,
@@ -94,6 +100,11 @@ export default {
     }
   },
   computed: {
+    embedServices () {
+      return (this.opt && this.opt.embed) ? this.opt.embed : null
+    }
+  },
+  mounted () {
   }
 }
 </script>

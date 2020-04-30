@@ -15,6 +15,13 @@
                        v-bind="editorContext"
                        v-else-if="typeof item === 'string'" />
             <component :key="index"
+                       :name="item.name"
+                       :is="getName(item.name)"
+                       :opt="item.options"
+                       :editor="editor"
+                       v-bind="editorContext"
+                       v-else-if="typeof item === 'object' && typeof item.name === 'string'" />
+            <component :key="index"
                        :is="item"
                        :editor="editor"
                        v-bind="editorContext"
@@ -33,6 +40,13 @@
                        :editor="editor"
                        v-bind="editorContext"
                        v-else-if="typeof item === 'string'" />
+            <component :key="index"
+                       :name="item.name"
+                       :is="getName(item.name)"
+                       :opt="item.options"
+                       :editor="editor"
+                       v-bind="editorContext"
+                       v-else-if="typeof item === 'object' && typeof item.name === 'string'" />
             <component :key="index"
                        :is="item"
                        :editor="editor"

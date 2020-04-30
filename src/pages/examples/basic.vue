@@ -52,7 +52,19 @@ export default {
           }),
         ],
         toolbar: [
-          'add-more',
+          {
+            name: 'add-more',
+            options: {
+              embed: {
+                video: ['youtube', 'bilibili', 'youku'],
+                map: ['google_map', 'amap', 'baidu_map'],
+                design: ['modao', 'lanhu', 'figma', 'canva', 'processon'],
+                develop: ['codepen'],
+                data: ['google_forms', 'jinshuju'],
+                others: ['iframe']
+              }
+            }
+          },
           'separator',
           'bold',
           'italic',

@@ -27,13 +27,20 @@ import {
   DesignServices,
   DevelopServices,
   DataServices,
-  OtherServices
+  OtherServices,
+  getEmbedService
 } from 'src/data/embed'
+import { DefaultEmbedServices } from 'src/data/editor'
 export default {
   name: 'o-embed-menu',
   data () {
     return {
     }
+  },
+  props: {
+    embedServices: {
+      type: Object
+    },
   },
   methods: {
     select (service) {
@@ -41,7 +48,7 @@ export default {
     }
   },
   computed: {
-    services () {
+    services2 () {
       return [
         {
           label: 'Video',
@@ -74,7 +81,31 @@ export default {
           children: OtherServices
         }
       ]
+    },
+    services () {
+      let services = []
+      let customServices = this.embedServices || DefaultEmbedServices
+      for (var key in customServices) {
+        let group = {
+          value: key,
+          children: []
+        }
+
+        let list = customServices[key]
+        for (var item of list) {
+          let service = getEmbedService(item)
+          if (service.value) {
+            group.children.push(service)
+          }
+        }
+
+        services.push(group)
+      }
+
+      return services
     }
+  },
+  mounted () {
   }
 }
 </script>

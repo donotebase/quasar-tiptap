@@ -99,3 +99,12 @@ export const DefaultBubble = [
   'separator',
   'align-group',
 ]
+
+export const DefaultEmbedServices = {
+  video: ['youtube', 'youku', 'bilibili', 'qqvideo'],
+  map: ['google_map', 'amap', 'baidu_map'],
+  design: ['modao', 'lanhu', 'figma', 'canva', 'processon'],
+  develop: ['codepen'],
+  data: ['google_forms', 'jinshuju'],
+  others: ['iframe']
+}
