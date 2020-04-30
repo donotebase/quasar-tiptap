@@ -6,7 +6,7 @@
  * @date 2020.04.11
  */
 export const BasicFeaturesArticle = `
-<h1>quasar-tiptap</h1><h2 id="d5fb3c" level="2">Introduction</h2><p><strong><span style="color: #1890ff">Quasar Tiptap Editor</span></strong>&nbsp;is a WYSIWYG rich-text editor built on top of tiptap&nbsp;and Quasar.🔥</p><p></p><oembed data-height="500" data-service="youku" data-link="https%3A%2F%2Fv.youku.com%2Fv_show%2Fid_XNDM0NDM4MTcy.html%3Fspm%3Da2h0c.8166622.PhoneSokuUgc_4.dtitle" src="https://player.youku.com/embed/XNDM0NDM4MTcy" frameborder="0" allowfullscreen="true"></oembed><p></p><h2 id="846676" level="2">Image</h2><p data-text-align="center"><img src="https://www.donote.info/statics/logo.png" caption="Caption" ref="https://www.donote.info/"></p><h2 id="ce7176" level="2">Diagram</h2><p></p><diagram src="graph TD
+<h1>quasar-tiptap</h1><h2 id="d5fb3c" level="2">Introduction</h2><p><strong><span style="color: #1890ff">Quasar Tiptap Editor</span></strong>&nbsp;is a WYSIWYG rich-text editor built on top of tiptap&nbsp;and Quasar.🔥</p><p></p><p></p><oembed data-service="bilibili" frameborder="0" allowfullscreen="true"></oembed><p></p><h2 id="846676" level="2">Image</h2><p data-text-align="center"><img src="https://www.donote.info/statics/logo.png" caption="Caption" ref="https://www.donote.info/"></p><h2 id="ce7176" level="2">Diagram</h2><p></p><diagram src="graph TD
 A[Christmas] -->|Get money| B(Go shopping)
 B --> C{Let me think}
 C -->|One| D[Laptop]

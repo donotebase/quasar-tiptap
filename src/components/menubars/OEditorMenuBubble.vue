@@ -4,7 +4,8 @@
              :class="{ 'is-active': editorContext.focused &&
                                     editorContext.menu.isActive &&
                                     selectedCellSize === 0 &&
-                                    !editorContext.isActive.image() }"
+                                    !editorContext.isActive.image() &&
+                                    !editorContext.isActive.embed() }"
              :style="`left: ${editorContext.menu.left}px; bottom: ${editorContext.menu.bottom + 8}px;`">
       <template v-for="(item, index) of toolbar">
         <q-separator vertical inset :key="index" v-if="item==='separator'" />

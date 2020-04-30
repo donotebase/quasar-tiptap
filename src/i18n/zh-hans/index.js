@@ -69,6 +69,7 @@ export default {
     formula: '数学公式',
     inlineFormula: '行内公式',
     blockFormula: '块级公式',
+    thirdPartyService: '第三方服务',
   },
   label: {
     cancel: '取消',
@@ -78,6 +79,11 @@ export default {
     ok: '确定',
     preview: '预览',
     template: '模板',
+    example: '示例',
+    submit: '确定',
+    settings: '设置',
+    remove: '删除',
+    help: '帮助',
   },
   table: {
     insert: '插入表格',
@@ -105,6 +111,7 @@ export default {
     design: '设计',
     develop: '开发',
     data: '数据',
+    others: '其它',
     youtube: 'Youtube',
     vimeo: 'Vimeo',
     netflix: 'Netflix',
@@ -123,5 +130,8 @@ export default {
     codepen: 'CodePen',
     google_forms: 'Google Forms',
     jinshuju: '金数据',
+    iframe: 'IFrame',
+    linkTips: '链接或代码',
+    linkWarning: '无效的链接',
   }
 }

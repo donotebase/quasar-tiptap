@@ -1,48 +1,92 @@
 <template>
-  <section class="o-embed iframe" :class="src ? '' : 'no-data'">
-    <div class="row col-12 o-toolbar" v-if="view.editable">
-      <q-input v-model="originalLink" placeholder="service" debounce="300" class="col text-red link" standout clearable @paste.stop.native>
+  <o-block-card class="o-embed" :class="src ? '' : 'no-data'"
+                :view="view"
+                :selected="selected"
+                :get-pos="getPos"
+                :toolbar="view.editable">
+    <template slot="toolbar-left">
+      <q-input v-model="originalLink"
+               ref="link"
+               :placeholder="$o.lang.embed.linkTips"
+               standout="bg-grey-3"
+               :autofocus="true"
+               clearable
+               @keyup.enter="onConfirm"
+               @paste.stop.native>
         <template v-slot:prepend>
-          <img :src="`statics/service/${service.svgIcon}.svg`" v-if="service.svgIcon" />
-          <q-icon :name="service.icon || 'apps'" :color="service.color" v-else />
+          <div class="row items-center">
+            <img :src="`statics/service/${service.svgIcon}.svg`" v-if="service.svgIcon" />
+            <q-icon :name="service.icon || 'apps'" :color="service.color" v-else />
+            <q-tooltip anchor="top middle" self="bottom middle">{{$o.lang.embed[service.value]}}</q-tooltip>
+          </div>
         </template>
       </q-input>
-      <div class="row col-auto q-px-sm">
-        <q-btn label="示例" class="q-mx-sm" />
-        <q-btn label="确定" color="blue" @click="onConfirm" />
+    </template>
+    <template slot="toolbar-right">
+      <q-btn :label="$o.lang.label.example" class="" dense flat @click="onViewExample" />
+      <q-btn-dropdown dropdown-icon="more_vert" split flat @click="onConfirm">
+        <span class="text-blue" slot="label">{{$o.lang.label.submit}}</span>
+        <q-list style="min-width: 120px;">
+          <o-common-item icon="settings" :label="$o.lang.label.settings" />
+          <o-common-item icon="delete" :label="$o.lang.label.remove" @click.native="onDelete" />
+          <o-common-item icon="help_outline" :label="$o.lang.label.help" @click.native="onHelp" />
+        </q-list>
+      </q-btn-dropdown>
+    </template>
+
+    <div class="o-embed-content" v-if="src">
+      <div class="cover"></div>
+      <iframe class="iframe"
+              :src="src"
+              :style="{height: `${height}px`}"
+              frameborder="0"
+              allowfullscreen="true"
+              @load="onLoaded"
+              v-show="!loading">
+      </iframe>
+      <div class="row justify-center items-center iframe" v-show="loading">
+        <q-spinner color="primary" size="3em" />
       </div>
     </div>
-    <iframe class="iframe"
-            :src="src"
-            :style="{height: `${height}px`}"
-            frameborder="0"
-            allowfullscreen="true"
-            v-if="src"></iframe>
-  </section>
+  </o-block-card>
 </template>
 
 <script>
-import { getEmbedService, getServiceSrc } from 'src/data/embed'
+import OBlockCard from 'src/components/common/OBlockCard'
+import OCommonItem from 'src/components/common/OCommonItem'
+import { getEmbedService, getServiceSrc, EmbedServiceLink } from 'src/data/embed'
 export default {
   name: 'o-embed',
   data () {
     return {
-      originalLink: ''
+      originalLink: '',
+      fullScreen: false,
+      loading: true
     }
   },
-  props: ['node', 'updateAttrs', 'view'],
+  props: ['node', 'updateAttrs', 'view', 'selected', 'getPos'],
   components: {
+    OBlockCard,
+    OCommonItem
   },
   methods: {
+    onViewExample () {
+      let link = EmbedServiceLink[this.service.value]
+      if (link) {
+        this.originalLink = link.link
+        this.link = link.link
+        this.src = link.src
+      }
+    },
     onConfirm () {
       let result = getServiceSrc(this.service.value, this.originalLink)
       if (!result.validLink || !result.validId) {
-        console.warn('invalid link')
         this.$q.notify({
           color: 'red',
-          icon: 'warning',
-          message: 'Invalid link',
-          timeout: 800
+          icon: 'mdi-alert-circle',
+          message: `${this.$o} ${this.$o.lang.embed.linkWarning}`,
+          position: 'top',
+          timeout: 1500
         })
         return
       }
@@ -50,7 +94,23 @@ export default {
       this.originalLink = result.originalLink
       this.link = result.originalLink
       this.src = result.src
-      console.log('result', result)
+    },
+    onDelete () {
+      let tr = this.view.state.tr
+      let pos = this.getPos()
+      tr.delete(pos, pos + this.node.nodeSize)
+      this.view.dispatch(tr)
+    },
+    onHelp () {
+      let service = this.service.value || ''
+      service = service.replace('_', '-')
+      let url = `https://github.com/donotebase/quasar-tiptap/wiki/Embed#${service}`
+
+      window.open(url, '_blank')
+    },
+    onLoaded () {
+      console.log('loaded', this.src)
+      this.loading = false
     }
   },
   computed: {
@@ -89,63 +149,63 @@ export default {
     }
   },
   mounted () {
-    this.originalLink = this.link
+    if (this.link) {
+      this.originalLink = this.link
+    } else {
+      setTimeout(() => {
+        this.$refs.link.focus()
+      }, 300)
+    }
+
+    if (this.service.value === 'amap') {
+      this.loading = false
+    }
   }
 }
 </script>
 
 <style lang="stylus">
   .o-embed {
-    position relative
-    min-height 40px
-
-    .o-toolbar {
-      position absolute
-      top -44px
+    .o-embed-content {
+      position relative
       width 100%
-      height 40px
-      margin 4px 0
-      background #efefef
-      border-radius 5px
-      visibility hidden
-
-      .link {
-        img {
-          width 24px
-          height 24px
-        }
-      }
-
-      .q-input {
-        padding 0 4px
-      }
-
-      .q-field__control, .q-field__marginal {
-        height 32px
-      }
-
-      .q-field__suffix {
-        line-height unset
-      }
     }
+
+    .cover {
+      position absolute
+      top 0
+      left 0
+      right 0
+      bottom 0
+      cursor pointer
+      background rgba(0, 0, 0, 0.05)
+    }
+
     .iframe {
       width 100%
       height 500px
       border solid 1px rgba(0,0,0,0.05)
       border-radius 5px
+      transition all 0.3s linear
+    }
+
+    &.fullscreen {
+      .iframe {
+        height calc(100vh - 40px) !important
+        border-radius 0px
+      }
     }
   }
 
-  .o-embed.no-data {
-    .o-toolbar {
-      top 0
-      visibility visible
+  .selected .o-embed-content {
+    .cover {
+      display none
     }
   }
 
-  .o-embed:hover {
-    .o-toolbar {
-      visibility visible
+  .fullscreen .o-embed-content {
+    .cover {
+      display none
     }
   }
 </style>

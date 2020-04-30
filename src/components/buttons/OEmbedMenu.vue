@@ -26,7 +26,8 @@ import {
   MapServices,
   DesignServices,
   DevelopServices,
-  DataServices
+  DataServices,
+  OtherServices
 } from 'src/data/embed'
 export default {
   name: 'o-embed-menu',
@@ -63,9 +64,14 @@ export default {
           children: DevelopServices
         },
         {
-          label: '数据',
+          label: 'Data',
           value: 'data',
           children: DataServices
+        },
+        {
+          label: 'Others',
+          value: 'others',
+          children: OtherServices
         }
       ]
     }

@@ -96,10 +96,13 @@ export default {
       min-width unset
     }
 
-   .q-item__section--side {
+    .q-item__section--side {
      font-size 0.8rem
      padding-right 0
-   }
+    }
+    .q-item__section--main ~ .q-item__section--side {
+      padding-left 0
+    }
   }
 
   .o-common-item.dense {

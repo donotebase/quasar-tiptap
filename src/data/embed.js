@@ -38,12 +38,17 @@ export const DataServices = [
   { label: 'Jinshuju', value: 'jinshuju', svgIcon: 'jinshuju', color: 'blue' },
 ]
 
+export const OtherServices = [
+  { label: 'IFrame', value: 'iframe', icon: 'mdi-iframe', color: 'blue' },
+]
+
 export const AllEmbedServices = [
   ...VideoServices,
   ...MapServices,
   ...DesignServices,
   ...DevelopServices,
-  ...DataServices
+  ...DataServices,
+  ...OtherServices
 ]
 
 export const getEmbedService = (value) => {
@@ -67,90 +72,126 @@ export const EmbedServiceLink = {
     link: 'https://www.youtube.com/watch?v=FA8S1ISmDiY',
     src: 'https://www.youtube.com/embed/FA8S1ISmDiY',
     srcPrefix: 'https://www.youtube.com/embed',
-    linkRule: 'www.youtube.com\\/watch\\?v=\\w+'
+    linkRule: [
+      'www.youtube.com\\/watch\\?v=\\w+'
+    ]
   },
   youku: {
     link: 'https://v.youku.com/v_show/id_XNDM0NDM4MTcy.html?spm=a2h0c.8166622.PhoneSokuUgc_4.dtitle',
     src: 'https://player.youku.com/embed/XNDM0NDM4MTcy',
     srcPrefix: 'https://player.youku.com/embed',
-    linkRule: 'v.youku.com\\/v_show\\/id_\\w+\\=*',
+    linkRule: [
+      'v.youku.com\\/v_show\\/id_\\w+\\=*'
+    ],
     idRule: 'id_\\w+\\=*'
   },
   bilibili: {
     link: 'https://www.bilibili.com/video/BV1EJ411u7DN',
     src: 'https://player.bilibili.com/player.html?bvid=BV1EJ411u7DN',
     srcPrefix: 'https://player.bilibili.com/player.html?bvid',
-    linkRule: 'www.bilibili.com\\/video\\/\\w+',
+    linkRule: [
+      'www.bilibili.com\\/video\\/\\w+'
+    ],
   },
   qqvideo: {
     link: 'https://v.qq.com/x/cover/mzc002001pvxwzy/i0033cgr1vn.html',
     src: 'https://v.qq.com/txp/iframe/player.html?vid=i0033cgr1vn',
     srcPrefix: 'https://v.qq.com/txp/iframe/player.html?vid',
-    linkRule: 'v.qq.com\\/x\\/cover\\/\\w+\\/\\w+',
+    linkRule: [
+      'v.qq.com\\/x\\/cover\\/\\w+\\/\\w+'
+    ],
   },
   amap: {
-    link: 'https://www.amap.com/place/B000A84G4C',
-    src: 'https://www.amap.com/place/B000A84G4C',
+    link: 'https://www.amap.com/place/B000A45467',
+    src: 'https://www.amap.com/place/B000A45467',
     srcPrefix: '',
-    linkRule: '\\.amap\\.com',
+    linkRule: [
+      '\\.amap\\.com'
+    ],
   },
   baidu_map: {
-    link: 'https://map.baidu.com/',
-    src: 'https://map.baidu.com/',
+    link: 'https://j.map.baidu.com/15/fo',
+    src: 'https://j.map.baidu.com/15/fo',
     srcPrefix: '',
-    linkRule: 'map\\.baidu\\.com',
+    linkRule: [
+      'map\\.baidu\\.com'
+    ],
   },
   google_map: {
-    link: 'https://map.google.com/',
-    src: 'https://map.google.com/',
+    link: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.958958396003!2d116.5681862154775!3d40.43190767936344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f121d7687f2ccf%3A0xd040259b950522df!2sGreat%20Wall%20of%20China!5e0!3m2!1sen!2sus!4v1588227850952!5m2!1sen!2sus',
+    src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.958958396003!2d116.5681862154775!3d40.43190767936344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f121d7687f2ccf%3A0xd040259b950522df!2sGreat%20Wall%20of%20China!5e0!3m2!1sen!2sus!4v1588227850952!5m2!1sen!2sus',
     srcPrefix: '',
-    linkRule: 'https:\\/\\/www.google.com\\/maps\\/embed\\?pb=.+sus',
+    linkRule: [
+      'https:\\/\\/www.google.com\\/maps\\/embed\\?pb=.+sus'
+    ],
     tips: 'Google Map > select location > Share > Embed a map > COPY HTML'
   },
   modao: {
     link: 'https://free.modao.cc/app/2cd26580a6717a147454df7470e7ec464093cba3/embed/v2',
     src: 'https://free.modao.cc/app/2cd26580a6717a147454df7470e7ec464093cba3/embed/v2',
     srcPrefix: '',
-    linkRule: 'https:\\/\\/\\w+.modao.cc\\/app\\/\\w+\\/embed\\/v2',
+    linkRule: [
+      'https:\\/\\/\\w+.modao.cc\\/app\\/\\w+\\/embed\\/v2'
+    ],
     tips: 'Modao > More > Share > Embed > COPY'
   },
   lanhu: {
     link: 'https://lanhuapp.com/url/evP7L',
     src: 'https://lanhuapp.com/url/evP7L',
     srcPrefix: '',
-    linkRule: 'https:\\/\\/lanhuapp.com\\/url\\/\\w+',
+    linkRule: [
+      'https:\\/\\/lanhuapp.com\\/url\\/\\w+'
+    ],
     tips: 'Lanhu > Project > Share > Copy Link'
   },
   figma: {
     link: 'https://www.figma.com/file/aS9uSgPXoNpaPkzbjNcK8v/Demo?node-id=0%3A1',
     src: 'https://www.figma.com/file/aS9uSgPXoNpaPkzbjNcK8v/Demo?node-id=0%3A1',
     srcPrefix: 'https://www.figma.com/embed?embed_host=share&url',
-    linkRule: 'https:\\/\\/www.figma.com\\/file\\/\\w+'
+    linkRule: [
+      'https:\\/\\/www.figma.com\\/file\\/\\w+'
+    ]
   },
   canva: {
     link: 'https://www.canva.cn/design/DAD61-t29UI/view',
     src: 'https://www.canva.cn/design/DAD61-t29UI/view',
     srcPrefix: '',
-    linkRule: 'https:\\/\\/www.canva.cn\\/design\\/.+\\/view'
+    linkRule: [
+      'https:\\/\\/www.canva.cn\\/design\\/.+\\/view'
+    ]
   },
   processon: {
     link: 'https://www.processon.com/embed/5ea99d8607912948b0e6fe78',
     src: 'https://www.processon.com/embed/5ea99d8607912948b0e6fe78',
     srcPrefix: '',
-    linkRule: 'https:\\/\\/www.processon.com\\/embed\\/\\w+'
+    linkRule: [
+      'https:\\/\\/www.processon.com\\/embed\\/\\w+'
+    ]
   },
   jinshuju: {
     link: 'https://jinshuju.net/f/q9YvVf',
     src: 'https://jinshuju.net/f/q9YvVf',
     srcPrefix: '',
-    linkRule: 'https:\\/\\/jinshuju.net\\/f\\/\\w+'
+    linkRule: [
+      'https:\\/\\/jinshuju.net\\/f\\/\\w+'
+    ]
   },
   google_forms: {
     link: 'https://docs.google.com/forms/d/e/1FAIpQLSesQk_-5AGlkcI5PUdVIVqWbgKs39tEePBATL7Q8DNWT_lJYg/viewform?usp=sf_link',
     src: 'https://docs.google.com/forms/d/e/1FAIpQLSesQk_-5AGlkcI5PUdVIVqWbgKs39tEePBATL7Q8DNWT_lJYg/viewform?embedded=true',
     srcPrefix: '',
-    linkRule: 'https:\\/\\/docs.google.com\\/forms\\/.+\\/viewform',
+    linkRule: [
+      'https:\\/\\/docs.google.com\\/forms\\/.+\\/viewform'
+    ],
     tips: 'Google Forms > Send > Link or Embed HTML'
+  },
+  iframe: {
+    link: 'https://v.youku.com/v_show/id_XNDM0NDM4MTcy.html',
+    src: 'https://player.youku.com/embed/XNDM0NDM4MTcy',
+    srcPrefix: '',
+    linkRule: [
+      '.+'
+    ]
   }
 }
 
@@ -298,17 +339,27 @@ function getGoogleFormsSrc (originalLink, result) {
   return result
 }
 
+function getCommonSrc (originalLink, result) {
+  result.src = `${result.matchedUrl}`
+  result.validId = true
+  result.originalLink = originalLink
+
+  return result
+}
+
 function getMatchedUrl (service, originalLink, result) {
   let link = EmbedServiceLink[service]
   let linkRule = link.linkRule
-  let regex = new RegExp(linkRule)
-  let match = originalLink.match(regex)
-  if (match && match.length > 0) {
-    result.validLink = true
 
-    result.matchedUrl = match[0]
-  } else {
-    result.validLink = false
+  for (var rule of linkRule) {
+    let regex = new RegExp(rule)
+    let match = originalLink.match(regex)
+    if (match && match.length > 0) {
+      result.validLink = true
+      result.matchedUrl = match[0]
+
+      return result
+    }
   }
 
   return result
@@ -359,6 +410,8 @@ export const getServiceSrc = (service, originalLink) => {
       return getJinshujuSrc(originalLink, result)
     case 'google_forms':
       return getGoogleFormsSrc(originalLink, result)
+    case 'iframe':
+      return getCommonSrc(originalLink, result)
   }
 
   return result

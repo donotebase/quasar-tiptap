@@ -69,6 +69,7 @@ export default {
     formula: 'Formuła',
     inlineFormula: 'Formuła w treści',
     blockFormula: 'Blokowa formuła',
+    thirdPartyService: 'Third party services',
   },
   label: {
     cancel: 'Anuluj',
@@ -78,6 +79,11 @@ export default {
     ok: 'Ok',
     preview: 'Podgląd',
     template: 'Szablon',
+    example: 'Example',
+    submit: 'Submit',
+    settings: 'Settings',
+    remove: 'Remove',
+    help: 'Help',
   },
   table: {
     insert: 'Wstaw tabelę',
@@ -105,6 +111,7 @@ export default {
     design: 'Design',
     develop: 'Develop',
     data: 'Data',
+    others: 'Others',
     youtube: 'Youtube',
     vimeo: 'Vimeo',
     netflix: 'Netflix',
@@ -123,5 +130,8 @@ export default {
     codepen: 'CodePen',
     google_forms: 'Google Forms',
     jinshuju: 'Jinshuju',
+    iframe: 'IFrame',
+    linkTips: 'Link or embed code',
+    linkWarning: 'Invalid link',
   }
 }

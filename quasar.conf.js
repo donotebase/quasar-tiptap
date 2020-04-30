@@ -66,6 +66,7 @@ module.exports = function (ctx) {
         'QColor',
         'QInput',
         'QToggle',
+        'QSpinner',
       ],
 
       directives: [

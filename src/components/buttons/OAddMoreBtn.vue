@@ -38,15 +38,8 @@
           </q-tooltip>
         </o-common-item>
         <q-separator />
-        <o-common-item icon="mdi-iframe" label="IFrame">
-          <q-menu ref="iframePopover" anchor="top right" self="top left" :offset="[2, 0]">
-            <o-meta-input title="IFrame" icon="link"
-                          @primaryAction="insertIframe(commands.iframe, $event)">
-            </o-meta-input>
-          </q-menu>
-        </o-common-item>
-        <o-common-item icon="mdi-iframe"
-                       :label="$o.lang.editor.formula"
+        <o-common-item icon="mdi-iframe-outline"
+                       :label="$o.lang.editor.thirdPartyService"
                        side-icon="keyboard_arrow_right">
           <q-menu ref="formulaPopover" anchor="center right" self="center left" content-class="o-menu" :offset="[2, 0]">
             <o-embed-menu @select="onSelectService" />
