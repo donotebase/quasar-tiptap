@@ -53,6 +53,7 @@ import {
 import java from 'highlight.js/lib/languages/java'
 import javascript from 'highlight.js/lib/languages/javascript'
 import css from 'highlight.js/lib/languages/css'
+require('src/statics/iconfont/iconfont')
 
 import {
   OTitle,

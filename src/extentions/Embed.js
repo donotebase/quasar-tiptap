@@ -6,7 +6,7 @@
  * @date 2020.04.29
  */
 import { Node } from 'tiptap'
-import OEmbedView from 'components/views/OEmbedView'
+import OEmbedView from 'src/components/views/OEmbedView'
 
 function getAttrs (dom) {
   const src = dom.getAttribute('src') || ''

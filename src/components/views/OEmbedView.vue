@@ -15,7 +15,9 @@
                @paste.stop.native>
         <template v-slot:prepend>
           <div class="row items-center">
-            <img :src="`statics/service/${service.svgIcon}.svg`" v-if="service.svgIcon" />
+            <svg class="icon" aria-hidden="true" v-if="service.svgIcon">
+              <use :xlink:href="`#icon-${service.svgIcon}`"></use>
+            </svg>
             <q-icon :name="service.icon || 'apps'" :color="service.color" v-else />
             <q-tooltip anchor="top middle" self="bottom middle">{{$o.lang.embed[service.value]}}</q-tooltip>
           </div>

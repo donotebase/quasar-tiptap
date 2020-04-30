@@ -516,36 +516,48 @@
   .q-btn, .q-tab {
     text-transform unset
   }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
 }
 
+
 .o-menu {
+  min-width 160px !important
+
+  .q-list {
+    padding 8px 0
+    .q-item {
+      padding 8px 10px
+      min-height unset
+    }
+  }
+
   .q-item {
-    .checked {
-      visibility hidden
-    }
-  }
-  .q-item.is-active {
-    background rgba(0, 0, 0, 0.08)
+    min-height unset
+    padding 4px 8px
 
-    .checked {
-      visibility visible
+    .q-item__section--main {
+      padding-left 8px
     }
   }
 
-  .o-button {
-    cursor pointer
-    text-align center
-    padding 4px 10px
-    margin 0 4px
-    background rgba(0, 0, 0, 0.05)
-    border-radius 4px
-
-    .q-icon {
-      font-size 1.2rem
-    }
+  .q-avatar {
+    width 2rem !important
+    height 2rem !important
   }
-  .o-button:hover {
-    background rgba(0, 0, 0, 0.1)
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
   }
 }
 

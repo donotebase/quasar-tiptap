@@ -7,7 +7,9 @@
         <div class="row col-3" v-for="(service, j) of group.children" :key="`service-${i}-${j}`">
           <q-item class="col-12" clickable v-close-popup @click="select(service)">
             <q-item-section avatar>
-              <img :src="`statics/service/${service.svgIcon}.svg`" v-if="service.svgIcon" />
+              <svg class="icon" aria-hidden="true" v-if="service.svgIcon">
+                <use :xlink:href="`#icon-${service.svgIcon}`"></use>
+              </svg>
               <q-icon :name="service.icon || 'apps'" :color="service.color" v-else />
             </q-item-section>
             <q-item-section>
