@@ -37,11 +37,11 @@
     <!-- toolbar -->
     <div class="row col-12 justify-end items-center o-toolbar">
       <div class="col-auto actions">
-        <q-btn color="white" icon="fullscreen" @click="toggleFullScreen" flat>
-          <q-tooltip>{{$o.lang.editor.toggleFullscreen}}</q-tooltip>
+        <q-btn color="blue" icon="fullscreen" @click="toggleFullScreen" flat>
+          <q-tooltip anchor="top middle" self="bottom middle">{{$o.lang.editor.toggleFullscreen}}</q-tooltip>
         </q-btn>
-        <q-btn color="white" icon="settings" flat v-if="view.editable">
-          <q-tooltip>{{$o.lang.image.preferences}}</q-tooltip>
+        <q-btn color="blue" icon="settings" flat v-if="view.editable">
+          <q-tooltip anchor="top middle" self="bottom middle">{{$o.lang.image.preferences}}</q-tooltip>
           <q-menu ref="imgRef" anchor="top right" self="top left" content-class="o-menu o-image-menu">
             <section class="q-px-md q-pb-sm">
               <div class="row justify-between items-center text-bold q-py-sm">

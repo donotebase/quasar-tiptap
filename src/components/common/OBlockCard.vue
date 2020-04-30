@@ -57,6 +57,8 @@ export default {
   methods: {
     onToggleScreen () {
       this.fullScreen = !this.fullScreen
+
+      this.$emit('toggle-screen', this.fullScreen)
     },
     select () {
       const { state } = this.view
@@ -75,6 +77,7 @@ export default {
   .o-block-card {
     position relative
     min-height 40px
+    background #ffffff
 
     .o-card-toolbar {
       position absolute
@@ -109,6 +112,12 @@ export default {
         }
       }
 
+      .dropdown-menu {
+        .q-btn-dropdown__arrow {
+          margin-left 0
+        }
+      }
+
       .actions {
         //
         .q-btn {
@@ -125,7 +134,9 @@ export default {
     }
 
     .o-card-content {
-      //
+      iframe {
+        display block
+      }
     }
 
     &.fullscreen {
@@ -163,6 +174,7 @@ export default {
       }
       .o-card-inner-toolbar {
         visibility visible
+        z-index 1000
       }
     }
   }
