@@ -139,7 +139,8 @@ export default {
     renderMermaid () {
       try {
         mermaid.mermaidAPI.initialize({
-          securityLevel: 'loose'
+          securityLevel: 'loose',
+          sequence: { showSequenceNumbers: true }
         })
 
         // check code
