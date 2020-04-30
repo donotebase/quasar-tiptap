@@ -1,31 +1,37 @@
 <template>
-  <section class="o-katex" :class="contentClass">
-    <div class="row col-12 justify-between o-toolbar">
-      <div class="row col items-center providers">{{$o.lang.editor.blockFormula}}</div>
-      <div class="col-auto actions">
-        <q-btn icon="help_outline" @click="onHelp" flat />
-        <q-btn-dropdown :label="$t('template')" menu-anchor="bottom left" menu-self="top left"
-                        :menu-offset="[0, 8]" content-class="o-menu" dense flat v-if="false">
-          <q-list>
-            <q-item v-for="(item, index) of mermaidDiagrams" :key="index"
-                    @click.native="onSelectTemplate(item)" clickable v-close-popup>
-              <q-item-section side v-if="false">
-                <q-icon name="format_align_left" />
-              </q-item-section>
-              <q-item-section>{{item.label}}</q-item-section>
-            </q-item>
-          </q-list>
-        </q-btn-dropdown>
-        <q-btn icon="close" class="bg-blue text-white" size="0.8rems"
-               @click="fullScreen=false" flat v-if="fullScreen" />
-        <template v-else>
-          <q-btn icon="fullscreen" @click="toggleFullScreen" flat>
-            <q-tooltip>{{$o.lang.editor.toggleFullscreen}}</q-tooltip>
-          </q-btn>
-          <q-btn :label="toggleLabel" @click="toggleMode" class="bg-blue text-white" flat v-if="view.editable" />
-        </template>
+  <o-block-card class="o-katex" :class="contentClass"
+                :view="view"
+                :selected="selected"
+                :get-pos="getPos"
+                :toolbar="view.editable" @toggle-screen="onToggleFullScreen">
+    <template slot="toolbar-left">
+      <div class="row col items-center full-height q-px-sm providers">
+        <q-icon name="mdi-sigma" /> {{$o.lang.editor.blockFormula}}
       </div>
-    </div>
+    </template>
+
+    <template slot="toolbar-right">
+      <q-btn-dropdown :label="$t('template')" menu-anchor="bottom left" menu-self="top left"
+                      :menu-offset="[0, 8]" content-class="o-menu" dense flat v-if="false">
+        <q-list>
+          <q-item v-for="(item, index) of mermaidDiagrams" :key="index"
+                  @click.native="onSelectTemplate(item)" clickable v-close-popup>
+            <q-item-section side v-if="false">
+              <q-icon name="format_align_left" />
+            </q-item-section>
+            <q-item-section>{{item.label}}</q-item-section>
+          </q-item>
+        </q-list>
+      </q-btn-dropdown>
+      <q-btn :label="toggleLabel" @click="toggleMode" class="text-blue" flat v-if="view.editable" />
+      <q-btn-dropdown dropdown-icon="more_vert" class="dropdown-menu" flat dense>
+        <q-list style="min-width: 120px;">
+          <o-common-item icon="delete" :label="$o.lang.label.remove" @click.native="onDelete" />
+          <o-common-item icon="help_outline" :label="$o.lang.label.help" @click.native="onHelp" />
+        </q-list>
+      </q-btn-dropdown>
+    </template>
+
     <section class="row col-12 diagram">
       <section class="col source" v-if="mode==='edit' || fullScreen">
         <codemirror class="diagram-editor"
@@ -44,10 +50,12 @@
         <div v-html="html"></div>
       </section>
     </section>
-  </section>
+  </o-block-card>
 </template>
 
 <script>
+import OBlockCard from 'src/components/common/OBlockCard'
+import OCommonItem from 'src/components/common/OCommonItem'
 import { openUrl } from 'src/utils/shared'
 
 // Code Mirror
@@ -106,9 +114,11 @@ export default {
       }
     }
   },
-  props: ['node', 'updateAttrs', 'view'],
+  props: ['node', 'updateAttrs', 'view', 'selected', 'getPos'],
   components: {
-    codemirror
+    codemirror,
+    OBlockCard,
+    OCommonItem
   },
   methods: {
     init () {
@@ -133,8 +143,8 @@ export default {
         this.html = e.message
       }
     },
-    toggleFullScreen () {
-      this.fullScreen = !this.fullScreen
+    onToggleFullScreen (value) {
+      this.fullScreen = value
     },
     toggleMode () {
       try {
@@ -168,6 +178,12 @@ export default {
         this.src = MermaidTemplates[item.value]
         this.renderKatex()
       }
+    },
+    onDelete () {
+      let tr = this.view.state.tr
+      let pos = this.getPos()
+      tr.delete(pos, pos + this.node.nodeSize)
+      this.view.dispatch(tr)
     },
     onHelp () {
       openUrl('https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference')
@@ -211,33 +227,6 @@ export default {
     position relative
     cursor crosshair
 
-    .o-toolbar {
-      position absolute
-      top -44px
-      width 100%
-      height 40px
-      margin 4px 0
-      padding 4px 8px
-      background #efefef
-      border-radius 6px 6px 0 0
-      visibility hidden
-
-      .providers {
-        height 32px
-      }
-
-      .actions {
-        .q-btn {
-          padding 0
-          margin-left 4px
-        }
-
-        .q-btn__wrapper {
-          padding 4px 8px
-          min-height unset
-        }
-      }
-    }
     .diagram {
       width 100%
 
@@ -290,31 +279,13 @@ export default {
         border-radius 2px
       }
     }
-  }
 
-  .o-katex:hover {
-    background rgba(0,0,0,0.02)
-    .o-toolbar {
-      visibility visible
+    .o-card-inner-toolbar {
+      visibility hidden !important
     }
   }
 
   .o-katex.full-screen {
-    position fixed
-    top 0
-    left 0
-    right 0
-    bottom 0
-    background white
-    z-index 3000
-
-    .o-toolbar {
-      position relative
-      top 0
-      margin 0
-      visibility visible
-    }
-
     .diagram {
       height calc(100vh - 40px)
     }

@@ -176,6 +176,9 @@ export default {
         visibility visible
         z-index 1000
       }
+      .o-card-content {
+        background rgba(0,0,0,0.02)
+      }
     }
   }
 </style>

@@ -11,7 +11,6 @@
     </template>
 
     <template slot="toolbar-right">
-      <q-btn :label="$t('help')" to="/help/mermaid" flat v-if="false" />
       <q-btn-dropdown :label="$o.lang.label.template" menu-anchor="bottom left" menu-self="top left"
                       :menu-offset="[0, 8]" content-class="o-menu" dense flat v-if="view.editable">
         <q-list>
