@@ -69,8 +69,8 @@ export const getEmbedService = (value) => {
  */
 export const EmbedServiceLink = {
   youtube: {
-    link: 'https://www.youtube.com/watch?v=FA8S1ISmDiY',
-    src: 'https://www.youtube.com/embed/FA8S1ISmDiY',
+    link: 'https://www.youtube.com/watch?v=I4sMhHbHYXM',
+    src: 'https://www.youtube.com/embed/I4sMhHbHYXM',
     srcPrefix: 'https://www.youtube.com/embed',
     linkRule: [
       'www.youtube.com\\/watch\\?v=\\w+'
@@ -94,8 +94,8 @@ export const EmbedServiceLink = {
     ],
   },
   qqvideo: {
-    link: 'https://v.qq.com/x/cover/mzc002001pvxwzy/i0033cgr1vn.html',
-    src: 'https://v.qq.com/txp/iframe/player.html?vid=i0033cgr1vn',
+    link: 'https://v.qq.com/x/cover/mzc0020006aw1mn/u0033nvzb5v.html',
+    src: 'https://v.qq.com/txp/iframe/player.html?vid=u0033nvzb5v',
     srcPrefix: 'https://v.qq.com/txp/iframe/player.html?vid',
     linkRule: [
       'v.qq.com\\/x\\/cover\\/\\w+\\/\\w+'
