@@ -1,3 +1,25 @@
+# [1.4.0](https://github.com/donotebase/quasar-tiptap/compare/@1.3.0...@1.4.0) (2020-04-30)
+
+
+### Bug Fixes
+
+* **diagram:** enable showSequenceNumbers ([c0326b1](https://github.com/donotebase/quasar-tiptap/commit/c0326b18b408cd06580df02d11d8c7df0b32bee5))
+* **embed:** codepen ([ce7261d](https://github.com/donotebase/quasar-tiptap/commit/ce7261d328135bfa497628937892cc740290198a))
+* **embed:** links ([3188ba3](https://github.com/donotebase/quasar-tiptap/commit/3188ba326d8b88c91f1319bc137093ebd15d2992))
+* typo ([0b56845](https://github.com/donotebase/quasar-tiptap/commit/0b56845949d4e37b136fde90334f769d61a00bfc))
+* **menububble:** menububble disappear when lose focus ([6186810](https://github.com/donotebase/quasar-tiptap/commit/618681034b53e30fdde94a8e3611f66bddb92027))
+
+
+### Features
+
+* **embed:** use iconfont ([0a51e16](https://github.com/donotebase/quasar-tiptap/commit/0a51e16ed76dd1d8bd61895bc61b28ec54c16ece))
+* **extension:** embed extension, youku/bilibili ([1c83063](https://github.com/donotebase/quasar-tiptap/commit/1c830636121f78dd16c822de8be7738e38950523))
+* **extension:** embed: data ([b28700a](https://github.com/donotebase/quasar-tiptap/commit/b28700a604b685d375d0c53e048b5546b3ff6bc4))
+* **extension:** embed: design ([30ce104](https://github.com/donotebase/quasar-tiptap/commit/30ce104449bcde35cc9d47904cd0dc5d71d9ae9b))
+* **extension:** embed: maps (Google Map, AMap, Baidu Map) ([6a15551](https://github.com/donotebase/quasar-tiptap/commit/6a15551c5a24b67d86a73d5edbd80f4b17a1411e))
+* **extension:** embed: youtube, qqvideo ([141a00e](https://github.com/donotebase/quasar-tiptap/commit/141a00ee505b9c126e304e3e96313fc083b77f11))
+* **toolbar:** toolbar options ([90871aa](https://github.com/donotebase/quasar-tiptap/commit/90871aa8ca513a1aa9e3f57efb2deaa602298aba))
+
 # [1.3.0](https://github.com/donotebase/quasar-tiptap/compare/@1.2.3...@1.3.0) (2020-04-26)
 
 
