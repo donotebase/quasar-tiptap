@@ -1,3 +1,14 @@
+## [1.4.2](https://github.com/donotebase/quasar-tiptap/compare/@1.4.1...@1.4.2) (2020-05-01)
+
+
+### Bug Fixes
+
+* table button ([10eaad6](https://github.com/donotebase/quasar-tiptap/commit/10eaad6f6d177f9c73b27862c7001da80b95fb13))
+* **extenstion:** text-format dropdown, indent key bindings ([60a983a](https://github.com/donotebase/quasar-tiptap/commit/60a983a03bb31be2d533f430b8d0e8360ba5403b))
+* **heading:** set heading id ([b5c1406](https://github.com/donotebase/quasar-tiptap/commit/b5c14069acda5c5189f01932d00e220d670dce27))
+* **heading:** The type of level is int ([711cf7b](https://github.com/donotebase/quasar-tiptap/commit/711cf7b19fcc59c8b818b71ca22107f5bfe7119c))
+* **list:** list dropdown menu ([6e940ca](https://github.com/donotebase/quasar-tiptap/commit/6e940cad7b93825f9ef6880808ca4f865f59b858))
+
 ## [1.4.1](https://github.com/donotebase/quasar-tiptap/compare/@1.4.0...@1.4.1) (2020-04-30)
 
 
