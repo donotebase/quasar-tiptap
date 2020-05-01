@@ -26,7 +26,7 @@ import {
 import { RecommendedExtensions } from 'src/extentions'
 import { BasicFeaturesArticle, BasicFeaturesArticleJson } from 'src/data/article'
 
-import OAddMoreBtn from 'src/components/buttons/OAddMoreBtn'
+import OLinkBtn from 'src/components/buttons/OLinkBtn'
 
 import { DEFAULT_LOCALE } from 'src/i18n'
 
@@ -51,9 +51,9 @@ export default {
             }
           }),
         ],
-        toolbar: [
+        toolbar: [ // 1.name 2.object 3.component
           {
-            name: 'add-more',
+            name: 'add-more', // use object with options
             type: 'menu',
             options: {
               embed: {
@@ -66,7 +66,6 @@ export default {
               }
             }
           },
-          OAddMoreBtn,
           'separator',
           'bold',
           'italic',
@@ -93,6 +92,7 @@ export default {
           'blockquote',
           'code_block',
           'link',
+          OLinkBtn, // use custom component
           'photo',
           'table',
           'separator',
@@ -117,7 +117,7 @@ export default {
   },
   components: {
     QuasarTiptap,
-    OAddMoreBtn
+    OLinkBtn
   },
   methods: {
     onUpdate ({ state, getJSON, getHTML }) {

@@ -31,6 +31,9 @@ function toDOM (node) {
   dom[0] = 'h'.concat(node.attrs.level)
   dom[1].id = id
   dom[1].level = level
+
+  node.attrs.id = id
+
   return dom
 }
 
