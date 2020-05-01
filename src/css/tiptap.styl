@@ -535,6 +535,9 @@
     .q-item {
       padding 8px 10px
       min-height unset
+      .q-icon {
+        font-size 1rem
+      }
     }
   }
 
@@ -544,6 +547,19 @@
 
     .q-item__section--main {
       padding-left 8px
+    }
+
+    .checked {
+      visibility hidden
+    }
+
+    &.is-active {
+      background rgba(0,0,0,0.03)
+      font-weight 600
+
+      .checked {
+        visibility visible
+      }
     }
   }
 

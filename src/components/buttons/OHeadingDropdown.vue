@@ -41,17 +41,4 @@ export default {
       margin-left 0
     }
   }
-
-  .o-heading-dropdown-menu {
-    .q-list {
-      .q-icon {
-        font-size 1rem
-      }
-
-      .q-item.is-active {
-        background rgba(0,0,0,0.03)
-        font-weight 600
-      }
-    }
-  }
 </style>

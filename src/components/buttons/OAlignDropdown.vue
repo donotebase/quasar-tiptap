@@ -61,12 +61,4 @@ export default {
       margin-left 0
     }
   }
-
-  .o-align-dropdown-menu {
-    .q-list {
-      .q-icon {
-        font-size 1rem
-      }
-    }
-  }
 </style>
