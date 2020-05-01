@@ -13,6 +13,12 @@
             </o-meta-input>
           </q-menu>
         </o-common-item>
+        <o-common-item icon="mdi-table"
+                       :label="$o.lang.editor.table">
+          <q-menu ref="tablePopover" anchor="top right" self="top left" :offset="[2, 0]">
+            <o-table-grid :commands="commands" />
+          </q-menu>
+        </o-common-item>
         <o-common-item icon="mdi-sigma"
                        :label="$o.lang.editor.formula"
                        side-icon="keyboard_arrow_right">
@@ -55,6 +61,7 @@ import OMenubarBtn from 'src/components/buttons/OMenubarBtn'
 import OEmbedMenu from 'src/components/buttons/OEmbedMenu'
 import OCommonItem from 'src/components/common/OCommonItem'
 import OMetaInput from 'src/components/common/OMetaInput'
+import OTableGrid from 'src/components/common/OTableGrid'
 export default {
   name: 'o-add-more-btn',
   data () {
@@ -79,7 +86,8 @@ export default {
     OMenubarBtn,
     OEmbedMenu,
     OCommonItem,
-    OMetaInput
+    OMetaInput,
+    OTableGrid
   },
   methods: {
     insertIframe (command, src) {

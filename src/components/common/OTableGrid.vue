@@ -1,16 +1,22 @@
 <template>
-  <o-menubar-btn icon="mdi-table" :tooltip="$o.lang.table.insert" class="o-table-btn">
-    <q-menu ref="tablePopover" anchor="bottom middle" self="top middle" content-class="o-menu o-table-btn-menu" @hide="onHide">
-      <o-table-grid :commands="commands" />
-    </q-menu>
-  </o-menubar-btn>
+  <section class="o-table-grid">
+    <div class="row justify-start cursor-pointer" v-for="(row, i) in rows" :key="`row-${i}`">
+      <div v-for="(col, j) in columns" :key="`col-${j}`">
+        <div class="cell" :class="{'selected': row <= selectedRows && col <= selectedColumns}"
+             @mouseover="select(row, col)"
+             @click="onSelected()" v-close-popup></div>
+      </div>
+    </div>
+
+    <footer class="row justify-center q-pt-md">
+      {{selectedRows}} x {{selectedColumns}}
+    </footer>
+  </section>
 </template>
 
 <script>
-import OMenubarBtn from 'src/components/buttons/OMenubarBtn'
-import OTableGrid from 'src/components/common/OTableGrid'
 export default {
-  name: 'o-table-btn',
+  name: 'o-table-grid',
   data () {
     return {
       rows: 5,
@@ -23,13 +29,6 @@ export default {
     commands: {
       type: Object
     },
-    isActive: {
-      type: Object
-    }
-  },
-  components: {
-    OMenubarBtn,
-    OTableGrid
   },
   methods: {
     onHide () {
@@ -59,22 +58,20 @@ export default {
 </script>
 
 <style lang="stylus">
-  .o-table-btn-menu {
-    .grid {
-      padding 1rem
+  .o-table-grid {
+    padding 1rem
 
-      .cell {
-        height 20px
-        width 20px
-        margin 4px
-        border solid 1px #ccc
-        border-radius 2px
-      }
+    .cell {
+      height 20px
+      width 20px
+      margin 4px
+      border solid 1px #ccc
+      border-radius 2px
+    }
 
-      .cell.selected {
-        border solid 1px #1976D2
-        background rgba(#1976D2, 0.2)
-      }
+    .cell.selected {
+      border solid 1px #1976D2
+      background rgba(#1976D2, 0.2)
     }
   }
 </style>
