@@ -18,6 +18,8 @@ export const CommandComponents = {
   'align-group': 'o-align-group',
   'line-height': 'o-line-height-dropdown',
   'list-dropdown': 'o-list-dropdown',
+  'indent-dropdown': 'o-indent-dropdown',
+  'text-format-dropdown': 'o-text-format-dropdown',
   heading: 'o-heading-dropdown',
   link: 'o-link-btn',
   photo: 'o-photo-btn',

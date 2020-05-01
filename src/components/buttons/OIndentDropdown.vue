@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-btn-dropdown :icon="currentItem.icon" menu-anchor="bottom left" menu-self="top left" :menu-offset="[20, 0]"
-                    class="o-list-dropdown" content-class="o-menu" @click="selectCurrent" split flat>
+                    class="o-indent-dropdown" content-class="o-menu" @click="selectCurrent" split flat>
       <q-list class="">
         <q-item v-for="(item, index) in list" :key="index"
                 :class="{ 'is-active': item.isActive }"
@@ -16,16 +16,16 @@
         </q-item>
       </q-list>
     </q-btn-dropdown>
-    <q-tooltip :delay="500">{{$o.lang.editor.list}}</q-tooltip>
+    <q-tooltip :delay="500">{{$o.lang.editor.indentDropdown}}</q-tooltip>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'o-list-dropdown',
+  name: 'o-indent-dropdown',
   data () {
     return {
-      current: 'bullet_list'
+      current: 'indent'
     }
   },
   props: {
@@ -53,9 +53,8 @@ export default {
   computed: {
     list () {
       return [
-        { label: this.$o.lang.editor.unorderedList, value: 'bullet_list', icon: 'format_list_bulleted', isActive: this.isActive.bullet_list(), command: this.commands.bullet_list },
-        { label: this.$o.lang.editor.orderedList, value: 'ordered_list', icon: 'format_list_numbered', isActive: this.isActive.ordered_list(), command: this.commands.ordered_list },
-        { label: this.$o.lang.editor.todoList, value: 'todo_list', icon: 'mdi-check-box-outline', isActive: this.isActive.todo_list(), command: this.commands.todo_list },
+        { label: this.$o.lang.editor.indent, value: 'indent', icon: 'format_indent_increase', isActive: false, command: this.commands.indent },
+        { label: this.$o.lang.editor.outdent, value: 'outdent', icon: 'format_indent_decrease', isActive: false, command: this.commands.outdent },
       ]
     },
     currentItem () {
@@ -64,14 +63,14 @@ export default {
           return item
         }
       }
-      return { label: this.$o.lang.editor.unorderedList, value: 'bullet_list', icon: 'format_list_bulleted', isActive: this.isActive.bullet_list(), command: this.commands.bullet_list }
+      return { label: this.$o.lang.editor.indent, value: 'indent', icon: 'format_indent_increase', isActive: false, command: this.commands.indent }
     }
   }
 }
 </script>
 
 <style lang="stylus">
-  .o-list-dropdown {
+  .o-indent-dropdown {
     .q-btn-dropdown__arrow {
       margin-left 0
     }

@@ -15,7 +15,7 @@
         </template>
       </q-list>
     </q-btn-dropdown>
-    <q-tooltip>{{$o.lang.editor.fontFamily}}</q-tooltip>
+    <q-tooltip :delay="500">{{$o.lang.editor.fontFamily}}</q-tooltip>
   </div>
 </template>
 

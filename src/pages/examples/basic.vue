@@ -69,9 +69,17 @@ export default {
           'separator',
           'bold',
           'italic',
-          'underline',
-          'strike',
-          'code',
+          {
+            name: 'text-format-dropdown',
+            type: 'menu',
+            options: {
+              list: [
+                'underline',
+                'strike',
+                'code',
+              ]
+            }
+          },
           'separator',
           'heading',
           'font-family',
@@ -80,8 +88,7 @@ export default {
           'format_clear',
           'separator',
           'align-dropdown',
-          'indent',
-          'outdent',
+          'indent-dropdown',
           'line-height',
           'separator',
           'horizontal',

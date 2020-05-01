@@ -27,16 +27,10 @@ export default class Indent extends Extension {
     }
   }
 
-  // TODO: disable in table
-  /**
   keys ({ type, state, view }) {
     return {
-      Tab: function (type, state, view) {
-        console.log('tab', type, state, view)
-        createIndentCommand(1)
-      },
-      'Shift-Tab': createIndentCommand(-1),
+      'Cmd-]': createIndentCommand(1),
+      'Cmd-[': createIndentCommand(-1),
     }
   }
-  */
 }

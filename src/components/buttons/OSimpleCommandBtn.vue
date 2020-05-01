@@ -40,7 +40,7 @@ export default {
   computed: {
     configs () {
       return {
-        bold: { icon: 'mdi-format-bold', tooltip: this.$o.lang.editor.bold, isActive: this.isActive.bold(), command: this.commands.bold },
+        bold: { icon: 'format_bold', tooltip: this.$o.lang.editor.bold, isActive: this.isActive.bold(), command: this.commands.bold },
         italic: { icon: 'format_italic', tooltip: this.$o.lang.editor.italic, isActive: this.isActive.italic(), command: this.commands.italic },
         strike: { icon: 'format_strikethrough', tooltip: this.$o.lang.editor.strikethrough, isActive: this.isActive.strike(), command: this.commands.strike },
         underline: { icon: 'format_underline', tooltip: this.$o.lang.editor.underline, isActive: this.isActive.underline(), command: this.commands.underline },

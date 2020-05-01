@@ -37,6 +37,9 @@ import OAlignGroup from 'src/components/buttons/OAlignGroup'
 import OLineHeightDropdown from 'src/components/buttons/OLineHeightDropdown'
 import OHeadingDropdown from 'src/components/buttons/OHeadingDropdown'
 import OHeadingList from 'src/components/buttons/OHeadingList'
+import OListDropdown from 'src/components/buttons/OListDropdown'
+import OIndentDropdown from 'src/components/buttons/OIndentDropdown'
+import OTextFormatDropdown from 'src/components/buttons/OTextFormatDropdown'
 
 import OAddMoreBtn from 'src/components/buttons/OAddMoreBtn'
 import OLinkBtn from 'src/components/buttons/OLinkBtn'
@@ -86,6 +89,9 @@ export default {
     OLineHeightDropdown,
     OHeadingDropdown,
     OHeadingList,
+    OListDropdown,
+    OIndentDropdown,
+    OTextFormatDropdown,
     OAddMoreBtn,
     OLinkBtn,
     OPhotoBtn,

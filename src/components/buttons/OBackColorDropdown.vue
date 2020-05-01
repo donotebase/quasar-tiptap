@@ -8,7 +8,7 @@
       </section>
       <o-color-board :active-color="activeColor" @select="onSelect" v-close-popup="closable" />
     </q-btn-dropdown>
-    <q-tooltip>{{$o.lang.editor.highlightColor}}</q-tooltip>
+    <q-tooltip :delay="500">{{$o.lang.editor.highlightColor}}</q-tooltip>
   </div>
 </template>
 
