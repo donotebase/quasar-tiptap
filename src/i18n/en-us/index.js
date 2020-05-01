@@ -18,6 +18,7 @@ export default {
     italic: 'Italic',
     strikethrough: 'Strikethrough',
     underline: 'Underline',
+    list: 'List',
     unorderedList: 'Unordered List',
     orderedList: 'Ordered List',
     todoList: 'Todo List',

@@ -17,6 +17,7 @@ export const CommandComponents = {
   'align-dropdown': 'o-align-dropdown',
   'align-group': 'o-align-group',
   'line-height': 'o-line-height-dropdown',
+  'list-dropdown': 'o-list-dropdown',
   heading: 'o-heading-dropdown',
   link: 'o-link-btn',
   photo: 'o-photo-btn',

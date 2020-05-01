@@ -20,6 +20,7 @@ export default {
     underline: 'Podkreślenie',
     unorderedList: 'Lista wypunktowana',
     orderedList: 'Lista numerowana',
+    list: 'List',
     todoList: 'Lista rzeczy do zrobienia',
     subscript: 'Indeks dolny',
     superscript: 'Indeks górny',

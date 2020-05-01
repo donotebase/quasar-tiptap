@@ -18,6 +18,7 @@ export default {
     italic: '斜体',
     strikethrough: '删除线',
     underline: '下划线',
+    list: '列表',
     unorderedList: '无序列表',
     orderedList: '有序列表',
     todoList: '任务列表',
