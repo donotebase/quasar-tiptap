@@ -14,6 +14,7 @@
     <o-editor-menu-bubble :editor="editor" :toolbar="editorMenuBubble" :selected-cell-size="selectedCellSize" v-if="editable && showBubble" />
 
     <q-scroll-area ref="editorScroll" class="editor-scroll-area" :class="`view-${pageView}`" v-if="scrollable">
+      <q-scroll-observer @scroll="onScroll" />
       <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
     </q-scroll-area>
     <div v-else>
@@ -119,6 +120,13 @@ export default {
       type: Boolean,
       default: false
     },
+    editorProps: {
+      type: Object,
+      default: function () {
+        return {
+        }
+      }
+    },
     extensions: {
       type: Array,
       default: function () {
@@ -184,6 +192,7 @@ export default {
       ]
 
       this.editor = new Editor({
+        editorProps: this.editorProps,
         extensions: extensions,
         autoFocus: true,
         editable: this.editable,
@@ -275,6 +284,9 @@ export default {
     cleanContent () {
       this.editor.clearContent(false)
       this.editor.focus()
+    },
+    onScroll (scroll) {
+      this.$emit('scroll', scroll)
     },
     showSidePanel () {},
     onSlideShow () {}

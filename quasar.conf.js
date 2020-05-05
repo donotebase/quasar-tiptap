@@ -60,6 +60,7 @@ module.exports = function (ctx) {
         'QItemSection',
         'QItemLabel',
         'QScrollArea',
+        'QScrollObserver',
         'QSeparator',
         'QMenu',
         'QAvatar',
