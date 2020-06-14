@@ -87,6 +87,7 @@ export default {
     settings: '设置',
     remove: '删除',
     help: '帮助',
+    back: '返回',
   },
   table: {
     insert: '插入表格',

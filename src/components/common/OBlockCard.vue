@@ -3,7 +3,7 @@
     <section class="row col-12 o-card-toolbar" v-if="toolbar">
       <div class="row col">
         <div class="q-px-sm" v-if="fullScreen">
-          <q-btn icon="keyboard_arrow_left" label="返回" class="full-height" flat @click="onToggleScreen" />
+          <q-btn icon="keyboard_arrow_left" :label="$o.lang.label.back" class="full-height" flat @click="onToggleScreen" />
         </div>
         <div class="col">
           <slot name="toolbar-left"></slot>

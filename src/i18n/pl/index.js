@@ -87,6 +87,7 @@ export default {
     settings: 'Settings',
     remove: 'Remove',
     help: 'Help',
+    back: 'Back',
   },
   table: {
     insert: 'Wstaw tabelę',
