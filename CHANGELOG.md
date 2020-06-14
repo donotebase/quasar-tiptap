@@ -1,3 +1,14 @@
+## [1.4.4](https://github.com/donotebase/quasar-tiptap/compare/@1.4.3...@1.4.4) (2020-06-14)
+
+
+### Bug Fixes
+
+* **editor:** remove unused console.log, fixed [#14](https://github.com/donotebase/quasar-tiptap/issues/14) ([f0c857b](https://github.com/donotebase/quasar-tiptap/commit/f0c857ba3038329e8be403d692afcdad04ac40c5))
+* **editor:** resolve untranslated label, fixed [#13](https://github.com/donotebase/quasar-tiptap/issues/13) ([f6fd5e7](https://github.com/donotebase/quasar-tiptap/commit/f6fd5e77ed0aaf495bfefe5929101dfee278479a))
+* **extension:** hide settins button, fixed [#16](https://github.com/donotebase/quasar-tiptap/issues/16) ([da28026](https://github.com/donotebase/quasar-tiptap/commit/da280268fac427bce64bb513b6b9575f97d0df2e))
+* **image:** tooltips for lock aspect ratio, fixed [#15](https://github.com/donotebase/quasar-tiptap/issues/15) ([47e6903](https://github.com/donotebase/quasar-tiptap/commit/47e6903707744b41836b1e84972c1f681f615813))
+* fixed json error ([0546f8f](https://github.com/donotebase/quasar-tiptap/commit/0546f8f41a06f9b24aae80878542d7f583e6f20d))
+
 ## [1.4.3](https://github.com/donotebase/quasar-tiptap/compare/@1.4.2...@1.4.3) (2020-05-05)
 
 
