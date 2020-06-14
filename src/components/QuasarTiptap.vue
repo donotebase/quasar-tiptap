@@ -262,7 +262,7 @@ export default {
       }
 
       // From JSON
-      if (this.json.type) {
+      if (this.json && this.json.type) {
         this.editor.setContent(this.json, true)
       }
       if (this.html) {
