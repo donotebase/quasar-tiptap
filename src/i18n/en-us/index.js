@@ -108,6 +108,8 @@ export default {
     src: 'Image Source',
     caption: 'Caption',
     link: 'Link',
+    lockAspectRatio: 'Lock aspect ratio',
+    unlockAspectRatio: 'Unlock aspect ratio',
   },
   embed: {
     video: 'Video',

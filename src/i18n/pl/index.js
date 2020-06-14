@@ -108,6 +108,8 @@ export default {
     src: 'Źródło obrazu',
     caption: 'Nagłówek',
     link: 'Łącze',
+    lockAspectRatio: 'Lock aspect ratio',
+    unlockAspectRatio: 'Unlock aspect ratio',
   },
   embed: {
     video: 'Video',

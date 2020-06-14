@@ -108,6 +108,8 @@ export default {
     src: '图片地址',
     caption: '图片说明',
     link: '链接',
+    lockAspectRatio: '锁定长宽比',
+    unlockAspectRatio: '解锁长宽比',
   },
   embed: {
     video: '视频',

@@ -54,8 +54,12 @@
                          :hint="$o.lang.image.width" suffix="px"
                          @input="onInput($event, 'width')" />
                 <div class="q-px-sm">
-                  <q-btn :icon="keepRatio?'link':'link_off'" dense flat
-                         @click="keepRatio = !keepRatio" />
+                  <q-btn :icon="keepRatio?'link':'link_off'"
+                         @click="keepRatio = !keepRatio"
+                         dense
+                         flat>
+                    <q-tooltip>{{keepRatio ? $o.lang.image.lockAspectRatio : $o.lang.image.unlockAspectRatio}}</q-tooltip>
+                  </q-btn>
                 </div>
                 <q-input v-model="imgOption.height" type="number" debounce="500" standout
                          :hint="$o.lang.image.height" suffix="px"
