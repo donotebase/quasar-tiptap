@@ -29,7 +29,7 @@
       <q-btn-dropdown dropdown-icon="more_vert" split flat @click="onConfirm">
         <span class="text-blue" slot="label">{{$o.lang.label.submit}}</span>
         <q-list style="min-width: 120px;">
-          <o-common-item icon="settings" :label="$o.lang.label.settings" />
+          <o-common-item icon="settings" :label="$o.lang.label.settings" v-if="false" />
           <o-common-item icon="delete" :label="$o.lang.label.remove" @click.native="onDelete" />
           <o-common-item icon="help_outline" :label="$o.lang.label.help" @click.native="onHelp" />
         </q-list>
