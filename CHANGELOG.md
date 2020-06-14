@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/donotebase/quasar-tiptap/compare/@1.4.2...@1.4.3) (2020-05-05)
+
+
+### Bug Fixes
+
+* **editor:** editorProps, scroll ([36adc66](https://github.com/donotebase/quasar-tiptap/commit/36adc66acccd380ac7527a4e4fe8d84f943c042a))
+
 ## [1.4.2](https://github.com/donotebase/quasar-tiptap/compare/@1.4.1...@1.4.2) (2020-05-01)
 
 
