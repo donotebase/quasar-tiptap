@@ -103,7 +103,6 @@ export default {
       }
     },
     onSelectService (service) {
-      console.log('service', service)
       this.commands.embed({ service: service.value })
     }
   },

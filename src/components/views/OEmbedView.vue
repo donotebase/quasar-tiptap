@@ -111,7 +111,6 @@ export default {
       window.open(url, '_blank')
     },
     onLoaded () {
-      console.log('loaded', this.src)
       this.loading = false
     }
   },
