@@ -266,8 +266,10 @@ export default {
     setContent () {
       try {
         this.json = JSON.parse(this.content)
+        this.html = ''
       } catch (e) {
         this.html = this.content
+        this.json = {}
       }
 
       // From JSON
