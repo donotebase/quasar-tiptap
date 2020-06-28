@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/donotebase/quasar-tiptap/compare/@1.4.4...@1.4.5) (2020-06-28)
+
+
+### Bug Fixes
+
+* **editor:** set content ([e068e7d](https://github.com/donotebase/quasar-tiptap/commit/e068e7dc5d9fe2edb7c43e70ccffa73e57262224))
+
 ## [1.4.4](https://github.com/donotebase/quasar-tiptap/compare/@1.4.3...@1.4.4) (2020-06-14)
 
 

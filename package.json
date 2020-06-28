@@ -1,6 +1,6 @@
 {
   "name": "quasar-tiptap",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "A modern WYSIWYG rich-text editor built on top of tiptap and Quasar for Vue.js",
   "productName": "Quasar Tiptap",
   "scripts": {
