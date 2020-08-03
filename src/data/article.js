@@ -6,7 +6,7 @@
  * @date 2020.04.11
  */
 export const BasicFeaturesArticle = `
-<h1>quasar-tiptap</h1><h2 id="d5fb3c" level="2">Introduction</h2><p data-text-align="center"><strong><em><span style="color: #1890ff">Quasar Tiptap Editor</span></em></strong>&nbsp;is a WYSIWYG rich-text editor built on top of <span style="font-family: Arial Black">tiptap</span>&nbsp;and Quasar.🔥</p><oembed data-height="500" data-service="codepen" data-link="https%3A%2F%2Fcodepen.io%2Fmekery%2Fembed%2FYzyrKOJ" src="https://codepen.io/mekery/embed/YzyrKOJ" frameborder="0" allowfullscreen="true"></oembed><p></p><h2 id="846676" level="2">Image</h2><p data-text-align="center"><img src="https://note.iwishbest.com/statics/logo.png" caption="Caption" ref="https://note.iwishbest.com/"></p><h2 id="ce7176" level="2">Diagram</h2><p></p><diagram src="graph TD
+<h2 id="d5fb3c" level="2">Introduction</h2><p data-text-align="center"><strong><em><span style="color: #1890ff">Quasar Tiptap Editor</span></em></strong>&nbsp;is a WYSIWYG rich-text editor built on top of <span style="font-family: Arial Black">tiptap</span>&nbsp;and Quasar.🔥</p><p></p><h2 id="846676" level="2">Image</h2><p data-text-align="center"><img src="https://www.donote.info/statics/logo.png" caption="Caption" ref="https://note.iwishbest.com/"></p><h2 id="ce7176" level="2">Diagram</h2><p></p><diagram src="graph TD
 A[Christmas] -->|Get money| B(Go shopping)
 B --> C{Let me think}
 C -->|One| D[Laptop]
