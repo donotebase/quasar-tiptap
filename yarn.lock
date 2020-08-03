@@ -12818,7 +12818,7 @@ tiptap-commands@^1.14.1, tiptap-commands@^1.14.3:
     prosemirror-utils "^0.9.6"
     tiptap-utils "^1.10.3"
 
-tiptap-extensions@^1.31.3:
+tiptap-extensions@^1.31.1:
   version "1.31.1"
   resolved "https://registry.npm.taobao.org/tiptap-extensions/download/tiptap-extensions-1.31.1.tgz#7b6cbd334f0484699d035533e11a2d02a26ffd8d"
   integrity sha1-e2y9M08EhGmdA1Uz4RotAqJv/Y0=
