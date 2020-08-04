@@ -262,15 +262,15 @@ export default {
     },
     // content
     getContent () {
-      let content = this.content || '';
+      let content = this.content || ''
       if (content && content.type) {
-        return content; // parsed json
+        return content // parsed json
       }
       if (typeof content === 'string') {
         try {
           return JSON.parse(content) // json
         } catch (e) {
-          return content; // html
+          return content // html
         }
       }
     },
