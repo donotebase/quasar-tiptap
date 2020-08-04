@@ -52,7 +52,7 @@ import OSimpleCommandBtn from 'src/components/buttons/OSimpleCommandBtn'
 import OMetaInput from 'src/components/common/OMetaInput'
 
 export default {
-  name: 'page-quasar-tiptap-all',
+  name: 'o-editor-menu-bubble',
   data () {
     return {
     }
