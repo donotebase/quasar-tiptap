@@ -3,9 +3,9 @@
     <section class="tiptap-menububble"
              :class="{ 'is-active': editorContext.menu.isActive &&
                                     selectedCellSize === 0 &&
-                                    !editorContext.isActive.image() &&
-                                    !editorContext.isActive.embed() &&
-                                    !editorContext.isActive.katex_block() }"
+                                    !(editorContext.isActive.image && editorContext.isActive.image()) &&
+                                    !(editorContext.isActive.embed && editorContext.isActive.embed()) &&
+                                    !(editorContext.isActive.katex_block && editorContext.isActive.katex_block()) }"
              :style="`left: ${editorContext.menu.left}px; bottom: ${editorContext.menu.bottom + 8}px;`">
       <template v-for="(item, index) of toolbar">
         <q-separator vertical inset :key="index" v-if="item==='separator'" />
