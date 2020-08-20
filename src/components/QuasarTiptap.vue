@@ -94,14 +94,12 @@ export default {
     return {
       // editor
       editor: null,
-      json: {},
-      html: '',
       selectedCellSize: 0
     }
   },
   props: {
     content: {
-      type: String,
+      type: [String, Object],
       default: ''
     },
     editable: {
@@ -196,7 +194,7 @@ export default {
         extensions: extensions,
         autoFocus: true,
         editable: this.editable,
-        content: '',
+        content: this.getContent(),
         onInit: ({ state, view }) => {
           this.$emit('init', { state, view })
         },
@@ -263,22 +261,21 @@ export default {
       return extensions
     },
     // content
+    getContent () {
+      let content = this.content || ''
+      if (content && content.type) {
+        return content // parsed json
+      }
+      if (typeof content === 'string') {
+        try {
+          return JSON.parse(content) // json
+        } catch (e) {
+          return content // html
+        }
+      }
+    },
     setContent () {
-      try {
-        this.json = JSON.parse(this.content)
-        this.html = ''
-      } catch (e) {
-        this.html = this.content
-        this.json = {}
-      }
-
-      // From JSON
-      if (this.json && this.json.type) {
-        this.editor.setContent(this.json, true)
-      }
-      if (this.html) {
-        this.editor.setContent(this.html, true)
-      }
+      this.editor.setContent(this.getContent(), true)
 
       // Focus
       this.editor.focus()
@@ -304,9 +301,6 @@ export default {
   },
   mounted: function () {
     this.initEditor()
-
-    // set content
-    this.setContent()
   },
   deactivated () {
   },
