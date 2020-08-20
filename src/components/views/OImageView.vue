@@ -89,7 +89,6 @@
 </template>
 
 <script>
-import { debounce } from 'quasar'
 import { NodeSelection } from 'prosemirror-state'
 import { resolveImg } from 'src/utils/image'
 import { clamp } from 'src/utils/shared'
