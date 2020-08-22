@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/donotebase/quasar-tiptap/compare/@1.5.0...@1.5.1) (2020-08-22)
+
+
+### Bug Fixes
+
+* **prosemirror-model:** multiple versions of prosemirror-model, fixed [#29](https://github.com/donotebase/quasar-tiptap/issues/29) ([a293fd1](https://github.com/donotebase/quasar-tiptap/commit/a293fd1a10f37b0338a8e7ca27a1dc10e85f9a15))
+
 # [1.5.0](https://github.com/donotebase/quasar-tiptap/compare/@1.4.7...@1.5.0) (2020-08-20)
 
 
