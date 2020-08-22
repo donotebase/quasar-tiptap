@@ -1,7 +1,7 @@
 <template>
   <section class="tiptap tiptap-editor quasar-tiptap">
     <!-- Main Toolbar -->
-    <o-editor-menu-bar :editor="editor" :toolbar="editorMenuBar" v-if="editable && showToolbar">
+    <o-editor-menu-bar :editor="editor" :toolbar="editorMenuBar" v-if="showToolbar">
       <template slot="left">
         <slot name="toolbar-left" />
       </template>
