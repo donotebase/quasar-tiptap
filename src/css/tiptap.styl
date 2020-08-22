@@ -9,10 +9,6 @@
     outline none
   }
 
-  .ProseMirror {
-    white-space unset
-  }
-
   blockquote,
   h1,
   h2,
@@ -220,6 +216,10 @@
     word-wrap: break-word;
     word-break: break-word;
     padding 1rem
+
+    .ProseMirror {
+      white-space pre-wrap
+    }
   }
 
   .editor__content * {

@@ -330,6 +330,7 @@ export default {
   .o-image-view {
     position relative
     display inline-block
+    white-space nowrap
 
     .o-toolbar {
       position absolute
