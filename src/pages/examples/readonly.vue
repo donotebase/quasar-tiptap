@@ -24,6 +24,7 @@ export default {
       options: {
         content: BasicFeaturesArticle,
         editable: false,
+        showToolbar: false,
         extensions: [
           ...RecommendedExtensions
         ]
