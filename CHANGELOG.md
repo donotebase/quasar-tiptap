@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/donotebase/quasar-tiptap/compare/@1.5.1...@1.6.0) (2020-09-03)
+
+
+### Features
+
+* **editor:** footer slot ([141920d](https://github.com/donotebase/quasar-tiptap/commit/141920daf4970410d4e740960656fe62e1736f01))
+
 ## [1.5.1](https://github.com/donotebase/quasar-tiptap/compare/@1.5.0...@1.5.1) (2020-08-22)
 
 
