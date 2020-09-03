@@ -11,7 +11,11 @@
         </div>
       </header>
       <section class="row col-10 q-pa-md">
-        <quasar-tiptap ref="editor" v-bind="options" @update="onUpdate" />
+        <quasar-tiptap ref="editor" v-bind="options" @update="onUpdate">
+          <div slot="footer">
+            This is footer.
+          </div>
+        </quasar-tiptap>
       </section>
     </section>
   </q-page>

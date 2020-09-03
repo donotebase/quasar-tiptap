@@ -16,9 +16,11 @@
     <q-scroll-area ref="editorScroll" class="editor-scroll-area" :class="`view-${pageView}`" v-if="scrollable">
       <q-scroll-observer @scroll="onScroll" />
       <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
+      <slot name="footer"></slot>
     </q-scroll-area>
     <div v-else>
       <editor-content class="editor__content o--note-preview note-step-side-editor" :editor="editor" />
+      <slot name="footer"></slot>
     </div>
   </section>
 </template>
