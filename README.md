@@ -28,6 +28,7 @@ A modern WYSIWYG rich-text editor built on top of [tiptap](https://github.com/sc
 - `en-us` default
 - `zh-hans`
 - `pl` by @qyloxe
+- `pt-br` by @fal-pasa
 
 ## Installation
 
