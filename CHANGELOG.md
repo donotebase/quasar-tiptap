@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/donotebase/quasar-tiptap/compare/@1.6.0...@1.6.1) (2020-09-18)
+
+
+### Bug Fixes
+
+* **editor:** language pt-br ([0b21e94](https://github.com/donotebase/quasar-tiptap/commit/0b21e94179e600b8a4fd04641ec8970ba46303db))
+
 # [1.6.0](https://github.com/donotebase/quasar-tiptap/compare/@1.5.1...@1.6.0) (2020-09-03)
 
 
