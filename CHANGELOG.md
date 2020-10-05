@@ -1,3 +1,16 @@
+# [1.7.0](https://github.com/donotebase/quasar-tiptap/compare/@1.6.1...@1.7.0) (2020-10-05)
+
+
+### Bug Fixes
+
+* **editor:** Restrict selected cell count in this editor instance ([4ce736b](https://github.com/donotebase/quasar-tiptap/commit/4ce736b58779ead697bebadd6c96b9f64645be3c))
+
+
+### Features
+
+* **service:** Add settings for Youbube, such as autoplay. (close [#33](https://github.com/donotebase/quasar-tiptap/issues/33)) ([ee52a17](https://github.com/donotebase/quasar-tiptap/commit/ee52a17947a73c6e961b092650b178050b5dd6c6))
+* **service:** Add settings for Youtube, such as autoplay. (close [#33](https://github.com/donotebase/quasar-tiptap/issues/33)) ([780dec8](https://github.com/donotebase/quasar-tiptap/commit/780dec882075e9ec1f4386a08c412bf82d3e764c))
+
 ## [1.6.1](https://github.com/donotebase/quasar-tiptap/compare/@1.6.0...@1.6.1) (2020-09-18)
 
 
