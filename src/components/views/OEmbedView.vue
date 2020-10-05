@@ -29,7 +29,22 @@
       <q-btn-dropdown dropdown-icon="more_vert" split flat @click="onConfirm">
         <span class="text-blue" slot="label">{{$o.lang.label.submit}}</span>
         <q-list style="min-width: 120px;">
-          <o-common-item icon="settings" :label="$o.lang.label.settings" v-if="false" />
+          <o-common-item icon="settings" :label="$o.lang.label.settings" v-if="service.settings">
+            <q-menu ref="imgRef" anchor="top right" self="top left" content-class="o-menu o-embed-settings-menu">
+              <section class="q-px-md q-pb-sm" style="min-width: 300px">
+                <div class="row justify-between items-center text-bold q-py-sm">
+                  <div>
+                    {{service.label}} {{$o.lang.label.settings}}
+                  </div>
+                  <div><q-btn icon="close" size="0.7rem" flat dense @click="$refs.imgRef.hide()" /></div>
+                </div>
+                <q-separator />
+                <div class="row col-12 items-start q-py-md">
+                  <q-toggle v-model="autoplayToggle" label="Autoplay" @input="onAutoplaySet" />
+                </div>
+              </section>
+            </q-menu>
+          </o-common-item>
           <o-common-item icon="delete" :label="$o.lang.label.remove" @click.native="onDelete" />
           <o-common-item icon="help_outline" :label="$o.lang.label.help" @click.native="onHelp" />
         </q-list>
@@ -57,11 +72,14 @@
 import OBlockCard from 'src/components/common/OBlockCard'
 import OCommonItem from 'src/components/common/OCommonItem'
 import { getEmbedService, getServiceSrc, EmbedServiceLink } from 'src/data/embed'
+import { updateQueryStringItem } from 'src/utils/uri'
+
 export default {
   name: 'o-embed',
   data () {
     return {
       originalLink: '',
+      autoplayToggle: false,
       fullScreen: false,
       loading: true
     }
@@ -95,7 +113,21 @@ export default {
 
       this.originalLink = result.originalLink
       this.link = result.originalLink
-      this.src = result.src
+      this.src = this.buildSrc(result.src)
+
+      console.log('src', this.src)
+    },
+    buildSrc (src) {
+      switch (this.service.value) {
+        case 'youtube':
+          src = updateQueryStringItem(src, 'autoplay', this.autoplay)
+          break
+      }
+      return src
+    },
+    onAutoplaySet () {
+      this.autoplay = this.autoplayToggle ? '1' : '0'
+      this.src = updateQueryStringItem(this.src, 'autoplay', this.autoplay)
     },
     onDelete () {
       let tr = this.view.state.tr
@@ -147,6 +179,16 @@ export default {
           height
         })
       }
+    },
+    autoplay: {
+      get () {
+        return this.node.attrs.autoplay
+      },
+      set (autoplay) {
+        this.updateAttrs({
+          autoplay
+        })
+      }
     }
   },
   mounted () {
@@ -161,6 +203,8 @@ export default {
     if (this.service.value === 'amap') {
       this.loading = false
     }
+
+    this.autoplayToggle = (this.autoplay === '1')
   }
 }
 </script>

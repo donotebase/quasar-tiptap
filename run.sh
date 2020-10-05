@@ -24,7 +24,7 @@ mode=$2
 
 if [ -z "$mode" ]
 then
-  mode="pwa"
+  mode="spa"
 fi
 
 
