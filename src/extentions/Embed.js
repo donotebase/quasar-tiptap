@@ -13,12 +13,14 @@ function getAttrs (dom) {
   const height = dom.getAttribute('data-height') || 500
   const service = dom.getAttribute('data-service') || 'iframe'
   const link = decodeURIComponent(dom.getAttribute('data-link') || '')
+  const autoplay = dom.getAttribute('data-autoplay') || ''
 
   return {
     src,
     height,
     service,
-    link
+    link,
+    autoplay
   }
 }
 
@@ -28,6 +30,7 @@ function toDOM (node) {
     height,
     service,
     link,
+    autoplay,
   } = node.attrs
 
   const attrs = {}
@@ -40,10 +43,14 @@ function toDOM (node) {
   if (link) {
     attrs['data-link'] = encodeURIComponent(link)
   }
+  if (autoplay) {
+    attrs['data-autoplay'] = autoplay
+  }
 
   attrs.src = src
   attrs.frameborder = 0
   attrs.allowfullscreen = true
+  attrs.autoplay = autoplay
 
   return ['oembed', attrs]
 }
@@ -66,6 +73,9 @@ export default class Embed extends Node {
           default: null
         },
         link: {
+          default: null
+        },
+        autoplay: {
           default: null
         }
       },

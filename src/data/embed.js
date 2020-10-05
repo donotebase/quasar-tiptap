@@ -6,7 +6,7 @@
  * @date 2020.04.29
  */
 export const VideoServices = [
-  { label: 'Youtube', value: 'youtube', icon: 'mdi-youtube', color: 'red' },
+  { label: 'Youtube', value: 'youtube', icon: 'mdi-youtube', color: 'red', settings: { autoplay: true } },
   // { label: 'Vimeo', value: 'vimeo', icon: 'mdi-vimeo', color: 'green' },
   // { label: 'Netflix', value: 'netflix', icon: 'mdi-netflix', color: 'red' },
   { label: 'Youku', value: 'youku', icon: '', svgIcon: 'youku', color: 'blue' },
