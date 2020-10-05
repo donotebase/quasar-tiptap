@@ -210,7 +210,7 @@ export default {
           this.$emit('update', { getJSON, getHTML, state, transaction })
         },
         onTransaction: ({ getJSON, getHTML, state, transaction }) => {
-          const selectedCellElements = document.querySelectorAll('.selectedCell')
+          const selectedCellElements = this.editor.view.dom.querySelectorAll('.selectedCell')
           this.selectedCellSize = selectedCellElements.length
 
           this.$emit('transaction', { getJSON, getHTML, state, transaction })
