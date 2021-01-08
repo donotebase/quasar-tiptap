@@ -294,7 +294,6 @@ export default {
   },
   watch: {
     editable (to, from) {
-      console.log('editable', to)
       this.editor.options.editable = to
     },
     content (to, from) {
