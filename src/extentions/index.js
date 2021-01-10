@@ -37,7 +37,7 @@ export { default as OImage } from 'src/extentions/Image'
 export { default as OEmbed } from 'src/extentions/Embed'
 
 // MICP
-export { default as MicpIcon } from 'src/extension/MicpIcon'
+export { default as MicpIcon } from 'src/extentions/MicpIcon'
 
 // --------------------------------------------------------------------------------
 // Exposed Extension List
