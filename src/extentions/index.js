@@ -36,6 +36,9 @@ export { default as OPrint } from 'src/extentions/Print'
 export { default as OImage } from 'src/extentions/Image'
 export { default as OEmbed } from 'src/extentions/Embed'
 
+// MICP
+export { default as MicpIcon } from 'src/extension/MicpIcon'
+
 // --------------------------------------------------------------------------------
 // Exposed Extension List
 // --------------------------------------------------------------------------------
@@ -80,7 +83,12 @@ export const QuasarTipTapExtensions = [
   'OEmbed',
 ]
 
+export const MicpTipTapExtensions = [
+  'MicpIcon'
+]
+
 export const RecommendedExtensions = [
   ...TipTapExtensions,
-  ...QuasarTipTapExtensions
+  ...QuasarTipTapExtensions,
+  ...MicpTipTapExtensions
 ]
