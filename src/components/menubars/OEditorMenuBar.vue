@@ -97,7 +97,6 @@ export default {
   name: 'o-editor-menu-bar',
   data () {
     return {
-      tableToolbar: TableToolbar,
       pageView: 'page',
       isSlideShow: false
     }
@@ -107,6 +106,12 @@ export default {
       type: Object
     },
     toolbar: {
+      type: Array,
+      default: function () {
+        return []
+      }
+    },
+    tableToolbar: {
       type: Array,
       default: function () {
         return []

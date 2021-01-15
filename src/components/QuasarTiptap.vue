@@ -1,7 +1,7 @@
 <template>
   <section class="tiptap tiptap-editor quasar-tiptap">
     <!-- Main Toolbar -->
-    <o-editor-menu-bar :editor="editor" :toolbar="editorMenuBar" v-if="showToolbar">
+    <o-editor-menu-bar :editor="editor" :toolbar="editorMenuBar" :tableToolbar="editorMenuTable" v-if="showToolbar">
       <template slot="left">
         <slot name="toolbar-left" />
       </template>
@@ -88,7 +88,7 @@ import DynamicClass from 'src/extentions/dynamic'
 import OEditorMenuBar from 'src/components/menubars/OEditorMenuBar'
 import OEditorMenuBubble from 'src/components/menubars/OEditorMenuBubble'
 
-import { DefaultToolbar, DefaultBubble } from 'src/data/editor'
+import { DefaultToolbar, DefaultBubble, TableToolbar } from 'src/data/editor'
 
 export default {
   name: 'quasar-tiptap',
@@ -139,6 +139,12 @@ export default {
         return []
       }
     },
+    tableToolbar: {
+      type: Array,
+      default: function () {
+        return []
+      }
+    },
     bubble: {
       type: Array,
       default: function () {
@@ -165,6 +171,9 @@ export default {
   computed: {
     editorMenuBar () {
       return this.toolbar.length > 0 ? this.toolbar : DefaultToolbar
+    },
+    editorMenuTable () {
+      return this.tableToolbar.length > 0 ? this.tableToolbar : TableToolbar
     },
     editorMenuBubble () {
       return this.bubble.length > 0 ? this.bubble : DefaultBubble
