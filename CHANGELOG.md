@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/donotebase/quasar-tiptap/compare/@1.7.0...@1.8.0) (2021-01-16)
+
+
+### Features
+
+* **toolbar:** tableToolbar as property ([051a323](https://github.com/donotebase/quasar-tiptap/commit/051a3237ec1da6bbe55fc14631eda997e877f85b))
+
 # [1.7.0](https://github.com/donotebase/quasar-tiptap/compare/@1.6.1...@1.7.0) (2020-10-05)
 
 
