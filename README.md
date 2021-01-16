@@ -145,6 +145,7 @@ export default {
 | `editable` | `Boolean` | `true` | When set to `false` the editor is read-only. |
 | `extensions` | `Array` | `[]` | A list of extensions used, by the editor. This can be `String`, `Nodes`, `Marks` or `Plugins`. |
 | `toolbar` | `Array` | `[]` | A list of toolbar button used, by the editor. This can be `String`, Vue components |
+| `tableToolbar` | `Array` | `[]` | A list of toolbar button used, by the table. This can be `String`, Vue components |
 
 ## Extensions
 
