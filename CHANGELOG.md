@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/donotebase/quasar-tiptap/compare/@1.8.0...@1.9.0) (2021-01-16)
+
+
+### Features
+
+* **editor:** Link menu bubble. Open, edit and disable link. (fixed [#44](https://github.com/donotebase/quasar-tiptap/issues/44)) ([64e7ea6](https://github.com/donotebase/quasar-tiptap/commit/64e7ea62055795997acb796f9e284d7525943ce1))
+
 # [1.8.0](https://github.com/donotebase/quasar-tiptap/compare/@1.7.0...@1.8.0) (2021-01-16)
 
 
