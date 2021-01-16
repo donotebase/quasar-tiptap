@@ -91,6 +91,14 @@ export default {
             }
           }),
         ],
+        tableToolbar: [
+          'bold',
+          'italic',
+          'table',
+          'font-family',
+          'fore-color',
+          'back-color'
+        ],
         toolbar: [ // 1.name 2.object 3.component
           {
             name: 'add-more', // use object with options
