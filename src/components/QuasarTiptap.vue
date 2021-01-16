@@ -38,7 +38,7 @@ import {
   Bold,
   Code,
   Italic,
-  Link,
+  // Link,
   Strike,
   Underline,
   History,
@@ -257,6 +257,9 @@ export default {
               break
             case 'OHeading':
               extension = new OHeading({ levels: [1, 2, 3, 4, 5] })
+              break
+            case 'Link':
+              extension = new DynamicClass('OLink')
               break
             default:
               try {

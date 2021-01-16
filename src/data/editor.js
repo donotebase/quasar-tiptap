@@ -24,6 +24,9 @@ export const CommandComponents = {
   link: 'o-link-btn',
   photo: 'o-photo-btn',
   table: 'o-table-btn',
+  'link-off': 'o-link-off-btn',
+  'link-open': 'o-link-open-btn',
+  'link-edit': 'o-link-edit-btn',
 }
 
 export const DefaultToolbar = [
@@ -101,6 +104,12 @@ export const DefaultBubble = [
   'link',
   'separator',
   'align-group',
+]
+
+export const LinkBubble = [
+  'link-open',
+  'link-edit',
+  'link-off',
 ]
 
 export const DefaultEmbedServices = {

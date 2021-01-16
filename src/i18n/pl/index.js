@@ -139,5 +139,11 @@ export default {
     iframe: 'IFrame',
     linkTips: 'Link or embed code',
     linkWarning: 'Invalid link',
-  }
+  },
+  link: {
+    edit: 'Edit Link',
+    off: 'Disable Link',
+    open: 'Open Link',
+    open_in_new_tab: 'Open in new tab',
+  },
 }

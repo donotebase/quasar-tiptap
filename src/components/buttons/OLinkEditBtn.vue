@@ -1,10 +1,10 @@
 <template>
-  <o-menubar-btn icon="link" :tooltip="$o.lang.editor.hyperlink" class="o-link-btn">
+  <o-menubar-btn icon="edit" :tooltip="$o.lang.link.edit" class="o-link-edit-btn">
     <q-menu ref="linkPopover"
             anchor="bottom middle"
             self="top middle"
             class="shadow-5" @show="onShow">
-      <o-meta-input :val="href" :title="$o.lang.editor.hyperlink" icon="link"
+      <o-meta-input :val="href" :title="$o.lang.link.edit" icon="link"
                     @primaryAction="insertLink(commands.link, $event)">
         <div slot="header-right">
           <q-checkbox v-model="openInNewTab" :label="$o.lang.link.open_in_new_tab" />
@@ -18,7 +18,7 @@
 import OMenubarBtn from 'src/components/buttons/OMenubarBtn'
 import OMetaInput from 'src/components/common/OMetaInput'
 export default {
-  name: 'o-link-btn',
+  name: 'o-link-edit-btn',
   data () {
     return {
       href: '',
@@ -43,7 +43,6 @@ export default {
   methods: {
     onShow () {
       this.href = ''
-      this.openInNewTab = true
 
       let link = this.getMarkAttrs('link')
       if (link && link.href) {
@@ -64,6 +63,6 @@ export default {
 </script>
 
 <style lang="stylus">
-  .o-link-btn {
+  .o-link-edit-btn {
   }
 </style>

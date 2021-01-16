@@ -36,6 +36,7 @@ export { default as OPrint } from 'src/extentions/Print'
 export { default as OImage } from 'src/extentions/Image'
 export { default as OEmbed } from 'src/extentions/Embed'
 export { default as OInsertHtml } from 'src/extentions/InsertHtml'
+export { default as OLink } from 'src/extentions/Link'
 
 // --------------------------------------------------------------------------------
 // Exposed Extension List
@@ -79,7 +80,8 @@ export const QuasarTipTapExtensions = [
   'OPrint',
   'OImage',
   'OEmbed',
-  'OInsertHtml'
+  'OInsertHtml',
+  'OLink'
 ]
 
 export const RecommendedExtensions = [

@@ -139,5 +139,11 @@ export default {
     iframe: 'IFrame',
     linkTips: '链接或代码',
     linkWarning: '无效的链接',
-  }
+  },
+  link: {
+    edit: '编辑链接',
+    off: '取消链接',
+    open: '打开链接',
+    open_in_new_tab: '在新标签页打开',
+  },
 }

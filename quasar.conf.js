@@ -66,6 +66,7 @@ module.exports = function (ctx) {
         'QAvatar',
         'QColor',
         'QInput',
+        'QCheckbox',
         'QToggle',
         'QSpinner',
       ],

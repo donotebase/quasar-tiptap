@@ -16,7 +16,7 @@ import {
   Bold,
   Code,
   Italic,
-  Link,
+  // Link,
   Strike,
   Underline,
   History,
@@ -28,7 +28,7 @@ import {
   Focus,
   HorizontalRule,
   TrailingNode,
-  Image
+  // Image
 } from 'tiptap-extensions'
 
 import {
@@ -53,6 +53,7 @@ import {
   OImage,
   OEmbed,
   OInsertHtml,
+  OLink,
 } from 'src/extentions'
 
 const classes = {
@@ -66,7 +67,7 @@ const classes = {
   Bold,
   Code,
   Italic,
-  Link,
+  // Link,
   Strike,
   Underline,
   History,
@@ -100,7 +101,8 @@ const classes = {
   OPrint,
   OImage,
   OEmbed,
-  OInsertHtml
+  OInsertHtml,
+  OLink
 }
 
 class DynamicClass {

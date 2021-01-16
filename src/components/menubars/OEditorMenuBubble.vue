@@ -7,7 +7,7 @@
                                     !(editorContext.isActive.embed && editorContext.isActive.embed()) &&
                                     !(editorContext.isActive.katex_block && editorContext.isActive.katex_block()) }"
              :style="`left: ${editorContext.menu.left}px; bottom: ${editorContext.menu.bottom + 8}px;`">
-      <template v-for="(item, index) of toolbar">
+      <template v-for="(item, index) of bubbleToolbar">
         <q-separator vertical inset :key="index" v-if="item==='separator'" />
         <component :key="index"
                    :name="item"
@@ -27,7 +27,8 @@
 
 <script>
 import { EditorMenuBubble } from 'tiptap'
-import { CommandComponents } from 'src/data/editor'
+import { getMarkRange } from 'tiptap-utils'
+import { CommandComponents, LinkBubble } from 'src/data/editor'
 
 import OForeColorDropdown from 'src/components/buttons/OForeColorDropdown'
 import OBackColorDropdown from 'src/components/buttons/OBackColorDropdown'
@@ -43,6 +44,9 @@ import OTextFormatDropdown from 'src/components/buttons/OTextFormatDropdown'
 
 import OAddMoreBtn from 'src/components/buttons/OAddMoreBtn'
 import OLinkBtn from 'src/components/buttons/OLinkBtn'
+import OLinkOffBtn from 'src/components/buttons/OLinkOffBtn'
+import OLinkOpenBtn from 'src/components/buttons/OLinkOpenBtn'
+import OLinkEditBtn from 'src/components/buttons/OLinkEditBtn'
 import OPhotoBtn from 'src/components/buttons/OPhotoBtn'
 import OTableBtn from 'src/components/buttons/OTableBtn'
 import OTableGroup from 'src/components/buttons/OTableGroup'
@@ -94,6 +98,9 @@ export default {
     OTextFormatDropdown,
     OAddMoreBtn,
     OLinkBtn,
+    OLinkOffBtn,
+    OLinkOpenBtn,
+    OLinkEditBtn,
     OPhotoBtn,
     OTableBtn,
     OTableGroup
@@ -102,6 +109,34 @@ export default {
     getName (item) {
       return CommandComponents[item] || 'o-simple-command-btn'
     },
+    isLinkSelection (selection) {
+      const { schema } = this.editor
+      const linkType = schema.marks.link
+      if (!linkType) return false
+      if (!selection) return false
+
+      const { $from, $to } = selection
+      const range = getMarkRange($from, linkType)
+      if (!range) return false
+
+      return range.to === $to.pos
+    }
+  },
+  computed: {
+    bubbleToolbar () {
+      let toolbar = this.toolbar
+      if (this.isLinkSelected) {
+        toolbar = LinkBubble
+      }
+      return toolbar
+    },
+    isLinkSelected () {
+      const { state } = this.editor
+      const { tr } = state
+      const { selection } = tr
+
+      return this.isLinkSelection(selection)
+    }
   },
   mounted () {
   },

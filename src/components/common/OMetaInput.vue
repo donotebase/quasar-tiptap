@@ -1,6 +1,11 @@
 <template>
   <section class="o-meta-input">
-    <div class="title">{{title}}</div>
+    <section class="row col-12 justify-between">
+      <div class="title">{{title}}</div>
+      <div>
+        <slot name="header-right"></slot>
+      </div>
+    </section>
     <div class="fields">
       <q-input v-model="value" ref="input" standout="bg-blue" clearable flat
                :autofocus="true"
