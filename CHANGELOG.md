@@ -1,3 +1,13 @@
+## [1.9.1](https://github.com/donotebase/quasar-tiptap/compare/@1.9.0...@1.9.1) (2021-01-17)
+
+
+### Bug Fixes
+
+* **extension:** Link bubble menu, back to main menu ([821d394](https://github.com/donotebase/quasar-tiptap/commit/821d3947e106b4851d727fbc8128e8d850e14540))
+* **extension:** null exception in menu bubble ([3013a4d](https://github.com/donotebase/quasar-tiptap/commit/3013a4d599b465e0ba5c4f367c4a4b6816b8e902))
+* **extension:** Unexpected alignment. (fixed [#47](https://github.com/donotebase/quasar-tiptap/issues/47)) ([a5385dc](https://github.com/donotebase/quasar-tiptap/commit/a5385dcb73cb80ebe8e69db53e060e6c1e9de009))
+* **extenstion:** Unexpected heading level. (fixed [#48](https://github.com/donotebase/quasar-tiptap/issues/48)) ([6b62808](https://github.com/donotebase/quasar-tiptap/commit/6b62808b4fb29a682be80b4af4c27f75f93df4b1))
+
 # [1.9.0](https://github.com/donotebase/quasar-tiptap/compare/@1.8.0...@1.9.0) (2021-01-16)
 
 
