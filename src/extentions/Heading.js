@@ -2,6 +2,8 @@ import { Node } from 'tiptap'
 import { setBlockType, textblockTypeInputRule, toggleBlockType } from 'tiptap-commands'
 import { ParagraphNodeSpec, getParagraphNodeAttrs, toParagraphDOM } from 'src/extentions/Paragraph'
 
+const headingLevels = [1, 2, 3, 4, 5, 6]
+
 function getUuid () {
   const s = []
   const hexDigits = '0123456789abcdef'
@@ -15,12 +17,32 @@ function getUuid () {
   return s.join('').substr(0, 6)
 }
 
+function getLevel (dom) {
+  // use attribute
+  let level = parseInt(dom.getAttribute('level'), 10) || 0
+  if (level > 0) {
+    return level
+  }
+
+  // use tag
+  let tag = dom.tagName.toLowerCase()
+  for (let i of headingLevels) {
+    if (tag === `h${i}`) {
+      level = i
+      break
+    }
+  }
+
+  return level
+}
+
 function getAttrs (dom) {
   const attrs = getParagraphNodeAttrs(dom)
   const id = dom.getAttribute('id')
-  const level = parseInt(dom.getAttribute('level'), 10) || 0
+  const level = getLevel(dom)
   attrs.id = id
   attrs.level = level
+
   return attrs
 }
 
@@ -28,7 +50,7 @@ function toDOM (node) {
   const dom = toParagraphDOM(node)
   const id = node.attrs.id || getUuid()
   const level = node.attrs.level || 1
-  dom[0] = 'h'.concat(node.attrs.level)
+  dom[0] = 'h'.concat(level)
   dom[1].id = id
   dom[1].level = level
 
@@ -44,7 +66,7 @@ export default class Heading extends Node {
 
   get defaultOptions () {
     return {
-      levels: [1, 2, 3, 4, 5, 6],
+      levels: headingLevels,
     }
   }
 
