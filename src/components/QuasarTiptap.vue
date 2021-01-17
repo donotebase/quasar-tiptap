@@ -64,7 +64,6 @@ import {
   OParagraph,
   OBlockquote,
   OTodoItem,
-  OAlign,
   OAlignment,
   OIndent,
   OLineHeight,
@@ -197,7 +196,6 @@ export default {
           node: 'paragraph',
           notAfter: ['paragraph']
         }),
-        new OAlign()
       ]
 
       this.editor = new Editor({

@@ -27,7 +27,6 @@ export { default as OForeColor } from 'src/extentions/ForeColor'
 export { default as OFontFamily } from 'src/extentions/FontFamily'
 
 // Extensions
-export { default as OAlign } from 'src/extentions/Align'
 export { default as OAlignment } from 'src/extentions/Alignment'
 export { default as OIndent } from 'src/extentions/Indent'
 export { default as OLineHeight } from 'src/extentions/LineHeight'
