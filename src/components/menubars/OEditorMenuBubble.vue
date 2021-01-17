@@ -145,11 +145,15 @@ export default {
       return !this.backToMain && this.isLinkSelected
     },
     isLinkSelected () {
-      const { state } = this.editor
-      const { tr } = state
-      const { selection } = tr
+      if (this.editor) {
+        const { state } = this.editor
+        const { tr } = state
+        const { selection } = tr
 
-      return this.isLinkSelection(selection)
+        return this.isLinkSelection(selection)
+      } else {
+        return false
+      }
     }
   },
   watch: {
