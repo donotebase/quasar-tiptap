@@ -7,6 +7,11 @@
                                     !(editorContext.isActive.embed && editorContext.isActive.embed()) &&
                                     !(editorContext.isActive.katex_block && editorContext.isActive.katex_block()) }"
              :style="`left: ${editorContext.menu.left}px; bottom: ${editorContext.menu.bottom + 8}px;`">
+      <template v-if="showBack">
+        <o-menubar-btn icon="arrow_back"
+                       :tooltip="$o.lang.link.back" @click.native="onBackToMain" />
+        <q-separator vertical inset />
+      </template>
       <template v-for="(item, index) of bubbleToolbar">
         <q-separator vertical inset :key="index" v-if="item==='separator'" />
         <component :key="index"
@@ -59,6 +64,7 @@ export default {
   name: 'o-editor-menu-bubble',
   data () {
     return {
+      backToMain: false
     }
   },
   props: {
@@ -120,15 +126,23 @@ export default {
       if (!range) return false
 
       return range.to === $to.pos
+    },
+    onBackToMain () {
+      this.backToMain = true
     }
   },
   computed: {
     bubbleToolbar () {
       let toolbar = this.toolbar
-      if (this.isLinkSelected) {
-        toolbar = LinkBubble
+      if (!this.backToMain) {
+        if (this.isLinkSelected) {
+          toolbar = LinkBubble
+        }
       }
       return toolbar
+    },
+    showBack () {
+      return !this.backToMain && this.isLinkSelected
     },
     isLinkSelected () {
       const { state } = this.editor
@@ -136,6 +150,11 @@ export default {
       const { selection } = tr
 
       return this.isLinkSelection(selection)
+    }
+  },
+  watch: {
+    isLinkSelected (to, from) {
+      this.backToMain = false
     }
   },
   mounted () {

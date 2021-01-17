@@ -141,6 +141,7 @@ export default {
     linkWarning: 'Invalid link',
   },
   link: {
+    back: 'Back to main menu',
     edit: 'Edit Link',
     off: 'Disable Link',
     open: 'Open Link',

@@ -141,6 +141,7 @@ export default {
     linkWarning: '无效的链接',
   },
   link: {
+    back: '返回主菜单',
     edit: '编辑链接',
     off: '取消链接',
     open: '打开链接',
