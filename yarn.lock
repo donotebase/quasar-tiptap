@@ -2397,7 +2397,7 @@ axios@^0.21.1:
   dependencies:
     follow-redirects "^1.10.0"
 
-babel-eslint@^10.0.1, babel-eslint@^10.1.0:
+babel-eslint@^10.0.1:
   version "10.1.0"
   resolved "https://registry.npm.taobao.org/babel-eslint/download/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
   integrity sha1-aWjlaKkQt4+zd5zdi2rC9HmUMjI=
@@ -3210,7 +3210,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-clean-css@4.2.x, clean-css@^4.1.11, clean-css@^4.1.6, clean-css@^4.2.1:
+clean-css@4.2.x, clean-css@^4.1.11, clean-css@^4.2.1:
   version "4.2.3"
   resolved "https://registry.npm.taobao.org/clean-css/download/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
   integrity sha1-UHtd59l7SO5T2ErbAWD/YhY4D3g=
@@ -3892,11 +3892,6 @@ crypto-random-string@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/crypto-random-string/download/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha1-7yp6lm7BEIM4g2m6oC6+rSKbMNU=
-
-css-b64-images@~0.2.5:
-  version "0.2.5"
-  resolved "https://registry.npm.taobao.org/css-b64-images/download/css-b64-images-0.2.5.tgz#42005d83204b2b4a5d93b6b1a5644133b5927a02"
-  integrity sha1-QgBdgyBLK0pdk7axpWRBM7WSegI=
 
 css-blank-pseudo@^0.1.4:
   version "0.1.4"
@@ -6414,7 +6409,7 @@ html-entities@^1.3.1:
   resolved "https://registry.npm.taobao.org/html-entities/download/html-entities-1.3.1.tgz#fb9a1a4b5b14c5daba82d3e34c6ae4fe701a0e44"
   integrity sha1-+5oaS1sUxdq6gtPjTGrk/nAaDkQ=
 
-html-minifier@4.0.0, html-minifier@^4.0.0:
+html-minifier@4.0.0:
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/html-minifier/download/html-minifier-4.0.0.tgz?cache=0&sync_timestamp=1594334963534&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhtml-minifier%2Fdownload%2Fhtml-minifier-4.0.0.tgz#cca9aad8bce1175e02e17a8c33e46d8988889f56"
   integrity sha1-zKmq2LzhF14C4XqMM+RtiYiIn1Y=
@@ -8330,20 +8325,17 @@ merge2@^1.2.3, merge2@^1.3.0:
   integrity sha1-Q2iJL4hekHRVpv19xVwMnUBJkK4=
 
 mermaid@^8.4.8:
-  version "8.7.0"
-  resolved "https://registry.npm.taobao.org/mermaid/download/mermaid-8.7.0.tgz#741a1c4e81a29b612010f623b2abd25c4bc3d71e"
-  integrity sha1-dBocToGim2EgEPYjsqvSXEvD1x4=
+  version "8.11.0"
+  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.11.0.tgz#5d1be1d6d5b31d3a9d5f4ef102791101e6172f36"
+  integrity sha512-c/SprR4mJ2Pj7A+3mEvva7XrhEkXQJUal7fIyOkMhOhsPX2u5gQjjm5CEhHQ6WdGsqP+yiR+Fcgnd1i8mpFK8w==
   dependencies:
     "@braintree/sanitize-url" "^3.1.0"
-    babel-eslint "^10.1.0"
     d3 "^5.7.0"
     dagre "^0.8.4"
     dagre-d3 "^0.6.4"
     entity-decode "^2.0.2"
     graphlib "^2.1.7"
-    he "^1.2.0"
     khroma "^1.1.0"
-    minify "^4.1.1"
     moment-mini "^2.22.1"
     stylis "^3.5.2"
 
@@ -8443,19 +8435,6 @@ mini-css-extract-plugin@^0.9.0:
     normalize-url "1.9.1"
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
-
-minify@^4.1.1:
-  version "4.1.3"
-  resolved "https://registry.npm.taobao.org/minify/download/minify-4.1.3.tgz#58467922d14303f55a3a28fa79641371955b8fbd"
-  integrity sha1-WEZ5ItFDA/VaOij6eWQTcZVbj70=
-  dependencies:
-    clean-css "^4.1.6"
-    css-b64-images "~0.2.5"
-    debug "^4.1.0"
-    html-minifier "^4.0.0"
-    terser "^4.0.0"
-    try-catch "^2.0.0"
-    try-to-catch "^1.0.2"
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
@@ -12895,7 +12874,7 @@ terser-webpack-plugin@^1.4.3:
     webpack-sources "^1.4.0"
     worker-farm "^1.7.0"
 
-terser@^4.0.0, terser@^4.1.2, terser@^4.3.9, terser@^4.6.13, terser@^4.6.2:
+terser@^4.1.2, terser@^4.3.9, terser@^4.6.13, terser@^4.6.2:
   version "4.8.0"
   resolved "https://registry.npm.taobao.org/terser/download/terser-4.8.0.tgz#63056343d7c70bb29f3af665865a46fe03a0df17"
   integrity sha1-YwVjQ9fHC7KfOvZlhlpG/gOg3xc=
@@ -13134,16 +13113,6 @@ truncate-utf8-bytes@^1.0.0:
   integrity sha1-QFkjkJWS1W94pYGENLC3hInKXys=
   dependencies:
     utf8-byte-length "^1.0.1"
-
-try-catch@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.npm.taobao.org/try-catch/download/try-catch-2.0.1.tgz#a35d354187c422f291a0bcfd9eb77e3a4f90c1e5"
-  integrity sha1-o101QYfEIvKRoLz9nrd+Ok+QweU=
-
-try-to-catch@^1.0.2:
-  version "1.1.1"
-  resolved "https://registry.npm.taobao.org/try-to-catch/download/try-to-catch-1.1.1.tgz#770162dd13b9a0e55da04db5b7f888956072038a"
-  integrity sha1-dwFi3RO5oOVdoE21t/iIlWByA4o=
 
 tryer@^1.0.1:
   version "1.0.1"
