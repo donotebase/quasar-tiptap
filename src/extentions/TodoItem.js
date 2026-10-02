@@ -15,6 +15,7 @@ function getAttrs (dom) {
   } = dom.style
 
   let align = dom.getAttribute('data-text-align') || textAlign || ''
+  lineHeight = dom.getAttribute('data-line-height') || lineHeight
 
   return {
     textAlign: align || null,
@@ -37,6 +38,10 @@ function toDOM (node) {
 
   if (textAlign && textAlign !== 'left') {
     attrs['data-text-align'] = textAlign
+  }
+
+  if (lineHeight) {
+    attrs['data-line-height'] = lineHeight
   }
 
   style && (attrs.style = style)
