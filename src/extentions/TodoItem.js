@@ -28,6 +28,7 @@ function toDOM (node) {
   const {
     done,
     textAlign,
+    lineHeight,
   } = node.attrs
 
   let style = ''
